@@ -21,7 +21,7 @@ class Validation:
 
 			# validation of <block_hash>
 			data_string = str(index) + prev_hash + str(timestamp)
-			sha = hashlib.sha256()
+			sha = hashlib.sha384()
 			reconstructed_block_hash = sha.update(data_string.encode('utf-8'))
 			reconstructed_block_hash_string = str(sha.hexdigest())
 			if reconstructed_block_hash_string != block_hash:
@@ -30,7 +30,7 @@ class Validation:
 
 			# validation of <next_block_hash>
 			next_data_string = str(index + 1) + block_hash + str(next_timestamp)
-			sha = hashlib.sha256()
+			sha = hashlib.sha384()
 			reconstructed_next_block_hash = sha.update(next_data_string.encode('utf-8'))
 			reconstructed_next_block_hash_string = str(sha.hexdigest())
 			if reconstructed_next_block_hash_string != next_block_hash:

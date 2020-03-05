@@ -46,12 +46,12 @@ class BLOCKCHAIN:
             timestamp = LocalChain[len(LocalChain) - 1]['next_timestamp']
             next_timestamp = timestamp + blocktime
             #[HASHING]
-        sha = hashlib.sha256()
+        sha = hashlib.sha384()
         current_block_data_string = str(index) + prev_hash + str(timestamp)
         current_block_hash_string = sha.update(current_block_data_string.encode('utf-8'))
         #[BLOCKVAR] 5                                       block_hash
         block_hash = str(sha.hexdigest())
-        sha = hashlib.sha256()
+        sha = hashlib.sha384()
         next_block_data_string = str(index + 1) + block_hash + str(next_timestamp)
         next_block_hash_string = sha.update(next_block_data_string.encode('utf-8'))
         #[BLOCKVAR] 6                                       next_block_hash
@@ -104,3 +104,5 @@ if debugI == 'Generate':
 #[END OF DEBUGGING SECTION]
 if debugI == 'Genesis':
     GENERATEGENESIS()
+
+    
