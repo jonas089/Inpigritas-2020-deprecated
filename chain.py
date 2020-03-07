@@ -1,4 +1,4 @@
-from validate import *
+from validation import *
 import hashlib
 import time
 import pickle
@@ -9,20 +9,22 @@ blocktime = 10
 
 def LOADLOCALCHAIN():
     try:
-        with open('data/blockchain.dat', 'rb') as chaindatafile:
-            LocalChain = pickle.load(chaindatafile)
-            return LocalChain
+        with open('src/blockchain.dat', 'rb') as chaindatafile:
+            LocalChainLoaded = pickle.load(chaindatafile)
     except Exception as NoChain:
-        return LocalChain
+        print(NoChain)
+        LocalChainLoaded = []
+    return LocalChainLoaded
+
 
 
 class LOCALCHAIN:
     def BLOCKCHAINDAT():
         try:
-            open('data/blockchain.dat', 'x')
+            open('src/blockchain.dat', 'x')
+            return True
         except Exception as Exists:
-            print(Exists)
-            pass
+            return False
 
 class BLOCKCHAIN:
     def BLOCK(transactions):
@@ -34,6 +36,7 @@ class BLOCKCHAIN:
         #[DEFINE BLOCKVARs FOR __BLOCK__ ]
         else:
             if time.time() < LocalChain[len(LocalChain) - 1]['next_timestamp']:
+                print('[E] [C1]')
                 return False
             is_genesis = False
             #[BLOCKVAR] 1                                   index
@@ -74,11 +77,12 @@ class BLOCKCHAIN:
         'transactions' : transactions
         }
 #[END OF BLOCK DICTIONARY]
-        LocalChain.append(index)
-        LocalChain[index] = Block
-        if Validation.VALIDATE(Block) == True:
-            with open('data/blockchain.dat', 'wb') as chaindatafile:
+        if ValidationClass.VALIDATE_BLOCK(Block, LocalChain, blocktime) == True:
+            LocalChain.append(index)
+            LocalChain[index] = Block
+            with open('src/blockchain.dat', 'wb') as chaindatafile:
                 pickle.dump(LocalChain, chaindatafile)
+                print('[NEW BLOCK]' + str(Block))
         else:
             return False
 
@@ -89,14 +93,17 @@ def GENERATEGENESIS():
     while len(LocalChain) == 0:
         BLOCKCHAIN.BLOCK(transactions)
     print('[GENESIS]' + '\n' + '-' * 30 + '\n' + str(LocalChain) + '\n' + '-' * 30 + '\n')
-    with open('data/blockchain.dat', 'wb') as chaindatafile:
+    with open('src/blockchain.dat', 'wb') as chaindatafile:
         pickle.dump(LocalChain, chaindatafile)
 
     print('[GENESIS BLOCK] : ' + str(LocalChain[0]))
 
 
 
-GENERATEGENESIS()
-LOCALCHAIN.BLOCKCHAINDAT()
-LOADLOCALCHAIN()
-#BLOCKCHAIN.BLOCK(<transaction>)
+dummytx = []
+LocalChain = LOADLOCALCHAIN()
+print(len(LocalChain))
+if LOCALCHAIN.BLOCKCHAINDAT() == True:
+    GENERATEGENESIS()
+print(LocalChain)
+BLOCKCHAIN.BLOCK(dummytx)
