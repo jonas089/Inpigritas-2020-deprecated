@@ -7,22 +7,25 @@ LocalChain = []
 TxData = []
 blocktime = 10
 
-class Localchain:
+def LOADLOCALCHAIN():
+    try:
+        with open('data/blockchain.dat', 'rb') as chaindatafile:
+            LocalChain = pickle.load(chaindatafile)
+            return LocalChain
+    except Exception as NoChain:
+        return LocalChain
+
+
+class LOCALCHAIN:
     def BLOCKCHAINDAT():
         try:
             open('data/blockchain.dat', 'x')
         except Exception as Exists:
             print(Exists)
             pass
-    def WALLETDAT():
-        try:
-            open('data/wallet.dat', 'x')
-        except Exception as Exists:
-            print(Exists)
-            pass
 
 class BLOCKCHAIN:
-    def BLOCK():
+    def BLOCK(transactions):
         #[DEFINE BLOCKVARs FOR __GENESIS__ BLOCK]
         if len(LocalChain) == 0:
             is_genesis = True
@@ -58,6 +61,7 @@ class BLOCKCHAIN:
         next_block_hash = str(sha.hexdigest())
             #[END OF HASHING]
         #[END OF BLOCKVAR DEFINITION]
+        print(transactions)
 
 #[CREATE BLOCK AS DICTIONARY]
         Block = {
@@ -66,12 +70,13 @@ class BLOCKCHAIN:
         'timestamp' : timestamp,
         'next_timestamp' : next_timestamp,
         'block_hash' : block_hash,
-        'next_block_hash' : next_block_hash
+        'next_block_hash' : next_block_hash,
+        'transactions' : transactions
         }
 #[END OF BLOCK DICTIONARY]
         LocalChain.append(index)
         LocalChain[index] = Block
-        if Validation.VALIDATE(LocalChain) == True:
+        if Validation.VALIDATE(Block) == True:
             with open('data/blockchain.dat', 'wb') as chaindatafile:
                 pickle.dump(LocalChain, chaindatafile)
         else:
@@ -80,29 +85,18 @@ class BLOCKCHAIN:
         return True
 
 def GENERATEGENESIS():
+    transactions = []
     while len(LocalChain) == 0:
-        BLOCKCHAIN.BLOCK()
+        BLOCKCHAIN.BLOCK(transactions)
     print('[GENESIS]' + '\n' + '-' * 30 + '\n' + str(LocalChain) + '\n' + '-' * 30 + '\n')
     with open('data/blockchain.dat', 'wb') as chaindatafile:
         pickle.dump(LocalChain, chaindatafile)
 
-
-Localchain.BLOCKCHAINDAT()
-Localchain.WALLETDAT()
+    print('[GENESIS BLOCK] : ' + str(LocalChain[0]))
 
 
-#[CALL FUNCTIONS FOR TESTING || DEBUG]
-debugI = input('[Genesis] = Generate Genesis Block; [Generate] = Generate 5 Blocks: ')
-if debugI == 'Generate':
-    with open('data/blockchain.dat', 'rb') as chaindatafile:
-        LocalChain = pickle.load(chaindatafile)
-    for routine in range(0, 50): # Blocktime was changed to 10 seconds ==> running 50 times with a sleep timer will generate 5 Blocks
-        BLOCKCHAIN.BLOCK()
-        time.sleep(1)
-    for block in range(0, len(LocalChain)):
-        print('[BLOCK]' + '\n' + '----------' + '\n' + str(LocalChain[block]) + '\n' + '---------' + '\n')
-#[END OF DEBUGGING SECTION]
-if debugI == 'Genesis':
-    GENERATEGENESIS()
 
-    
+GENERATEGENESIS()
+LOCALCHAIN.BLOCKCHAINDAT()
+LOADLOCALCHAIN()
+#BLOCKCHAIN.BLOCK(<transaction>)
