@@ -53,6 +53,3 @@ class ValidationClass:
 			return False
 
 		return True
-
-	def VALIDATE_TRANSACTION(Transaction):
-		return True

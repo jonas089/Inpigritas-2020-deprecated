@@ -3,6 +3,7 @@ from Crypto.PublicKey import RSA
 from Crypto.Signature import PKCS1_v1_5 # RSA algorithm to sign with priv & verify with pub
 from Crypto.Hash import SHA384
 import hashlib
+import time
 
 import pickle
 
@@ -48,12 +49,22 @@ class Keys:
 
 	def Generate_Address():
 		publickey = Keys.Import_Pubkey()
-		privatekey = Keys.Import_Privkey()
-		sigvar = SHA384.new()
-		sigvar.update(str(publickey).encode('utf-8'))
-		address_cipher = PKCS1_v1_5.new(privatekey)
-		Address = address_cipher.sign(sigvar)
+		Address_data_string = str(publickey)
+		sha = hashlib.sha384()
+		Address_hash = sha.update(Address_data_string.encode('utf-8'))
+		Address_hash_hex = sha.hexdigest()
+		Address = str(Address_hash_hex)
 		return Address
+		# Address is a hash representation of the string of the publickey => this ensures nobody can create a fake transaction by 
+		# using somebody else's Address combined with his own publickey => if Address != pubkey hashed : return False
+
+	def LoadBalance():
+		with open('src/blockchain.dat', 'rb') as ChainFile:
+			LocalBlockChain = pickle.load(ChainFile)
+		for Block in range(0, len(LocalBlockChain) - 1):
+			for Transaction in range(0, len(LocalBlockChain[Block]['transactions']) - 1):
+				pass
+
 
 #[TESTING]
 def Validate_Address(Export_Publickey, ByteArray_Address):
@@ -85,13 +96,14 @@ def __Start__():
 		Keys.Generate_Keypair()
 		Addresses = []
 		Addresses.append(0)
-		Addresses[0] = Keys.Generate_Address()
+		Addresses[0] = str(Keys.Generate_Address())
+		print('[NEW ADDRESS]' + Addresses[0])
 		open('keys/account.dat', 'x')
 		with open('keys/account.dat', 'wb') as account_file:
 			pickle.dump(Addresses, account_file)
 	else:
 		return
-
+__Start__()
 
 
 
