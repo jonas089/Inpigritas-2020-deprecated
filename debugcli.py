@@ -12,7 +12,6 @@ parser.add_argument('--generategenesis', '-gg', dest='gengen',
 	action = 'store_true')
 parser.add_argument('--generateblock', '-gb', dest='genblo',
 	action = 'store_true')
-parser.add_argument('--help', '-h', dest='help')
 parser.add_argument('--balance', '-b', dest='bal',
 	action = 'store_true')
 
