@@ -26,7 +26,7 @@ class LOCALCHAIN:
             return False
 
 class BLOCKCHAIN:
-    def BLOCK(LoadedLocalChain, transactions):
+    def BLOCK(LoadedLocalChain, transactions, stacking):
         #[DEFINE BLOCKVARs FOR __GENESIS__ BLOCK]
         LocalChain = LoadedLocalChain
         if len(LocalChain) == 0:
@@ -73,7 +73,8 @@ class BLOCKCHAIN:
         'next_timestamp' : next_timestamp,
         'block_hash' : block_hash,
         'next_block_hash' : next_block_hash,
-        'transactions' : transactions
+        'transactions' : transactions,
+        'stacking_rewards' : stacking
         }
 #[END OF BLOCK DICTIONARY]
         if ValidationClass.VALIDATE_BLOCK(Block, LocalChain, blocktime) == True:
@@ -88,11 +89,12 @@ class BLOCKCHAIN:
         return True
 
 def GENERATEGENESIS():
+    stacking = [{'address' : '<ROME>', 'reward' : 0.0}, {'address' : 'Jonas', 'reward' : 0.0}]
     CAmount_Subsidy = 2 * 1000 * 1000 * 1000 # 2 Billion for testing
     transactions = [{'sender' : '0', 'recipient' : '<DEVELOPER ADDRESS>', 'amount' : CAmount_Subsidy, 'timestamp' : time.time()}]
     # the transaction data of the genesis block represents the premine
     while len(LocalChain) == 0:
-        BLOCKCHAIN.BLOCK(transactions)
+        BLOCKCHAIN.BLOCK(LocalChain, transactions, stacking)
     print('[GENESIS]' + '\n' + '-' * 30 + '\n' + str(LocalChain) + '\n' + '-' * 30 + '\n')
     with open('src/blockchain.dat', 'wb') as chaindatafile:
         pickle.dump(LocalChain, chaindatafile)

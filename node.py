@@ -1,7 +1,7 @@
 from flask import Flask, request
 from apscheduler.schedulers.background import BackgroundScheduler
-from account import *
-from chain import *
+import account
+import chain
 sched = BackgroundScheduler(standalone=True)
 
 node = Flask(__name__)
@@ -42,7 +42,7 @@ def ReceiveTransaction():
 #  parser = argparse.ArgumentParser(description='AMPS Node')
 #  parser.add_argument('--port', '-p', default='5000',
 #                    help='port')
-#  parser.add_argument('--mine', '-m', dest='mine', 
+#  parser.add_argument('--mine', '-m', dest='mine',
 #					action='store_true')
 #  args = parser.parse_args()
 #  if args.mine:

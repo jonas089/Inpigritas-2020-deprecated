@@ -9,12 +9,38 @@ import pickle
 class Transactions:
 	def CreateTransaction(recipient, amount): # recipient is the string of an address
 		with open('keys/account.dat', 'rb') as AddressFile:
+			#[TXVAR]
 			sender = pickle.load(AddressFile)[0]
-		timestamp =
+		timestamp = time.time()
+		#[TXVAR]
+		pubkey_export = account.Export_Pubkey()
+		pubkey_import = account.Import_Pubkey()
+		privkey_import = account.Import_Privkey()
+											#[TXVAR]	#[TXVAR]		#[TXVAR]
+		transaction_data_string = sender + recipient + str(amount) + str(timestamp) + str(pubkey_export)
+		sha = hashlib.sha384()
+		transaction_hash = sha.update(transaction_data_string.encode('utf-8'))
+		transaction_hash_hex = sha.hexdigest()
+		#[TXVAR]
+		transaction_hash_string = str(transaction_hash_hex)
+		sigf = SHA384.new()
+		sigf.update(timestamp.encode('utf-8'))
+		transaction_cipher = PKCS1_v1_5.new(privkey_import)
+		#[TXVAR]
+		signature = transaction_cipher.sign(sigf)
+
+		transaction = {
+			'sender' = sender,
+			'recipient' = recipient,
+			'timestamp' = timestamp,
+			'amount' = amount,
+			'publickey' = pubkey_export,
+			'transaction_hash' = transaction_hash_string,
+			'signature' = signature
+		}
+		return transaction
 		# pubkey_exported
 		# signature
-
-
 #[NOTES]
 #			[SAMPLE FOR KEYS AND SIGNATURE]
 #			with open('keys/public_key.pem' , 'r') as public_key_file:
