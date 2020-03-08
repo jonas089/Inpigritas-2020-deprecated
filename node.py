@@ -1,13 +1,12 @@
 from flask import Flask, request
-from apscheduler.schedulers.background import BackgroundScheduler
 import argparse
 import account
 import chain
 import json
 import sync
 import pickle
+#from threading import Thread
 
-sched = BackgroundScheduler(standalone=True)
 node = Flask(__name__)
 account.__Start__()
 
@@ -31,7 +30,6 @@ def ReceiveTransaction():
     print(transaction_jsonified)
     return True
 
-
 if __name__ == '__main__':
     try:
         open('debug.log', 'x')
@@ -47,9 +45,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     # this had to be moved above node.run as it otherwise only gets called when the connection breaks
     if args.synchronize:
-        sched.add_listener(sync.syncpeers(), apscheduler.events.EVENT_JOB_EXECUTED)
-    sched.start()
-    print('running')
+        sync.SyncPeerThread()
     node.run(host='127.0.0.1', port=args.port)
 
 #  if args.mine:

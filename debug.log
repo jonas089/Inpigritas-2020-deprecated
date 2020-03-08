@@ -221,3 +221,808 @@ HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: 
 
 [BLOCKS FETCHED AND ACCEPTED] :
 []
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x046D30D0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04FA5490>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04FA58D0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04FA5D10>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04F71B70>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04FA5590>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04FA50D0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04FB6170>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04FB65B0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04FB69F0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0430A4B0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0430A930>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0430AD70>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0430A6B0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0430A390>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x043EC1D0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x043EC610>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x043ECA50>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FDCFF0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FE8C30>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04016090>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x040164D0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04016910>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FE8A30>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FE8190>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x040167F0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x040160D0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04016D50>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x040281B0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04016DB0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x040169F0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04016310>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FE82F0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FE8C10>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FE8FD0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x040285F0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FE8E50>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FE88F0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FE8170>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04016390>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04016C10>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04016C90>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x040281D0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FEB950>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FF9D10>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04026170>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x040265B0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x040269F0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FCCE30>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04278C10>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x042A6070>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x042A64B0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x042A68F0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04278970>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04278190>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x042A6850>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x042A60B0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x042A6D30>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x042B8190>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x042A6E90>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x042A6950>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x042A6870>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x042787B0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04278BD0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04278CD0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x042B85D0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04278F50>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04278850>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x042784F0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x042A6330>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x042A6C50>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x042A6DD0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x042B8130>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x042B8A10>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x042A6E30>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x042A62B0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04278950>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x042782D0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04278A50>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x042B8830>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x042B8890>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04278930>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x042CF050>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04598BF0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x045C6050>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x045C6490>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x045C68D0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04598990>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04598250>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x045C6810>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x045C6050>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x045C6D10>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x045D8170>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x045C6E70>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x045C6930>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x045C6670>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04598150>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04598C10>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04598E50>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x045D85B0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04598CB0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04598810>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03F7CF90>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03F88C10>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FB6070>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FB64B0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FB68F0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03F88A10>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03F881D0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FB6850>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FB60B0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FB6D30>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FC8190>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FB6DB0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FB69B0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FB62D0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03F88270>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03F88BF0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03F88CD0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FC85D0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03F88F50>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03F888D0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03F884B0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FB6230>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FB6AB0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FB6F50>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03FC8130>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03D9CBB0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03DA8C50>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03DD60B0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03DD64F0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03DD6930>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03DA89B0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03DA8090>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03DD66D0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03DD60F0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03DD6D70>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03DE81D0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03DD6E70>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03DD6170>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03DD6270>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03DA8050>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03DA8A70>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03DA8E90>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03DE8610>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03DA8F10>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03DA8030>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03DA8B30>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03DD6A30>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03DD6E90>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0449C390>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x044A8BD0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x044D6030>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x044D6470>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03F4CE50>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03F58CD0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03F86130>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x048CB470>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x048D8CB0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04906110>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03F38970>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x041F9BB0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x041F9FF0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x046ACBF0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x046B9BD0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x046E6030>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x046E6470>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03B0F0F0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03DD8C90>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03E060F0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03E06530>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03E06970>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03DD8910>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03DD80D0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03E06330>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x040BBF90>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x040C8CB0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x040F6110>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x040F6550>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x040F6990>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x040EBFB0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x040F8CB0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04126110>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04126550>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04126990>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0407CDD0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0408FBB0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x041ABC10>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x041B8CF0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x041E6150>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0445FFD0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04725D30>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04756190>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x047565D0>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04756A10>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5002/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04725D30>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5000/blockchain.json
+[WARNING] NODE OFFLINE
+HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /blockchain.json (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x04725070>: Failed to establish a new connection: [WinError 10061] Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'))
+
+http://127.0.0.1:5001/blockchain.json
