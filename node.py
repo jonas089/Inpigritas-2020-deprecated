@@ -47,8 +47,9 @@ if __name__ == '__main__':
     args = parser.parse_args()
     # this had to be moved above node.run as it otherwise only gets called when the connection breaks
     if args.synchronize:
-        sched.add_job(sync.syncpeers())
-        sched.start()
+        sched.add_listener(sync.syncpeers(), apscheduler.events.EVENT_JOB_EXECUTED)
+    sched.start()
+    print('running')
     node.run(host='127.0.0.1', port=args.port)
 
 #  if args.mine:
