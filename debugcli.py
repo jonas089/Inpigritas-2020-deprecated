@@ -1,7 +1,7 @@
 import argparse
-from chain import *
-from validation import *
-from account import *
+import chain
+import validation
+import account
 
 
 parser = argparse.ArgumentParser(description='AMPS')
@@ -18,17 +18,17 @@ parser.add_argument('--balance', '-b', dest='bal',
 args = parser.parse_args()
 
 if args.newacc:
-	__Start__()
+	account.__Start__()
 
 if args.gengen:
-	LocalChain = LOADLOCALCHAIN()
-	if LOCALCHAIN.BLOCKCHAINDAT() == True:
-		GENERATEGENESIS()
+	LocalChain = chain.LOADLOCALCHAIN()
+	if chain.LOCALCHAIN.BLOCKCHAINDAT() == True:
+		chain.GENERATEGENESIS()
 
 if args.genblo:
 	dummytx = []
-	LocalChain = LOADLOCALCHAIN()
-	BLOCKCHAIN.BLOCK(dummytx)
+	LocalChain = chain.LOADLOCALCHAIN()
+	chain.BLOCKCHAIN.BLOCK(LocalChain, dummytx)
 
 if args.bal:
-	print(LoadBalance())
+	print(account.LoadBalance())

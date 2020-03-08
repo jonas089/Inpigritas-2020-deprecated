@@ -64,7 +64,6 @@ def LoadBalance():
 		LocalBlockChain = pickle.load(ChainFile)
 	with open('keys/account.dat', 'rb') as AccountFile:
 		address = pickle.load(AccountFile)[0]		# for now we go with one address per account only
-		print(address)
 	for Block in range(0, len(LocalBlockChain)):
 		for Transaction in range(0, len(LocalBlockChain[Block]['transactions'])):
 			if LocalBlockChain[Block]['transactions'][Transaction]['sender'] == address:

@@ -53,3 +53,16 @@ class ValidationClass:
 			return False
 
 		return True
+
+	def VALIDATE_TRANSACTION(Transaction):
+		# there are 2 types of transactions
+		# I. user to user
+		# II. payment for staking
+		sender = Transaction['sender']
+		recipient = Transaction['recipient']
+		amount = Transaction['amount']
+		timestamp = Transaction['timestamp']
+		signature = Transaction['signature']
+		pubkey = Transaction['pubkey']
+		
+	def VALIDATE_STAKING(Stak):

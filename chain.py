@@ -26,8 +26,9 @@ class LOCALCHAIN:
             return False
 
 class BLOCKCHAIN:
-    def BLOCK(transactions):
+    def BLOCK(LoadedLocalChain, transactions):
         #[DEFINE BLOCKVARs FOR __GENESIS__ BLOCK]
+        LocalChain = LoadedLocalChain
         if len(LocalChain) == 0:
             is_genesis = True
             index = 0
