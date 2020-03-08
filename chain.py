@@ -88,7 +88,7 @@ class BLOCKCHAIN:
 
 def GENERATEGENESIS():
     CAmount_Subsidy = 2 * 1000 * 1000 * 1000 # 2 Billion for testing
-    transactions = [{'sender' : '0', 'recipient' : '<DEVELOPER ADDRESS>', 'amount' : CAmount_Subsidy}]
+    transactions = [{'sender' : '0', 'recipient' : '<DEVELOPER ADDRESS>', 'amount' : CAmount_Subsidy, 'timestamp' : time.time()}]
     # the transaction data of the genesis block represents the premine
     while len(LocalChain) == 0:
         BLOCKCHAIN.BLOCK(transactions)
