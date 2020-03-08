@@ -10,7 +10,7 @@ import pickle
 class Keys:
 
 	# Generates Keypair And Saves Both PRIVATE and PUBLIC KEY to your LOCAL Drive
-	def Generate_Keypair():
+	def Generate_Keypair(passwd=None): # added functionality for password protection (private key), will make default in the future
 		key = RSA.generate(2048)
 		try:
 			os.mkdir('keys/')
@@ -26,7 +26,7 @@ class Keys:
 			pass
 
 		with open('keys/private_key.pem', 'wb') as private_key_file:
-			private_key_file.write(key.exportKey('PEM'))
+			private_key_file.write(key.exportKey('PEM', passphrase=passwd))
 			private_key_file.close()
 		with open('keys/public_key.pem', 'wb') as public_key_file:
 			public_key_file.write(key.publickey().exportKey('PEM'))
@@ -42,9 +42,9 @@ class Keys:
 			pubkey = RSA.importKey(public_key_file.read())
 			return pubkey
 
-	def Import_Privkey():
+	def Import_Privkey(passwd=None): # added functionality for password protection (private key), will make default in the future
 		with open('keys/private_key.pem', 'r') as private_key_file:
-			privkey = RSA.importKey(private_key_file.read())
+			privkey = RSA.importKey(private_key_file.read(), passphrase=passwd)
 			return privkey
 
 	def Generate_Address():
@@ -55,7 +55,7 @@ class Keys:
 		Address_hash_hex = sha.hexdigest()
 		Address = str(Address_hash_hex)
 		return Address
-		# Address is a hash representation of the string of the publickey => this ensures nobody can create a fake transaction by 
+		# Address is a hash representation of the string of the publickey => this ensures nobody can create a fake transaction by
 		# using somebody else's Address combined with his own publickey => if Address != pubkey hashed : return False
 
 	def LoadBalance():
