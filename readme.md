@@ -1,8 +1,6 @@
-[ACHIEVEMENTS]
-
-  [04.03.2020]
-  + chain.py generates blocks
-  + chain can be validated || hashing seems alright
-  [----------]
-
-[/ACHIEVEMENTS]
+# Amperecoin
+### Required libraries are in requirements.txt
+### Virtualenv setup scripts included
+## Debugging
+ - debugshell.py; interactive shell for debugging
+ - debugcli.py; pass arguments to execute functions for debugging
