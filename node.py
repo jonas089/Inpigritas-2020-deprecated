@@ -5,6 +5,7 @@ import account
 import chain
 import json
 import sync
+import pickle
 
 sched = BackgroundScheduler(standalone=True)
 node = Flask(__name__)
@@ -32,16 +33,23 @@ def ReceiveTransaction():
 
 
 if __name__ == '__main__':
+    try:
+        open('debug.log', 'x')
+    except Exception as exists:
+        pass
+
+
     parser = argparse.ArgumentParser(description='AMPS Node')
     parser.add_argument('--port', '-p', default='5000',
                     help='port')
     parser.add_argument('--sync', '-s', dest='synchronize',
         action = 'store_true')
     args = parser.parse_args()
-    node.run(host='127.0.0.1', port=args.port)
+    # this had to be moved above node.run as it otherwise only gets called when the connection breaks
     if args.synchronize:
         sched.add_job(sync.syncpeers())
         sched.start()
+    node.run(host='127.0.0.1', port=args.port)
 
 #  if args.mine:
 #      sched.add_job(mine.minefromprev())
