@@ -1,5 +1,5 @@
 cd keys
-del /f account.pem
+del /f account.dat
 del /f private_key.pem
 del /f public_key.pem
 cd ..
