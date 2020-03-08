@@ -2,8 +2,9 @@ from validation import *
 import hashlib
 import time
 import pickle
+import values
 
-blocktime = 10
+blocktime = values.blocktime
 LocalChain = []
 TxData = []
 
@@ -76,16 +77,15 @@ class BLOCKCHAIN:
         'transactions' : transactions,
         }
 #[END OF BLOCK DICTIONARY]
-        if ValidationClass.VALIDATE_BLOCK(Block, LocalChain, blocktime) == True:
-            LocalChain.append(index)
-            LocalChain[index] = Block
-            with open('src/blockchain.dat', 'wb') as chaindatafile:
-                pickle.dump(LocalChain, chaindatafile)
-                print('[NEW BLOCK]' + str(Block))
-        else:
-            return False
+        return ValidationClass.VALIDATE_BLOCK(Block, LocalChain, blocktime)
 
-        return True
+def SAVEVALIDBLOCK(LocalChainData, Block):
+    index = Block['index']
+    LocalChainData.append(index)
+    LocalChainData[index] = Block
+    with open('src/blockchain.dat', 'wb') as chaindatafile:
+        pickle.dump(LocalChainData, chaindatafile)
+        print('[NEW BLOCK]' + str(Block))
 
 def GENERATEGENESIS():
     #stacking = [{'address' : '<ROME>', 'reward' : 0.0}, {'address' : 'Jonas', 'reward' : 0.0}]

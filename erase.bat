@@ -6,6 +6,4 @@ cd ..
 cd src
 del /f blockchain.dat
 cd ..
-ECHO done
-
-@PAUSE
+ECHO ERASED BLOCKDATA

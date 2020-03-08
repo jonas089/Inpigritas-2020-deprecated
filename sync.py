@@ -3,6 +3,9 @@ import chain as c_hain
 import json
 import argparse
 import validation
+import values
+
+blocktime = 10
 
 seeds = ['http://127.0.0.1:5000/',
         'http://127.0.0.1:5001/',
@@ -34,9 +37,11 @@ def syncpeers():
                 index_diff = last_index_node_chain - last_index_local_chain
                 for b in range(len(chain), len(chainjson) - 1):
                     Block = chainjson[b]
-                    if c_hain.BLOCKCHAIN.BLOCK(Block, chain) == False:
-                        log_write(log_backup() + '\n' + '[ERROR] INVALID BLOCK')
-                        return False
+                    print(Block)
+                    if Block['index'] != 0:
+                        if validation.ValidationClass.VALIDATE_BLOCK(Block, chain, values.blocktime) == False:
+                            log_write(log_backup() + '\n' + '[ERROR] INVALID BLOCK')
+                            return False
         except Exception as Networkerror:
             log_write(log_backup() + '\n' + '[WARNING] NODE OFFLINE')
 

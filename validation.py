@@ -4,6 +4,9 @@ from Crypto.Signature import PKCS1_v1_5 # / RSA algorithm to sign with priv(1) &
 from Crypto.Hash import SHA384
 # blockstructure : index, prev_hash, timestamp, next_timestamp, block_hash, next_block_hash
 # blockvalues (hashed) : index, prev_hash, timestamp
+
+import chain as c_hain
+
 def CHECKPOINTS():
 	checkpoints = []
 	checkpoints.append(0)
@@ -23,6 +26,7 @@ class ValidationClass:
 		transactions = Block['transactions']
 
 		if index == 0:
+			c_hain.SAVEVALIDBLOCK(LocalChain, Block)
 			return True # >>> Add Genesis Validation as Checkpoint <<< #
 		if index != len(LocalChain):
 			print(index)
@@ -54,7 +58,7 @@ class ValidationClass:
 		if next_block_hash_string != next_block_hash:
 			print('[E] V5')
 			return False
-
+		c_hain.SAVEVALIDBLOCK(LocalChain, Block)
 		return True
 
 	def VALIDATE_TRANSACTION(tx):
