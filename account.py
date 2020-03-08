@@ -58,25 +58,20 @@ class Keys:
 		# Address is a hash representation of the string of the publickey => this ensures nobody can create a fake transaction by
 		# using somebody else's Address combined with his own publickey => if Address != pubkey hashed : return False
 
-	def LoadBalance():
-		with open('src/blockchain.dat', 'rb') as ChainFile:
-			LocalBlockChain = pickle.load(ChainFile)
-		for Block in range(0, len(LocalBlockChain) - 1):
-			for Transaction in range(0, len(LocalBlockChain[Block]['transactions']) - 1):
-				pass
-
-
-#[TESTING]
-def Validate_Address(Export_Publickey, ByteArray_Address):
-	publickey = RSA.importKey(Export_Publickey)
-	sigvar = SHA384.new()
-	sigvar.update(str(publickey).encode('utf-8'))
-	cypher = PKCS1_v1_5.new(publickey)
-	verification = cypher.verify(sigvar, ByteArray_Address)
-	return verification
-
-
-
+def LoadBalance():
+	Balance = 0.0
+	with open('src/blockchain.dat', 'rb') as ChainFile:
+		LocalBlockChain = pickle.load(ChainFile)
+	with open('keys/account.dat', 'rb') as AccountFile:
+		address = pickle.load(AccountFile)[0]		# for now we go with one address per account only
+		print(address)
+	for Block in range(0, len(LocalBlockChain)):
+		for Transaction in range(0, len(LocalBlockChain[Block]['transactions'])):
+			if LocalBlockChain[Block]['transactions'][Transaction]['sender'] == address:
+				Balance -= LocalBlockChain[Block]['transactions'][Transaction]['amount']
+			if LocalBlockChain[Block]['transactions'][Transaction]['recipient'] == address:
+				Balance += LocalBlockChain[Block]['transactions'][Transaction]['amount']
+	return Balance
 
 
 
@@ -103,7 +98,6 @@ def __Start__():
 			pickle.dump(Addresses, account_file)
 	else:
 		return
-__Start__()
 
 
 
