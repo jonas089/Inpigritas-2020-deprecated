@@ -3,9 +3,9 @@ import hashlib
 import time
 import pickle
 
+blocktime = 10
 LocalChain = []
 TxData = []
-blocktime = 10
 
 def LOADLOCALCHAIN():
     try:
@@ -74,10 +74,9 @@ class BLOCKCHAIN:
         'block_hash' : block_hash,
         'next_block_hash' : next_block_hash,
         'transactions' : transactions,
-        'stacking_rewards' : stacking
         }
 #[END OF BLOCK DICTIONARY]
-        if ValidationClass.VALIDATE_BLOCK(Block, LocalChain) == True:
+        if ValidationClass.VALIDATE_BLOCK(Block, LocalChain, blocktime) == True:
             LocalChain.append(index)
             LocalChain[index] = Block
             with open('src/blockchain.dat', 'wb') as chaindatafile:
@@ -89,12 +88,12 @@ class BLOCKCHAIN:
         return True
 
 def GENERATEGENESIS():
-    stacking = [{'address' : '<ROME>', 'reward' : 0.0}, {'address' : 'Jonas', 'reward' : 0.0}]
+    #stacking = [{'address' : '<ROME>', 'reward' : 0.0}, {'address' : 'Jonas', 'reward' : 0.0}]
     CAmount_Subsidy = 2 * 1000 * 1000 * 1000 # 2 Billion for testing
     transactions = [{'sender' : '0', 'recipient' : '<DEVELOPER ADDRESS>', 'amount' : CAmount_Subsidy, 'timestamp' : time.time()}]
     # the transaction data of the genesis block represents the premine
     while len(LocalChain) == 0:
-        BLOCKCHAIN.BLOCK(LocalChain, transactions, stacking)
+        BLOCKCHAIN.BLOCK(LocalChain, transactions)
     print('[GENESIS]' + '\n' + '-' * 30 + '\n' + str(LocalChain) + '\n' + '-' * 30 + '\n')
     with open('src/blockchain.dat', 'wb') as chaindatafile:
         pickle.dump(LocalChain, chaindatafile)

@@ -12,8 +12,10 @@ account.__Start__()
 
 @node.route('/blockchain.json', methods = ['GET'])
 def ReturnLocalBlockchain():
-  BlockChain = chain.LOADLOCALCHAIN()
-  return BlockChain
+    BlockChain = chain.LOADLOCALCHAIN()
+    BlockChainDict = {}
+    BlockChainDict['data'] = BlockChain
+    return BlockChainDict
 @node.route('/block', methods=['POST'])
 def ReceiveBlock():
     block_decoded = request.data.decode('utf-8')

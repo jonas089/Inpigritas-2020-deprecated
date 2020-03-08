@@ -30,13 +30,13 @@ class Transactions:
 		signature = transaction_cipher.sign(sigf)
 
 		transaction = {
-			'sender' = sender,
-			'recipient' = recipient,
-			'timestamp' = timestamp,
-			'amount' = amount,
-			'publickey' = pubkey_export,
-			'transaction_hash' = transaction_hash_string,
-			'signature' = signature
+			'sender' : sender,
+			'recipient' : recipient,
+			'timestamp' : timestamp,
+			'amount' : amount,
+			'publickey' : pubkey_export,
+			'transaction_hash' : transaction_hash_string,
+			'signature' : signature
 		}
 		return transaction
 		# pubkey_exported
