@@ -5,7 +5,7 @@ import account
 
 
 parser = argparse.ArgumentParser(description='AMPS')
-parser.add_argument('--newacc', '-na', dest='newacc', 
+parser.add_argument('--newacc', '-na', dest='newacc',
 	action = 'store_true')
 parser.add_argument('--generategenesis', '-gg', dest='gengen',
 	action = 'store_true')
