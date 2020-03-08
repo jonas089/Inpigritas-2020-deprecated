@@ -26,7 +26,7 @@ class LOCALCHAIN:
             return False
 
 class BLOCKCHAIN:
-    def BLOCK(LoadedLocalChain, transactions, stacking):
+    def BLOCK(LoadedLocalChain, transactions):
         #[DEFINE BLOCKVARs FOR __GENESIS__ BLOCK]
         LocalChain = LoadedLocalChain
         if len(LocalChain) == 0:
@@ -77,7 +77,7 @@ class BLOCKCHAIN:
         'stacking_rewards' : stacking
         }
 #[END OF BLOCK DICTIONARY]
-        if ValidationClass.VALIDATE_BLOCK(Block, LocalChain, blocktime) == True:
+        if ValidationClass.VALIDATE_BLOCK(Block, LocalChain) == True:
             LocalChain.append(index)
             LocalChain[index] = Block
             with open('src/blockchain.dat', 'wb') as chaindatafile:

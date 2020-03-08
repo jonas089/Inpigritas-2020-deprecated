@@ -13,7 +13,9 @@ def CHECKPOINTS():
 	checkpoints[0]['next_hash'] = '' # insert Hash following Genesis hash
 	return checkpoints
 class ValidationClass:
-	def VALIDATE_BLOCK(Block, LocalChain, blocktime):
+
+	def VALIDATE_BLOCK(Block, LocalChain):
+		blocktime = Block['timestamp']
 		index = Block['index']
 		prev_hash = Block['prev_hash']
 		timestamp = Block['timestamp']
