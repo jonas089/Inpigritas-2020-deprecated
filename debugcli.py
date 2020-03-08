@@ -2,6 +2,7 @@ import argparse
 import chain
 import validation
 import account
+import transaction
 
 
 parser = argparse.ArgumentParser(description='AMPS')
@@ -15,18 +16,13 @@ parser.add_argument('--help', '-h', dest='help')
 parser.add_argument('--balance', '-b', dest='bal',
 	action = 'store_true')
 
+parser.add_argument('--transaction', '-t1', dest='txone',
+	action = 'store_true')
+
 args = parser.parse_args()
 
 if args.newacc:
 	account.__Start__()
-if args.help:
-	print("""
-	Help --> --help or -h
-	New Account --> --newacc or -na
-	Generate Genesis --> --generategenesis or -gg
-	Generate Block --> --generateblock or -gb
-	Balance --> --balance or -b
-	""")
 if args.gengen:
 	LocalChain = chain.LOADLOCALCHAIN()
 	if chain.LOCALCHAIN.BLOCKCHAINDAT() == True:
@@ -39,3 +35,7 @@ if args.genblo:
 
 if args.bal:
 	print(account.LoadBalance())
+if args.txone:
+	amount = 1
+	recipient = 'NOBODY'
+	transaction.Transactions.CreateTransaction(recipient, amount)

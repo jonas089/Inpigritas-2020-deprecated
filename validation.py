@@ -1,4 +1,7 @@
 import hashlib
+from Crypto.PublicKey import RSA
+from Crypto.Signature import PKCS1_v1_5 # / RSA algorithm to sign with priv(1) & verify with pub(1)
+from Crypto.Hash import SHA384
 # blockstructure : index, prev_hash, timestamp, next_timestamp, block_hash, next_block_hash
 # blockvalues (hashed) : index, prev_hash, timestamp
 def CHECKPOINTS():
@@ -54,15 +57,41 @@ class ValidationClass:
 
 		return True
 
-	def VALIDATE_TRANSACTION(Transaction):
-		# there are 2 types of transactions
-		# I. user to user
-		# II. payment for staking
-		sender = Transaction['sender']
-		recipient = Transaction['recipient']
-		amount = Transaction['amount']
-		timestamp = Transaction['timestamp']
-		signature = Transaction['signature']
-		pubkey = Transaction['pubkey']
-		
-	def VALIDATE_STAKING(Stak):
+	def VALIDATE_TRANSACTION(tx):
+		sender = tx['sender']
+		recipient = tx['recipient']
+		timestamp = tx['timestamp']
+		amount = tx['amount']
+		publickey = tx['publickey']
+		transaction_hash = tx['transaction_hash']
+		signature = tx['signature']
+
+		#######################################
+		#	implement a balance check 		  #
+		#######################################
+
+		# Validate Transaction Hash
+		transaction_hash_data = sender + recipient + str(amount) + str(timestamp) + str(publickey)
+		# publickey has to be reimported to be used for validation process
+		sha = hashlib.sha384()
+		transaction_hash_reconstructed = sha.update(transaction_hash_data)
+		transaction_hash_reconstructed_string = str(sha.hexdigest())
+		if transaction_hash_reconstructed_string != transaction_hash:
+			print('[E] [TV1]')
+			return False
+
+#		transaction = {
+#			'sender' = sender,
+#			'recipient' = recipient,
+#			'timestamp' = timestamp,
+#			'amount' = amount,
+#			'publickey' = pubkey_export,
+#			'transaction_hash' = transaction_hash_string,
+#			'signature' = signature
+#			sender + recipient + str(amount) + str(timestamp) + str(pubkey_export)
+
+#		genSHA = SHA256.new()
+#		genSHA.update(blockhash.encode('utf-8'))
+#		cypher = PKCS1_v1_5.new(pubkey)
+#		verification = cypher.verify(genSHA, sig)
+#		assert verification, print('Error in Block verification')		}
