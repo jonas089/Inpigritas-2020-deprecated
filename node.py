@@ -8,8 +8,6 @@ node = Flask(__name__)
 
 account.__Start__()
 
-
-
 @node.route('/blockchain.json', methods = ['GET'])
 def ReturnLocalBlockchain():
   BlockChain = chain.LOADLOCALCHAIN()

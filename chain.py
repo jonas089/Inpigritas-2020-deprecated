@@ -12,7 +12,6 @@ def LOADLOCALCHAIN():
         with open('data/blockchain.dat', 'rb') as chaindatafile:
             LocalChainLoaded = pickle.load(chaindatafile)
     except Exception as NoChain:
-        print(NoChain)
         LocalChainLoaded = []
     return LocalChainLoaded
 
@@ -64,7 +63,6 @@ class BLOCKCHAIN:
         next_block_hash = str(sha.hexdigest())
             #[END OF HASHING]
         #[END OF BLOCKVAR DEFINITION]
-        print(transactions)
 
 #[CREATE BLOCK AS DICTIONARY]
         Block = {
@@ -89,7 +87,9 @@ class BLOCKCHAIN:
         return True
 
 def GENERATEGENESIS():
-    transactions = []
+    CAmount_Subsidy = 2 * 1000 * 1000 * 1000 # 2 Billion for testing
+    transactions = [{'sender' : '0', 'recipient' : '<DEVELOPER ADDRESS>', 'amount' : CAmount_Subsidy}]
+    # the transaction data of the genesis block represents the premine
     while len(LocalChain) == 0:
         BLOCKCHAIN.BLOCK(transactions)
     print('[GENESIS]' + '\n' + '-' * 30 + '\n' + str(LocalChain) + '\n' + '-' * 30 + '\n')
@@ -97,13 +97,3 @@ def GENERATEGENESIS():
         pickle.dump(LocalChain, chaindatafile)
 
     print('[GENESIS BLOCK] : ' + str(LocalChain[0]))
-
-
-
-dummytx = []
-LocalChain = LOADLOCALCHAIN()
-print(len(LocalChain))
-if LOCALCHAIN.BLOCKCHAINDAT() == True:
-    GENERATEGENESIS()
-print(LocalChain)
-BLOCKCHAIN.BLOCK(dummytx)
