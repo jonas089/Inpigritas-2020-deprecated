@@ -26,6 +26,7 @@ class ValidationClass:
 		transactions = Block['transactions']
 
 		if index == 0:
+			print('[ADDING GENESISBLOCK]')
 			c_hain.SAVEVALIDBLOCK(LocalChain, Block)
 			return True # >>> Add Genesis Validation as Checkpoint <<< #
 		if index != len(LocalChain):
@@ -58,6 +59,7 @@ class ValidationClass:
 		if next_block_hash_string != next_block_hash:
 			print('[E] V5')
 			return False
+		print('[ADDING BLOCK]')
 		c_hain.SAVEVALIDBLOCK(LocalChain, Block)
 		return True
 

@@ -80,12 +80,14 @@ class BLOCKCHAIN:
         return ValidationClass.VALIDATE_BLOCK(Block, LocalChain, blocktime)
 
 def SAVEVALIDBLOCK(LocalChainData, Block):
-    index = Block['index']
+    print('[SAVING VALID BLOCK]')
+    index = len(LocalChainData)
     LocalChainData.append(index)
     LocalChainData[index] = Block
     with open('src/blockchain.dat', 'wb') as chaindatafile:
         pickle.dump(LocalChainData, chaindatafile)
         print('[NEW BLOCK]' + str(Block))
+    return True
 
 def GENERATEGENESIS():
     #stacking = [{'address' : '<ROME>', 'reward' : 0.0}, {'address' : 'Jonas', 'reward' : 0.0}]
