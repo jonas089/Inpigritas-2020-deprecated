@@ -1,7 +1,7 @@
 import argparse
 from chain import *
-import validation
-import account
+from validation import *
+from account import *
 
 
 parser = argparse.ArgumentParser(description='AMPS')
@@ -31,4 +31,4 @@ if args.genblo:
 	BLOCKCHAIN.BLOCK(dummytx)
 
 if args.bal:
-	print(account.LoadBalance())
+	print(LoadBalance())
