@@ -51,7 +51,7 @@ if __name__ == '__main__':
     # this had to be moved above node.run as it otherwise only gets called when the connection breaks
     node.run(threaded=True, host=values.ip, port=args.port)
 
-    
+
 #  if args.mine:
 #      sched.add_job(mine.minefromprev())
 #      sched.start()

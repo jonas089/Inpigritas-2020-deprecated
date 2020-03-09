@@ -38,6 +38,7 @@ if args.genblo:
 
 if args.bal:
 	print(account.LoadBalance())
+
 if args.txone:
 	amount = 1
 	recipient = 'NOBODY'
@@ -45,4 +46,4 @@ if args.txone:
 
 if args.syncnet:
 	url = 'http://' + values.ip + ':' + str(values.rpc) + '/' + 'syncnetwork'
-	r = requests.get(url)
+	requests.get(url)
