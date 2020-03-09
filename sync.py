@@ -60,3 +60,4 @@ def syncpeers():
         else:
             log_write(log_backup() + '\n' + '[BLOCKS FETCHED AND ACCEPTED] :' + '\n' + str(chainjson))
             #syncpeers()
+        time.sleep(10)
