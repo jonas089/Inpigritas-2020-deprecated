@@ -19,9 +19,6 @@ parser.add_argument('--balance', '-b', dest='bal',
 parser.add_argument('--transaction', '-t1', dest='txone',
 	action = 'store_true')
 
-parser.add_argument('--sync', '-s', dest='syncnet',
-	action = 'store_true')
-
 args = parser.parse_args()
 
 if args.newacc:
@@ -43,7 +40,3 @@ if args.txone:
 	amount = 1
 	recipient = 'NOBODY'
 	transaction.Transactions.CreateTransaction(recipient, amount)
-
-if args.syncnet:
-	url = 'http://' + values.ip + ':' + str(values.rpc) + '/' + 'syncnetwork'
-	requests.get(url)
