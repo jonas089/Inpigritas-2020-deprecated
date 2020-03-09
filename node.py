@@ -5,6 +5,7 @@ import chain
 import json
 import sync
 import pickle
+import threading
 #from threading import Thread
 
 node = Flask(__name__)
@@ -23,6 +24,11 @@ def ReceiveBlock():
     print(block_jsonified)
     return True
 
+@node.route('/syncnetwork', methods=['GET'])
+def SyncNetwork():
+    sync_thread = threading.Thread(target=sync.syncpeers(), args=(), kwargs={})
+    sync_thread.start()
+
 @node.route('/transaction', methods=['POST'])
 def ReceiveTransaction():
     transaction_decoded = request.data.decode('utf-8')
@@ -40,14 +46,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='AMPS Node')
     parser.add_argument('--port', '-p', default='5000',
                     help='port')
-    parser.add_argument('--sync', '-s', dest='synchronize',
-        action = 'store_true')
     args = parser.parse_args()
     # this had to be moved above node.run as it otherwise only gets called when the connection breaks
-    if args.synchronize:
-        sync.SyncPeerThread()
-    node.run(host='127.0.0.1', port=args.port)
-
+    node.run(threaded=True, host='127.0.0.1', port=args.port)
 #  if args.mine:
 #      sched.add_job(mine.minefromprev())
 #      sched.start()

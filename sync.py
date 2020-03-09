@@ -4,7 +4,7 @@ import json
 import argparse
 import validation
 import values
-from threading import Thread
+import threading
 import time
 
 blocktime = 10
@@ -60,5 +60,3 @@ def syncpeers():
         else:
             log_write(log_backup() + '\n' + '[BLOCKS FETCHED AND ACCEPTED] :' + '\n' + str(chainjson))
             #syncpeers()
-def SyncPeerThread():
-    Thread(target = syncpeers()).start()
