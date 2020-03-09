@@ -6,6 +6,7 @@ import json
 import sync
 import pickle
 import threading
+import values
 #from threading import Thread
 
 node = Flask(__name__)
@@ -44,11 +45,13 @@ if __name__ == '__main__':
 
 
     parser = argparse.ArgumentParser(description='AMPS Node')
-    parser.add_argument('--port', '-p', default='5000',
+    parser.add_argument('--port', '-p', default=str(values.rpc),
                     help='port')
     args = parser.parse_args()
     # this had to be moved above node.run as it otherwise only gets called when the connection breaks
-    node.run(threaded=True, host='127.0.0.1', port=args.port)
+    node.run(threaded=True, host=values.ip, port=args.port)
+
+    
 #  if args.mine:
 #      sched.add_job(mine.minefromprev())
 #      sched.start()

@@ -38,6 +38,7 @@ class Transactions:
 			'transaction_hash' : transaction_hash_string,
 			'signature' : signature
 		}
+		print('[TRANSACTION] : ' + str(transaction))
 		return transaction
 		# pubkey_exported
 		# signature
