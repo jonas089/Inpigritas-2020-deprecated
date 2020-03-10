@@ -56,6 +56,9 @@ class Transactions:
 		transaction_cipher = PKCS1_v1_5.new(privkey_import)
 		#[TXVAR]
 		signature = transaction_cipher.sign(sigf)
+		signature_export_b64 = base64.b64encode(signature)
+		signature_export = signature_export_b64.decode('utf-8')
+		print(signature_export)
 		transaction = {
 			'sender' : sender,
 			'recipient' : recipient,
@@ -63,7 +66,7 @@ class Transactions:
 			'amount' : amount,
 			'publickey' : pubkey_export,
 			'transaction_hash' : transaction_hash_string,
-			'signature' : signature, # ILLEGAL || HAS TO BE CONVERTED
+			'signature' : signature_export,
 			'height' : int
 		}
 		Transactions.Submit_Transaction_Network(transaction)

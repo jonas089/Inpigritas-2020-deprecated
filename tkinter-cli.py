@@ -17,7 +17,7 @@ except Exception as exists:
 
 try:
     is_balance = True
-    with open('keys/accout.dat', 'rb') as AccountFile:
+    with open('keys/account.dat', 'rb') as AccountFile:
         address = pickle.load(AccountFile)[0]
     balance = account.LoadBalance(address)
     balance_Label = tk.Label(root, text= '\n' + '[Balance]' + '\n' + str(balance), bg='black', fg='white')

@@ -7,6 +7,7 @@ from Crypto.Hash import SHA384
 import chain as c_hain
 import account
 import pickle
+import base64
 
 def CHECKPOINTS():
 	checkpoints = []
@@ -71,9 +72,9 @@ class ValidationClass:
 		amount = tx['amount']
 		publickey = tx['publickey']
 		transaction_hash = tx['transaction_hash']
-		signature = tx['signature']
-
-		Balance = accout.LoadBalance(sender)
+		signature_encoded = tx['signature'].encode('utf-8')
+		siganture = base64.b64decode(signature_encoded)
+		Balance = account.LoadBalance(sender)
 		if Balance < amount:
 			return False
 
