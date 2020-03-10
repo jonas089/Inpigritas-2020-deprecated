@@ -83,10 +83,10 @@ class ValidationClass:
 		#######################################
 
 		# Validate Transaction Hash
-		transaction_hash_data = str(timestamp)
+		transaction_hash_data = sender + recipient + str(amount) + str(timestamp) + str(publickey)
 		# publickey has to be reimported to be used for validation process
 		sha = hashlib.sha384()
-		transaction_hash_reconstructed = sha.update(transaction_hash_data)
+		transaction_hash_reconstructed = sha.update(transaction_hash_data.encode('utf-8'))
 		transaction_hash_reconstructed_string = str(sha.hexdigest())
 		if transaction_hash_reconstructed_string != transaction_hash:
 			print('[E] [TV1]')
