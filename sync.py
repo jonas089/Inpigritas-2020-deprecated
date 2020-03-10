@@ -9,9 +9,7 @@ import time
 
 blocktime = 10
 
-seeds = ['http://127.0.0.1:5000/',
-        'http://127.0.0.1:5001/',
-        'http://127.0.0.1:5002/']
+seeds = values.seeds
 
 def log_backup():
     with open('debug.log', 'r') as log_backup:

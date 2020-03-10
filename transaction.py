@@ -5,17 +5,45 @@ from Crypto.Hash import SHA384
 import hashlib
 import account
 import pickle
+import requests
+import values
+import time
+import chain as c_hain
+import json
+
+import base64
 
 class Transactions:
+	def Submit_Transaction_Network(transaction):
+		seeds = values.seeds
+		for peer in seeds:
+			nodeurl = peer
+			print(nodeurl)
+			try:
+				nodechain = requests.get(nodeurl + 'blockchain.json')
+				chainjson = nodechain.json()['data']
+				chain = c_hain.LOADLOCALCHAIN()
+				if len(chainjson) >= len(chain):
+					transaction['height'] = len(chainjson)
+					try:
+						r = requests.post(peer + 'transaction', json=transaction)#json.dumps(transaction)))
+						#if r == False:
+						#	return False
+					except Exception as Network:
+						print('[RESPONSE ERROR] : ' + str(Network))
+						pass
+			except Exception as Networkerror:
+				print('[WARNING] NODE OFFLINE' + '\n' + str(Networkerror) + '\n')
+
 	def CreateTransaction(recipient, amount): # recipient is the string of an address
 		with open('keys/account.dat', 'rb') as AddressFile:
 			#[TXVAR]
 			sender = pickle.load(AddressFile)[0]
 		timestamp = time.time()
 		#[TXVAR]
-		pubkey_export = account.Export_Pubkey()
-		pubkey_import = account.Import_Pubkey()
-		privkey_import = account.Import_Privkey()
+		pubkey_export = account.Keys.Export_Pubkey()
+		pubkey_import = account.Keys.Import_Pubkey()
+		privkey_import = account.Keys.Import_Privkey()
 											#[TXVAR]	#[TXVAR]		#[TXVAR]
 		transaction_data_string = sender + recipient + str(amount) + str(timestamp) + str(pubkey_export)
 		sha = hashlib.sha384()
@@ -24,11 +52,10 @@ class Transactions:
 		#[TXVAR]
 		transaction_hash_string = str(transaction_hash_hex)
 		sigf = SHA384.new()
-		sigf.update(timestamp.encode('utf-8'))
+		sigf.update(str(timestamp).encode('utf-8'))
 		transaction_cipher = PKCS1_v1_5.new(privkey_import)
 		#[TXVAR]
 		signature = transaction_cipher.sign(sigf)
-
 		transaction = {
 			'sender' : sender,
 			'recipient' : recipient,
@@ -36,10 +63,12 @@ class Transactions:
 			'amount' : amount,
 			'publickey' : pubkey_export,
 			'transaction_hash' : transaction_hash_string,
-			'signature' : signature
+			'signature' : signature, # ILLEGAL || HAS TO BE CONVERTED
+			'height' : int
 		}
-		print('[TRANSACTION] : ' + str(transaction))
-		return transaction
+		Transactions.Submit_Transaction_Network(transaction)
+
+
 		# pubkey_exported
 		# signature
 #[NOTES]

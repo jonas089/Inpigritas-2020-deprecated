@@ -4,6 +4,7 @@ import account
 import transaction
 import sys
 import code
+import pickle
 
 def ahelp():
     print("""
@@ -27,7 +28,9 @@ def genblo():
     chain.BLOCKCHAIN.BLOCK(LocalChain, dummytx)
 
 def bal():
-    print(account.LoadBalance())
+    with open('keys/account.dat', 'rb') as AccountFile:
+        address = pickle.load(AccountFile)[0]
+    print(account.LoadBalance(address))
 
 print("Use ahelp() for debug help and help() for python help!")
 ahelp()

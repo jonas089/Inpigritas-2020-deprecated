@@ -5,6 +5,9 @@ import account
 import transaction
 import requests
 import values
+import pickle
+
+import transaction
 
 parser = argparse.ArgumentParser(description='AMPS')
 parser.add_argument('--newacc', '-na', dest='newacc',
@@ -15,6 +18,9 @@ parser.add_argument('--generateblock', '-gb', dest='genblo',
 	action = 'store_true')
 parser.add_argument('--balance', '-b', dest='bal',
 	action = 'store_true')
+parser.add_argument('--transaction', '-tx', dest='transaction',
+	action = 'store_true')
+
 
 args = parser.parse_args()
 if args.newacc:
@@ -28,4 +34,10 @@ if args.genblo:
 	LocalChain = chain.LOADLOCALCHAIN()
 	chain.BLOCKCHAIN.BLOCK(LocalChain, dummytx)
 if args.bal:
-	print(account.LoadBalance())
+	with open('keys/account.dat', 'rb') as AccountFile:
+		address = pickle.load(AccountFile)[0]
+	print(account.LoadBalance(address))
+if args.transaction:
+	recipient = input('Recipient: ')
+	amount = input('Amount: ')
+	transaction.Transactions.CreateTransaction(recipient, float(amount))

@@ -4,8 +4,9 @@ from Crypto.Signature import PKCS1_v1_5 # / RSA algorithm to sign with priv(1) &
 from Crypto.Hash import SHA384
 # blockstructure : index, prev_hash, timestamp, next_timestamp, block_hash, next_block_hash
 # blockvalues (hashed) : index, prev_hash, timestamp
-
 import chain as c_hain
+import account
+import pickle
 
 def CHECKPOINTS():
 	checkpoints = []
@@ -72,12 +73,16 @@ class ValidationClass:
 		transaction_hash = tx['transaction_hash']
 		signature = tx['signature']
 
+		Balance = accout.LoadBalance(sender)
+		if Balance < amount:
+			return False
+
 		#######################################
 		#	implement a balance check 		  #
 		#######################################
 
 		# Validate Transaction Hash
-		transaction_hash_data = sender + recipient + str(amount) + str(timestamp) + str(publickey)
+		transaction_hash_data = str(timestamp)
 		# publickey has to be reimported to be used for validation process
 		sha = hashlib.sha384()
 		transaction_hash_reconstructed = sha.update(transaction_hash_data)
@@ -85,6 +90,9 @@ class ValidationClass:
 		if transaction_hash_reconstructed_string != transaction_hash:
 			print('[E] [TV1]')
 			return False
+
+		print('[EXTERNAL TRANSACTION ACCEPTED]')
+		return True
 
 #		transaction = {
 #			'sender' = sender,

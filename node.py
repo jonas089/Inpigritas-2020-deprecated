@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import argparse
 import account
 import chain
@@ -9,6 +9,11 @@ import threading
 import values
 #from threading import Thread
 from multiprocessing import Process, Value
+import validation
+
+import time
+
+
 node = Flask(__name__)
 account.__Start__()
 
@@ -18,10 +23,10 @@ def ReturnLocalBlockchain():
     BlockChainDict = {}
     BlockChainDict['data'] = BlockChain
     return BlockChainDict
+
 @node.route('/block', methods=['POST'])
 def ReceiveBlock():
-    block_decoded = request.data.decode('utf-8')
-    block_jsonified = json.loads(block_decoded)
+    block_jsonified = json.loads(request.data)
     print(block_jsonified)
     return ('DONE')
 
@@ -32,10 +37,14 @@ def ReceiveBlock():
 
 @node.route('/transaction', methods=['POST'])
 def ReceiveTransaction():
-    transaction_decoded = request.data.decode('utf-8')
-    transaction_jsonified = json.loads(transaction_decoded)
+    #transaction_decoded = request.data.decode('utf-8')
+    transaction_jsonified = request.get_json()#json.loads(request.data)
     print(transaction_jsonified)
-    return ('DONE')
+    result = validation.ValidationClass.VALIDATE_TRANSACTION(transaction_jsonified)
+    print('[TRANSACTION RECEIVED] : [VALID = ' + str(result) + ' ]')
+    return(str(result))
+
+
 
 if __name__ == '__main__':
     try:

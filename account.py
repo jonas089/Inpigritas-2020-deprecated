@@ -34,8 +34,13 @@ class Keys:
 
 	def Export_Pubkey():
 		with open('keys/public_key.pem', 'r') as public_key_file:
-			pubkey_string_rep = public_key_file.read()
-			return pubkey_string_rep
+			pubkey = RSA.importKey(public_key_file.read())
+			pubkey_pem = public_key_file.read()#pubkey.exportKey('PEM')
+			return pubkey_pem
+
+
+
+
 
 	def Import_Pubkey():
 		with open('keys/public_key.pem', 'r') as public_key_file:
@@ -58,12 +63,11 @@ class Keys:
 		# Address is a hash representation of the string of the publickey => this ensures nobody can create a fake transaction by
 		# using somebody else's Address combined with his own publickey => if Address != pubkey hashed : return False
 
-def LoadBalance():
+def LoadBalance(address):
 	Balance = 0.0
 	with open('src/blockchain.dat', 'rb') as ChainFile:
 		LocalBlockChain = pickle.load(ChainFile)
-	with open('keys/account.dat', 'rb') as AccountFile:
-		address = pickle.load(AccountFile)[0]		# for now we go with one address per account only
+
 	for Block in range(0, len(LocalBlockChain)):
 		for Transaction in range(0, len(LocalBlockChain[Block]['transactions'])):
 			if LocalBlockChain[Block]['transactions'][Transaction]['sender'] == address:
