@@ -58,6 +58,7 @@ class Transactions:
 		signature = transaction_cipher.sign(sigf)
 		signature_export_b64 = base64.b64encode(signature)
 		signature_export = signature_export_b64.decode('utf-8')
+		print(signature)
 		print(signature_export)
 		transaction = {
 			'sender' : sender,

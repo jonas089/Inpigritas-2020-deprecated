@@ -73,9 +73,20 @@ class ValidationClass:
 		publickey = tx['publickey']
 		transaction_hash = tx['transaction_hash']
 		signature_encoded = tx['signature'].encode('utf-8')
-		siganture = base64.b64decode(signature_encoded)
+		signature = base64.b64decode(signature_encoded)
+		print(str(signature))
 		Balance = account.LoadBalance(sender)
+
+		sigf = SHA384.new()
+		sigf.update(str(timestamp).encode('utf-8'))
+		public_key = RSA.importKey(publickey)
+		cypher = PKCS1_v1_5.new(public_key)
+		verification = cypher.verify(sigf, signature)
+		if verification == False:
+			print('[E] [TV1]')
+			return False
 		if Balance < amount:
+			print('[E] [TV2]')
 			return False
 
 		#######################################
@@ -89,7 +100,7 @@ class ValidationClass:
 		transaction_hash_reconstructed = sha.update(transaction_hash_data.encode('utf-8'))
 		transaction_hash_reconstructed_string = str(sha.hexdigest())
 		if transaction_hash_reconstructed_string != transaction_hash:
-			print('[E] [TV1]')
+			print('[E] [TV3]')
 			return False
 
 		print('[EXTERNAL TRANSACTION ACCEPTED]')

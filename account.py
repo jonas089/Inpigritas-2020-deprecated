@@ -34,13 +34,8 @@ class Keys:
 
 	def Export_Pubkey():
 		with open('keys/public_key.pem', 'r') as public_key_file:
-			pubkey = RSA.importKey(public_key_file.read())
 			pubkey_pem = public_key_file.read()#pubkey.exportKey('PEM')
 			return pubkey_pem
-
-
-
-
 
 	def Import_Pubkey():
 		with open('keys/public_key.pem', 'r') as public_key_file:
