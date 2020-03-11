@@ -5,8 +5,25 @@ import transaction
 import sys
 import code
 import tkinter
+import sync
 from threading import Thread
 
+def updateblockchain():
+    Loaded = False
+    while Loaded == Fale:
+        try:
+            with open('src/blockchain.dat', 'rb') as chaindatafile:
+                LocalChainLoaded = pickle.load(chaindatafile)
+                Loaded = True
+        except Exception as NoChain:
+            msg_list.insert("")
+"""
+def login():
+    account.__Start__()
+    account.Keys.
+"""
+
+my_msg=""
 help = ("""
     help --> prints this message
     newacc (passwd) --> generate new account
@@ -15,30 +32,6 @@ help = ("""
     printaddress --> prints wallet address
     chain --> prints blockchain
     """)
-
-class interpreter(input=my_msg):
-    def __init__(self):
-        if input == "help":
-            msg_list.insert(tkinter.END, help)
-        elif input == "newacc":
-            interpreter.newacc()
-        elif input == "importacc"
-            interpreter.importacc()
-        elif input == "balance":
-            interpreter.balance()
-        elif input == "printaddress":
-            interpreter.printaddress()
-        elif input == "chain":
-            interpreter.chain()
-        else:
-            msg_list.insert(tkinter.END, "Incorrect command, try help!")
-    def newacc():
-        account.Keys.Generate_Keypair()
-        waddress = account.Keys.Generate_Address()
-        msg_list.insert(tkinter.END, waddress)
-    def importacc():
-        pubkey = account.Keys.Import_Pubkey()
-        privkey = account.Keys.Import_Privkey()
 
 def UI():
     top = tkinter.Tk()
@@ -55,10 +48,12 @@ def UI():
     messages_frame.pack()
 
     entry_field = tkinter.Entry(top, textvariable=my_msg)
-    entry_field.bind("<Return>", interpreter)
+    #entry_field.bind("<Return>", interpret(my_msg))
     entry_field.pack()
-    send_button = tkinter.Button(top, text="Send", command=interpreter)
-    send_button.pack()
+    #send_button = tkinter.Button(top, text="Send", command=interpret(my_msg))
+    #send_button.pack()
+    login_button = tkinter.Button(top, text="Login", command=login)
+    login_button.pack()
 
     #makes the program more modular
     #serv_msg = tkinter.StringVar()
