@@ -27,16 +27,17 @@ def ReturnLocalBlockchain():
 @node.route('/txpool.json', methods = ['GET'])
 def ReturnTxPool():
     LocalChain = chain.LOADLOCALCHAIN()
-    next_index = LocalChain[len(LocalChain) - 1]['index'] + 1
+    TransactionPoolDict = {}
+    try:
+        next_index = LocalChain[len(LocalChain) - 1]['index'] + 1
+    except Exception as NoChain:
+        return TransactionPoolDict
     local_txpool = []
     try:
-        open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'x')
-        with open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'wb') as Dump_Empty:
-            pickle.dump(local_txpool, Dump_Empty)
-    except Exception as empty:
         with open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'rb') as Transaction_Data_File:
             local_txpool = pickle.load(Transaction_Data_File)
-    TransactionPoolDict = {}
+    except Exception as no_data:
+        pass
     TransactionPoolDict['data'] = local_txpool
     return TransactionPoolDict
 

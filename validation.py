@@ -99,9 +99,10 @@ class ValidationClass:
 		signature = base64.b64decode(signature_encoded)
 		print(str(signature))
 		Balance = account.LoadBalance(sender)
-		next_index = c_hain.LocalChain[len(LocalChain) - 1]['index'] + 1
+		LocalChain = c_hain.LOADLOCALCHAIN()
+		next_index = LocalChain[len(LocalChain) - 1]['index'] + 1
 		with open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'rb') as Block_Transaction_File:
-			Block_Transactions_Unconfirmed = pickle.load(Block_Transactions_Unconfirmed)
+			Block_Transactions_Unconfirmed = pickle.load(Block_Transaction_File)
 		for uftx in range(0, len(Block_Transactions_Unconfirmed)):
 			if Block_Transactions_Unconfirmed[uftx]['sender'] == sender:
 				Balance -= Block_Transactions_Unconfirmed[uftx]['amount']
