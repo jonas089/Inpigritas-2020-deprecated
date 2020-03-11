@@ -8,6 +8,7 @@ import chain as c_hain
 import account
 import pickle
 import base64
+import transaction
 
 def CHECKPOINTS():
 	checkpoints = []
@@ -122,20 +123,5 @@ class ValidationClass:
 			return False
 
 		print('[TRANSACTION ACCEPTED]')
+		transaction.Add_Transaction_Local(tx)
 		return True
-
-#		transaction = {
-#			'sender' = sender,
-#			'recipient' = recipient,
-#			'timestamp' = timestamp,
-#			'amount' = amount,
-#			'publickey' = pubkey_export,
-#			'transaction_hash' = transaction_hash_string,
-#			'signature' = signature
-#			sender + recipient + str(amount) + str(timestamp) + str(pubkey_export)
-
-#		genSHA = SHA256.new()
-#		genSHA.update(blockhash.encode('utf-8'))
-#		cypher = PKCS1_v1_5.new(pubkey)
-#		verification = cypher.verify(genSHA, sig)
-#		assert verification, print('Error in Block verification')		}

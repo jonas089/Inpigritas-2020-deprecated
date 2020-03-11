@@ -69,6 +69,13 @@ def LoadBalance(address):
 				Balance -= LocalBlockChain[Block]['transactions'][Transaction]['amount']
 			if LocalBlockChain[Block]['transactions'][Transaction]['recipient'] == address:
 				Balance += LocalBlockChain[Block]['transactions'][Transaction]['amount']
+	#	with open('src/TxBlockNo' + '000' + str(Block) + '.dat', 'rb') as Block_Transactions_File:
+	#		block_transaction_data = pickle.load(Block_Transactions_File)
+	#		for tx in range(0, len(block_transaction_data) - 1):
+	#			if block_transaction_data[tx]['sender'] == address:
+	#				Balance -= block_transaction_data[tx]['amount']
+	#			if block_transaction_data[tx]['recipient'] == address:
+	#				Balance += block_transaction_data[tx]['amount']
 	return Balance
 
 

@@ -6,8 +6,9 @@ import validation
 import values
 import threading
 import time
+import pickle
 
-blocktime = 10
+blocktime = values.blocktime
 
 seeds = values.seeds
 
@@ -23,9 +24,17 @@ def log_write(text):
         log.write(text)
 
 def newblock():
-    dummytx = []
+    tx_data = []
     LocalChain = c_hain.LOADLOCALCHAIN()
-    c_hain.BLOCKCHAIN.BLOCK(LocalChain, dummytx)
+    if time.time() < LocalChain[len(LocalChain) - 1]['next_timestamp']:
+        return False
+    next_index = LocalChain[len(LocalChain) - 1]['index'] + 1
+    try:
+        open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'x')
+    except Exception as block_includes_transactions:
+        with open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'rb') as Transaction_Data_File:
+            tx_data = pickle.load(Transaction_Data_File)
+    c_hain.BLOCKCHAIN.BLOCK(LocalChain, tx_data)
 
 def syncpeers(seeds_offline):
     try:
