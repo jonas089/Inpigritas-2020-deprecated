@@ -23,7 +23,43 @@ def log_write(text):
     with open('debug.log', 'w') as log:
         log.write(text)
 
+def fetch_pending_transactions():
+    seeds_total = len(seeds)
+    for seed in seeds:
+        nodeurl = seed + 'txpool.json'
+        local_txpool = []
+        LocalChain = c_hain.LOADLOCALCHAIN()
+        next_index = LocalChain[len(LocalChain) - 1]['index'] + 1
+        if next_index > 0:
+            try:
+                open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'x')
+                with open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'wb') as Dump_Empty:
+                    pickle.dump(local_txpool, Dump_Empty)
+            except Exception as block_includes_transactions:
+                with open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'rb') as Transaction_Data_File:
+                    local_txpool = pickle.load(Transaction_Data_File)
+            #print(nodeurl)
+            #log_write(log_backup() + '\n' + nodeurl)
+            try:
+                nodetxpool = requests.get(nodeurl)
+                txpooljson = nodetxpool.json()['data']
+                chain = c_hain.LOADLOCALCHAIN()
+                if len(txpooljson) > len(local_txpool):
+                    local_txpool = txpooljson
+                    with open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'wb') as Transaction_Data_File:
+                        pickle.dump(local_txpool, Transaction_Data_File)
+                        print('[TXPOOL SYNCED]')
+            except Exception as Networkerror:
+                #log_write(log_backup() + '\n' + '[WARNING] NODE OFFLINE' + '\n' + str(Networkerror) + '\n')
+                pass
+        else:
+            pass
+
+
 def newblock():
+    fetch_pending_transactions()# this is important in case the node has been booted up between two 
+                                # blocks when there are already transactions submitted to other nodes
+    #fetch_pending_transactions()
     tx_data = []
     LocalChain = c_hain.LOADLOCALCHAIN()
     if time.time() < LocalChain[len(LocalChain) - 1]['next_timestamp']:
@@ -31,6 +67,9 @@ def newblock():
     next_index = LocalChain[len(LocalChain) - 1]['index'] + 1
     try:
         open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'x')
+        with open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'wb') as Dump_File:
+            pickle.dump(tx_data, Dump_File)
+
     except Exception as block_includes_transactions:
         with open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'rb') as Transaction_Data_File:
             tx_data = pickle.load(Transaction_Data_File)
