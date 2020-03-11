@@ -54,6 +54,11 @@ class ValidationClass:
 			print('[ADDING GENESISBLOCK]')
 			c_hain.SAVEVALIDBLOCK(LocalChain, Block)
 			return True
+		if len(Block['transactions']) != 0:
+			for BlockTransaction in range(0, len(Block['transactions']) - 1):
+				if ValidationClass.VALIDATE_TRANSACTION(Block['transactions'][BlockTransaction]) == False:
+					print('[BLOCK REJECTED BECAUSE INVALID TRANSACTIONS WERE IDENTIFIED]')
+					return False
 		if index != len(LocalChain):
 			print(index)
 			print(len(LocalChain))
@@ -106,6 +111,8 @@ class ValidationClass:
 		for uftx in range(0, len(Block_Transactions_Unconfirmed)):
 			if Block_Transactions_Unconfirmed[uftx]['sender'] == sender:
 				Balance -= Block_Transactions_Unconfirmed[uftx]['amount']
+			if Block_Transactions_Unconfirmed[uftx]['recipient'] == sender:
+				Balance += Block_Transactions_Unconfirmed[utfx]['amount']
 
 		sigf = SHA384.new()
 		sigf.update(str(timestamp).encode('utf-8'))
