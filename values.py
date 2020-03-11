@@ -1,4 +1,4 @@
-blocktime = 10
+blocktime = 120 # 2 minutes
 
 rpc = 5000
 

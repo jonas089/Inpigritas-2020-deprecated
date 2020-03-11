@@ -27,8 +27,12 @@ class Transactions:
 					transaction['height'] = len(chainjson)
 					try:
 						r = requests.post(peer + 'transaction', json=transaction)#json.dumps(transaction)))
-						#if r == False:
-						#	return False
+						if r == 'False':
+							return False
+						if r == 'True':
+							return True
+						else:
+							print('[UNKNOWN SERVER RESPONSE] : ' + str(r))
 					except Exception as Network:
 						print('[RESPONSE ERROR] : ' + str(Network))
 						pass

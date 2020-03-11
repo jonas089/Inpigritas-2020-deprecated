@@ -25,6 +25,8 @@ class LOCALCHAIN:
             return True
         except Exception as Exists:
             return False
+    def Add_Local_Transaction():
+        return False
 
 class BLOCKCHAIN:
     def BLOCK(LoadedLocalChain, transactions):
@@ -91,8 +93,8 @@ def SAVEVALIDBLOCK(LocalChainData, Block):
 
 def GENERATEGENESIS():
     #stacking = [{'address' : '<ROME>', 'reward' : 0.0}, {'address' : 'Jonas', 'reward' : 0.0}]
-    CAmount_Subsidy = 2 * 1000 * 1000 * 1000 # 2 Billion for testing
-    transactions = [{'sender' : '0', 'recipient' : '9f32a36aea0e5ceca0132f4aa1087b5ee43d3dd14b0c260016ebd02c77f02c14fa770334757f85dbd9a5a0bcd141f775', 'amount' : CAmount_Subsidy, 'timestamp' : time.time()}]
+    CAmount_Subsidy = 10 * 1000 * 1000 * 1000 * 1000
+    transactions = [{'sender' : '0', 'recipient' : 'b3ee3bc36dccfc1e8e6f40daec19c1c8ddcb4ec33ab077eebd95f9474cab39926d461d68c8a90a9444da9401f7a6003d', 'amount' : CAmount_Subsidy, 'timestamp' : time.time()}]
     # the transaction data of the genesis block represents the premine
     while len(LocalChain) == 0:
         BLOCKCHAIN.BLOCK(LocalChain, transactions)

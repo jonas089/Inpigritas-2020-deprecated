@@ -39,7 +39,7 @@ def ReceiveBlock():
 def ReceiveTransaction():
     #transaction_decoded = request.data.decode('utf-8')
     transaction_jsonified = request.get_json()#json.loads(request.data)
-    print(transaction_jsonified)
+    #print(transaction_jsonified)
     result = validation.ValidationClass.VALIDATE_TRANSACTION(transaction_jsonified)
     print('[TRANSACTION RECEIVED] : [VALID = ' + str(result) + ' ]')
     return(str(result))

@@ -14,8 +14,8 @@ def CHECKPOINTS():
 	checkpoints.append(0)
 	checkpoints[0] = {}
 	checkpoints[0]['index'] = 0
-	checkpoints[0]['hash'] = '' # insert Genesis hash
-	checkpoints[0]['next_hash'] = '' # insert Hash following Genesis hash
+	checkpoints[0]['hash'] = 'cb5ef28937988f7ee948521633b3846619889a19ef9300ad91f4e59bc146a86b18c030ec0333024b274e1800fd132316' # insert Genesis hash
+	checkpoints[0]['next_hash'] = '1a50407afabb1a64d9e11dfbe15c327d90f6e97fda96fb1bea75a286085f100ee0f976e06ca00cfd05928787390c612a' # insert Hash following Genesis hash
 	return checkpoints
 class ValidationClass:
 	def VALIDATE_BLOCK(Block, LocalChain, blocktime):
@@ -26,11 +26,33 @@ class ValidationClass:
 		block_hash = Block['block_hash']
 		next_block_hash = Block['next_block_hash']
 		transactions = Block['transactions']
-
 		if index == 0:
+			genesis_checkpoint = CHECKPOINTS()[0]
+			if index != genesis_checkpoint['index']:
+				return False
+			if block_hash != genesis_checkpoint['hash']:
+				return False
+			if next_block_hash != genesis_checkpoint['next_hash']:
+				return False
+			block_data_string = str(index) + prev_hash + str(timestamp)
+			sha = hashlib.sha384()
+			reconstructed_block_hash = sha.update(block_data_string.encode('utf-8'))
+			block_hash_hex = sha.hexdigest()
+			block_hash_string = str(block_hash_hex)
+			next_block_data_string = str(index + 1) + block_hash + str(timestamp + blocktime)
+			if block_hash_string != block_hash:
+				print('[E] V4')
+				return False
+			sha = hashlib.sha384()
+			reconstructed_next_block_hash = sha.update(next_block_data_string.encode('utf-8'))
+			next_block_hash_hex = sha.hexdigest()
+			next_block_hash_string = str(next_block_hash_hex)
+			if next_block_hash_string != next_block_hash:
+				print('[E] V5')
+				return False
 			print('[ADDING GENESISBLOCK]')
 			c_hain.SAVEVALIDBLOCK(LocalChain, Block)
-			return True # >>> Add Genesis Validation as Checkpoint <<< #
+			return True
 		if index != len(LocalChain):
 			print(index)
 			print(len(LocalChain))
@@ -89,10 +111,6 @@ class ValidationClass:
 			print('[E] [TV2]')
 			return False
 
-		#######################################
-		#	implement a balance check 		  #
-		#######################################
-
 		# Validate Transaction Hash
 		transaction_hash_data = sender + recipient + str(amount) + str(timestamp) + str(publickey)
 		# publickey has to be reimported to be used for validation process
@@ -103,7 +121,7 @@ class ValidationClass:
 			print('[E] [TV3]')
 			return False
 
-		print('[EXTERNAL TRANSACTION ACCEPTED]')
+		print('[TRANSACTION ACCEPTED]')
 		return True
 
 #		transaction = {
