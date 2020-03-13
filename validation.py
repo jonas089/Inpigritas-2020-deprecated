@@ -113,17 +113,19 @@ class ValidationClass:
 				Balance -= Block_Transactions_Unconfirmed[uftx]['amount']
 			if Block_Transactions_Unconfirmed[uftx]['recipient'] == sender:
 				Balance += Block_Transactions_Unconfirmed[utfx]['amount']
-
+		if amount <= 0.0:
+			print('[E] [TV1]')
+			return False
 		sigf = SHA384.new()
 		sigf.update(str(timestamp).encode('utf-8'))
 		public_key = RSA.importKey(publickey)
 		cypher = PKCS1_v1_5.new(public_key)
 		verification = cypher.verify(sigf, signature)
 		if verification == False:
-			print('[E] [TV1]')
+			print('[E] [TV2]')
 			return False
 		if Balance < amount:
-			print('[E] [TV2]')
+			print('[E] [TV3]')
 			return False
 
 		# Validate Transaction Hash
@@ -133,7 +135,7 @@ class ValidationClass:
 		transaction_hash_reconstructed = sha.update(transaction_hash_data.encode('utf-8'))
 		transaction_hash_reconstructed_string = str(sha.hexdigest())
 		if transaction_hash_reconstructed_string != transaction_hash:
-			print('[E] [TV3]')
+			print('[E] [TV4]')
 			return False
 
 		print('[TRANSACTION ACCEPTED]')
