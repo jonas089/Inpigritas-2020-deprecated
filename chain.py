@@ -93,7 +93,7 @@ def SAVEVALIDBLOCK(LocalChainData, Block):
 
 def GENERATEGENESIS():
     #stacking = [{'address' : '<ROME>', 'reward' : 0.0}, {'address' : 'Jonas', 'reward' : 0.0}]
-    CAmount_Subsidy = 10 * 1000 * 1000 * 1000 * 1000
+    CAmount_Subsidy = values.CAmount_Subsidy
     transactions = [{'sender' : '0', 'recipient' : 'b3ee3bc36dccfc1e8e6f40daec19c1c8ddcb4ec33ab077eebd95f9474cab39926d461d68c8a90a9444da9401f7a6003d', 'amount' : CAmount_Subsidy, 'timestamp' : time.time()}]
     # the transaction data of the genesis block represents the premine
     while len(LocalChain) == 0:
