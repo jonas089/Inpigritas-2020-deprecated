@@ -9,6 +9,7 @@ import account
 import pickle
 import base64
 import transaction
+import values
 
 def CHECKPOINTS():
 	checkpoints = []
@@ -106,7 +107,8 @@ class ValidationClass:
 		for uftx in range(0, len(Block_Transactions_Unconfirmed)):
 			if Block_Transactions_Unconfirmed[uftx]['sender'] == sender:
 				Balance -= Block_Transactions_Unconfirmed[uftx]['amount']
-
+			if Block_Transactions_Unconfirmed[uftx]['recipient'] == sender:
+				Balance += Block_Transactions_Unconfirmed[utfx]['amount']
 		sigf = SHA384.new()
 		sigf.update(str(timestamp).encode('utf-8'))
 		public_key = RSA.importKey(publickey)
@@ -118,7 +120,9 @@ class ValidationClass:
 		if Balance < amount:
 			print('[E] [TV2]')
 			return False
-
+		if amount <= 0.0:
+			print('[E] [TV3]')
+			return False
 		# Validate Transaction Hash
 		transaction_hash_data = sender + recipient + str(amount) + str(timestamp) + str(publickey)
 		# publickey has to be reimported to be used for validation process
@@ -126,9 +130,20 @@ class ValidationClass:
 		transaction_hash_reconstructed = sha.update(transaction_hash_data.encode('utf-8'))
 		transaction_hash_reconstructed_string = str(sha.hexdigest())
 		if transaction_hash_reconstructed_string != transaction_hash:
-			print('[E] [TV3]')
+			print('[E] [TV4]')
 			return False
-
+		# Validate Transaction is not a Duplicate
+		with open('src/TxBlockNo' + '000' + str(next_index) + '.dat' + 'rb') as Block_Transaction_File:
+			Block_Transactions_Unconfirmed = pickle.load(Block_Transaction_File)
+			if tx in Block_Transactions_Unconfirmed:
+				print('[E] [TV5]')
+				return False
+		with open('src/blockchain.dat', 'rb') as BlockChainFile:
+			Total_Local_Chain = pickle.load(BlockChainFile)
+			for fullblock in Total_Local_Chain:
+				if tx in fullblock['transactions']:
+					print('[E] [TV6]')
+					return False
 		print('[TRANSACTION ACCEPTED]')
 		transaction.Add_Transaction_Local(tx)
 		return True
