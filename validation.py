@@ -9,17 +9,14 @@ import account
 import pickle
 import base64
 import transaction
-import values
 
 def CHECKPOINTS():
-	CAmount_Subsidy = values.CAmount_Subsidy
 	checkpoints = []
 	checkpoints.append(0)
 	checkpoints[0] = {}
 	checkpoints[0]['index'] = 0
 	checkpoints[0]['hash'] = 'cb5ef28937988f7ee948521633b3846619889a19ef9300ad91f4e59bc146a86b18c030ec0333024b274e1800fd132316' # insert Genesis hash
 	checkpoints[0]['next_hash'] = '1a50407afabb1a64d9e11dfbe15c327d90f6e97fda96fb1bea75a286085f100ee0f976e06ca00cfd05928787390c612a' # insert Hash following Genesis hash
-	checkpoints[0]['transactions'] = [{'sender' : '0', 'recipient' : 'b3ee3bc36dccfc1e8e6f40daec19c1c8ddcb4ec33ab077eebd95f9474cab39926d461d68c8a90a9444da9401f7a6003d', 'amount' : CAmount_Subsidy, 'timestamp' : time.time()}]
 	return checkpoints
 class ValidationClass:
 	def VALIDATE_BLOCK(Block, LocalChain, blocktime):
@@ -56,16 +53,7 @@ class ValidationClass:
 				return False
 			print('[ADDING GENESISBLOCK]')
 			c_hain.SAVEVALIDBLOCK(LocalChain, Block)
-			if transactions != genesis_checkpoint['transactions']:
-				print('[E] V6')
-				return False
 			return True
-
-		if len(Block['transactions']) != 0:
-			for BlockTransaction in range(0, len(Block['transactions']) - 1):
-				if ValidationClass.VALIDATE_TRANSACTION(Block['transactions'][BlockTransaction]) == False:
-					print('[BLOCK REJECTED BECAUSE INVALID TRANSACTIONS WERE IDENTIFIED]')
-					return False
 		if index != len(LocalChain):
 			print(index)
 			print(len(LocalChain))
@@ -118,44 +106,29 @@ class ValidationClass:
 		for uftx in range(0, len(Block_Transactions_Unconfirmed)):
 			if Block_Transactions_Unconfirmed[uftx]['sender'] == sender:
 				Balance -= Block_Transactions_Unconfirmed[uftx]['amount']
-			if Block_Transactions_Unconfirmed[uftx]['recipient'] == sender:
-				Balance += Block_Transactions_Unconfirmed[utfx]['amount']
-		if amount <= 0.0:
-			print('[E] [TV1]')
-			return False
-		transaction_hash_data = sender + recipient + str(amount) + str(timestamp) + str(publickey)
+
 		sigf = SHA384.new()
-		sigf.update(transaction_hash_data.encode('utf-8'))
+		sigf.update(str(timestamp).encode('utf-8'))
 		public_key = RSA.importKey(publickey)
 		cypher = PKCS1_v1_5.new(public_key)
 		verification = cypher.verify(sigf, signature)
 		if verification == False:
-			print('[E] [TV2]')
+			print('[E] [TV1]')
 			return False
 		if Balance < amount:
-			print('[E] [TV3]')
+			print('[E] [TV2]')
 			return False
+
 		# Validate Transaction Hash
+		transaction_hash_data = sender + recipient + str(amount) + str(timestamp) + str(publickey)
 		# publickey has to be reimported to be used for validation process
 		sha = hashlib.sha384()
 		transaction_hash_reconstructed = sha.update(transaction_hash_data.encode('utf-8'))
 		transaction_hash_reconstructed_string = str(sha.hexdigest())
 		if transaction_hash_reconstructed_string != transaction_hash:
-			print('[E] [TV4]')
+			print('[E] [TV3]')
 			return False
 
-		# Validate Transaction is not a duplicate
-		with open('src/TxBlockNo' + '000' + str(next_index) + '.dat' + 'rb') as Block_Transaction_File:
-			Block_Transactions_Unconfirmed = pickle.load(Block_Transaction_File)
-		if tx in Block_Transactions_Unconfirmed:
-			print('[E] [TV5]')
-			return False
-		with open('src/blockchain.dat', 'rb') as BlockChainFile:
-			Total_Local_Chain = pickle.load(BlockChainFile)
-		for fullblock in Total_Local_Chain:
-			if tx in fullblock['transactions']:
-				print('[E] [TV6]')
-				return False
 		print('[TRANSACTION ACCEPTED]')
 		transaction.Add_Transaction_Local(tx)
 		return True

@@ -86,7 +86,7 @@ class Transactions:
 		#[TXVAR]
 		transaction_hash_string = str(transaction_hash_hex)
 		sigf = SHA384.new()
-		sigf.update(transaction_data_string.encode('utf-8'))
+		sigf.update(str(timestamp).encode('utf-8'))
 		transaction_cipher = PKCS1_v1_5.new(privkey_import)
 		#[TXVAR]
 		signature = transaction_cipher.sign(sigf)
@@ -105,6 +105,8 @@ class Transactions:
 			'height' : int
 		}
 		Transactions.Submit_Transaction_Network(transaction)
+
+
 		# pubkey_exported
 		# signature
 #[NOTES]
