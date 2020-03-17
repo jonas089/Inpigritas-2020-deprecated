@@ -16,8 +16,8 @@ def CHECKPOINTS():
 	checkpoints.append(0)
 	checkpoints[0] = {}
 	checkpoints[0]['index'] = 0
-	checkpoints[0]['hash'] = 'cb5ef28937988f7ee948521633b3846619889a19ef9300ad91f4e59bc146a86b18c030ec0333024b274e1800fd132316' # insert Genesis hash
-	checkpoints[0]['next_hash'] = '1a50407afabb1a64d9e11dfbe15c327d90f6e97fda96fb1bea75a286085f100ee0f976e06ca00cfd05928787390c612a' # insert Hash following Genesis hash
+	checkpoints[0]['hash'] = '3e347d9058c0f117aa512f463d633b94069a9ce61d49df5a40b8348df41a03f3bd7cc1ffbeaf5da3c4c0c9f844e49265' # insert Genesis hash
+	checkpoints[0]['next_hash'] = '250d8d8089db83f6d5556efcdaf0ed40041174ce5a7ccc6ad8af67a61ec61c0a3e564b756f3ed0f5aab2cdca866430d4' # insert Hash following Genesis hash
 	return checkpoints
 class ValidationClass:
 	def VALIDATE_BLOCK(Block, LocalChain, blocktime):
@@ -32,8 +32,10 @@ class ValidationClass:
 			genesis_checkpoint = CHECKPOINTS()[0]
 			if index != genesis_checkpoint['index']:
 				return False
+			# comment out when generating genesis block
 			if block_hash != genesis_checkpoint['hash']:
 				return False
+			# comment out when generating genesis block
 			if next_block_hash != genesis_checkpoint['next_hash']:
 				return False
 			block_data_string = str(index) + prev_hash + str(timestamp)
@@ -85,6 +87,11 @@ class ValidationClass:
 		if next_block_hash_string != next_block_hash:
 			print('[E] V5')
 			return False
+		if len(Block['transactions']) != 0:
+			for __transaction in range(0, len(Block['transactions']) - 1):
+				if ValidationClass.VALIDATE_TRANSACTION(Block['transactions'][__transaction]) == False:
+					print('[E] V6')
+					return False
 		print('[ADDING BLOCK]')
 		c_hain.SAVEVALIDBLOCK(LocalChain, Block)
 		return True
@@ -133,7 +140,7 @@ class ValidationClass:
 			print('[E] [TV4]')
 			return False
 		# Validate Transaction is not a Duplicate
-		with open('src/TxBlockNo' + '000' + str(next_index) + '.dat' + 'rb') as Block_Transaction_File:
+		with open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'rb') as Block_Transaction_File:
 			Block_Transactions_Unconfirmed = pickle.load(Block_Transaction_File)
 			if tx in Block_Transactions_Unconfirmed:
 				print('[E] [TV5]')

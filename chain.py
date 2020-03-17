@@ -93,7 +93,7 @@ def SAVEVALIDBLOCK(LocalChainData, Block):
 
 def GENERATEGENESIS():
     CAmount_Subsidy = values.CAmount_Subsidy
-    transactions = [{'sender' : '0', 'recipient' : 'b3ee3bc36dccfc1e8e6f40daec19c1c8ddcb4ec33ab077eebd95f9474cab39926d461d68c8a90a9444da9401f7a6003d', 'amount' : CAmount_Subsidy, 'timestamp' : time.time()}]
+    transactions = [{'sender' : '0', 'recipient' : 'eaedda3d0c197ce87076e7dfbbe00f344ffc3dddacea8747f7939f844f2b8a71bd814d147c0ab7cff014dc9a37292405', 'amount' : CAmount_Subsidy, 'timestamp' : time.time()}]
     # the transaction data of the genesis block represents the premine
     while len(LocalChain) == 0:
         BLOCKCHAIN.BLOCK(LocalChain, transactions)
