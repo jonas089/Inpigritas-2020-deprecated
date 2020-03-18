@@ -18,6 +18,8 @@ def CHECKPOINTS():
 	checkpoints[0]['index'] = 0
 	checkpoints[0]['hash'] = '3e347d9058c0f117aa512f463d633b94069a9ce61d49df5a40b8348df41a03f3bd7cc1ffbeaf5da3c4c0c9f844e49265' # insert Genesis hash
 	checkpoints[0]['next_hash'] = '250d8d8089db83f6d5556efcdaf0ed40041174ce5a7ccc6ad8af67a61ec61c0a3e564b756f3ed0f5aab2cdca866430d4' # insert Hash following Genesis hash
+	checkpoints[0]['transactions'][0]['recipient'] = 'eaedda3d0c197ce87076e7dfbbe00f344ffc3dddacea8747f7939f844f2b8a71bd814d147c0ab7cff014dc9a37292405' # insert developer address receiving CAmount_Subsidy
+	checkpoints[0]['transactions'][0]['amount'] = values.CAmount_Subsidy
 	return checkpoints
 class ValidationClass:
 	def VALIDATE_BLOCK(Block, LocalChain, blocktime):
@@ -31,6 +33,15 @@ class ValidationClass:
 		if index == 0:
 			genesis_checkpoint = CHECKPOINTS()[0]
 			if index != genesis_checkpoint['index']:
+				return False
+			# comment out when generating genesis block
+			if len(transactions) != 1:
+				return False
+			# comment out when generating genesis block
+			if transactions[0]['recipient'] != genesis_checkpoint['transactions'][0]['recipient']:
+				return False
+			# comment out when generating genesis block
+			if transactions[0]['amount'] != genesis_checkpoint['transactions'][0]['amount']:
 				return False
 			# comment out when generating genesis block
 			if block_hash != genesis_checkpoint['hash']:
@@ -73,17 +84,14 @@ class ValidationClass:
 		reconstructed_block_hash = sha.update(block_data_string.encode('utf-8'))
 		block_hash_hex = sha.hexdigest()
 		block_hash_string = str(block_hash_hex)
-
 		if block_hash_string != block_hash:
 			print('[E] V4')
 			return False
-
 		next_block_data_string = str(index + 1) + block_hash + str(timestamp + blocktime)
 		sha = hashlib.sha384()
 		reconstructed_next_block_hash = sha.update(next_block_data_string.encode('utf-8'))
 		next_block_hash_hex = sha.hexdigest()
 		next_block_hash_string = str(next_block_hash_hex)
-
 		if next_block_hash_string != next_block_hash:
 			print('[E] V5')
 			return False
@@ -95,7 +103,6 @@ class ValidationClass:
 		print('[ADDING BLOCK]')
 		c_hain.SAVEVALIDBLOCK(LocalChain, Block)
 		return True
-
 	def VALIDATE_TRANSACTION(tx):
 		sender = tx['sender']
 		recipient = tx['recipient']

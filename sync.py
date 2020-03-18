@@ -57,7 +57,7 @@ def fetch_pending_transactions():
 
 
 def newblock():
-    fetch_pending_transactions()# this is important in case the node has been booted up between two 
+    fetch_pending_transactions()# this is important in case the node has been booted up between two
                                 # blocks when there are already transactions submitted to other nodes
     #fetch_pending_transactions()
     tx_data = []
