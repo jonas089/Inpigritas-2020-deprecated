@@ -87,21 +87,13 @@ def LoadBalance(address):
 			elif LocalBlockChain[Block_In_Chain]['transactions'][TxInBlock]['recipient'] == address:
 				block_balance += LocalBlockChain[Block_In_Chain]['transactions'][TxInBlock]['amount']
 			elif LocalBlockChain[Block_In_Chain]['transactions'][TxInBlock]['recipient'] == address and LocalBlockChain[Block_In_Chain]['transactions'][TxInBlock]['sender'] == address:
-				block_balance += 0.0
-			else:
-				last_balance_to_proceed = 0.0
-				for Block in range(0, TxInBlock):
-					for Transaction in range(0, len(LocalBlockChain[Block]['transactions'])):
-						if LocalBlockChain[Block]['transactions'][Transaction]['sender'] == address:
-							last_balance_to_proceed -= LocalBlockChain[Block]['transactions'][Transaction]['amount']
-						if LocalBlockChain[Block]['transactions'][Transaction]['recipient'] == address:
-							last_balance_to_proceed += LocalBlockChain[Block]['transactions'][Transaction]['amount']
-				block_balance = last_balance_to_proceed				
+				block_balance += 0.0 
 		if block_balance > 0.0:
-			Interest += block_balance * values.interest_per_block
-	Balance += Interest
-
+			Interest = block_balance * values.interest_per_block
+			block_balance += Interest
+	Balance = block_balance
 	next_index = LocalBlockChain[len(LocalBlockChain) - 1]['index'] + 1
+	
 
 	try:
 		with open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'rb') as Block_Transaction_File:
