@@ -4,7 +4,7 @@ from Crypto.Signature import PKCS1_v1_5 # RSA algorithm to sign with priv & veri
 from Crypto.Hash import SHA384
 import hashlib
 import time
-
+import values
 import pickle
 
 class Keys:
@@ -76,6 +76,43 @@ def LoadBalance(address):
 	#				Balance -= block_transaction_data[tx]['amount']
 	#			if block_transaction_data[tx]['recipient'] == address:
 	#				Balance += block_transaction_data[tx]['amount']
+
+	# calculate interest
+	Interest = 0.0
+	block_balance = 0.0
+	for Block_In_Chain in range(0, len(LocalBlockChain)):
+		for TxInBlock in range (0, len(LocalBlockChain[Block_In_Chain]['transactions'])):
+			if LocalBlockChain[Block_In_Chain]['transactions'][TxInBlock]['sender'] == address:
+				block_balance -= LocalBlockChain[Block_In_Chain]['transactions'][TxInBlock]['amount']
+			elif LocalBlockChain[Block_In_Chain]['transactions'][TxInBlock]['recipient'] == address:
+				block_balance += LocalBlockChain[Block_In_Chain]['transactions'][TxInBlock]['amount']
+			elif LocalBlockChain[Block_In_Chain]['transactions'][TxInBlock]['recipient'] == address and LocalBlockChain[Block_In_Chain]['transactions'][TxInBlock]['sender'] == address:
+				block_balance += 0.0
+			else:
+				last_balance_to_proceed = 0.0
+				for Block in range(0, TxInBlock):
+					for Transaction in range(0, len(LocalBlockChain[Block]['transactions'])):
+						if LocalBlockChain[Block]['transactions'][Transaction]['sender'] == address:
+							last_balance_to_proceed -= LocalBlockChain[Block]['transactions'][Transaction]['amount']
+						if LocalBlockChain[Block]['transactions'][Transaction]['recipient'] == address:
+							last_balance_to_proceed += LocalBlockChain[Block]['transactions'][Transaction]['amount']
+				block_balance = last_balance_to_proceed				
+		if block_balance > 0.0:
+			Interest += block_balance * values.interest_per_block
+	Balance += Interest
+
+	next_index = LocalBlockChain[len(LocalBlockChain) - 1]['index'] + 1
+
+	try:
+		with open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'rb') as Block_Transaction_File:
+			Block_Transactions_Unconfirmed = pickle.load(Block_Transaction_File)
+		for uftx in range(0, len(Block_Transactions_Unconfirmed) - 1):
+			if Block_Transactions_Unconfirmed[uftx]['sender'] == sender:
+				Balance -= Block_Transactions_Unconfirmed[uftx]['amount']
+			if Block_Transactions_Unconfirmed[uftx]['recipient'] == sender:
+				Balance += Block_Transactions_Unconfirmed[utfx]['amount']
+	except Exception as notransactions:
+		print('[WARNING] NO TRANSACTION FILE FOUND FOR FOLLOWING BLOCK')
 	return Balance
 
 

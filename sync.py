@@ -29,7 +29,10 @@ def fetch_pending_transactions():
         nodeurl = seed + 'txpool.json'
         local_txpool = []
         LocalChain = c_hain.LOADLOCALCHAIN()
-        next_index = LocalChain[len(LocalChain) - 1]['index'] + 1
+        try:
+            next_index = LocalChain[len(LocalChain) - 1]['index'] + 1
+        except Exception as GenesisBlockIndex:
+            next_index = 0
         if next_index > 0:
             try:
                 open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'x')
@@ -103,6 +106,7 @@ def syncpeers(seeds_offline):
                     #    log_write(log_backup() + '\n' + '[ERROR] INVALID BLOCK')
                     #    return False
         except Exception as Networkerror:
+            print(str(Networkerror))
             #log_write(log_backup() + '\n' + '[WARNING] NODE OFFLINE' + '\n' + str(Networkerror) + '\n')
             seeds_offline += 1
     if seeds_offline >= seeds_total:
