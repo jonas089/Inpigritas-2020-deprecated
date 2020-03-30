@@ -106,6 +106,22 @@ class ValidationClass:
 				if ValidationClass.VALIDATE_TRANSACTION(Block['transactions'][__transaction]) == False:
 					print('[E] V6')
 					return False
+				LocalBlockChain = c_hain.LOADLOCALCHAIN()
+				next_index = LocalBlockChain[len(LocalBlockChain) - 1]['index'] + 1
+				with open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'rb') as Block_Transaction_File:
+					Block_Transactions_Unconfirmed = pickle.load(Block_Transaction_File)
+				for _transaction in range(0, len(Block['transactions']) - 1):
+					if len(Block['transactions']) >= 2:
+						for i in range(_transaction + 1, len(Block['transactions']) - 1):
+							if _transaction == Block['transaction'][i] and Block['transaction'][i] != _transaction:
+								print('[E] [TV7]')
+								return False
+				with open('src/blockchain.dat', 'rb') as BlockChainFile:
+					Total_Local_Chain = pickle.load(BlockChainFile)
+					for fullblock in Total_Local_Chain:
+						if __transaction in fullblock['transactions']:
+							print('[E] [TV6]')
+							return False
 		print('[ADDING BLOCK]')
 		c_hain.SAVEVALIDBLOCK(LocalChain, Block)
 		return True
@@ -143,20 +159,6 @@ class ValidationClass:
 		if transaction_hash_reconstructed_string != transaction_hash:
 			print('[E] [TV4]')
 			return False
-		# Validate Transaction is not a Duplicate
-		LocalBlockChain = c_hain.LOADLOCALCHAIN()
-		next_index = LocalBlockChain[len(LocalBlockChain) - 1]['index'] + 1
-		with open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'rb') as Block_Transaction_File:
-			Block_Transactions_Unconfirmed = pickle.load(Block_Transaction_File)
-			if tx in Block_Transactions_Unconfirmed:
-				print('[E] [TV5]')
-				return False
-		with open('src/blockchain.dat', 'rb') as BlockChainFile:
-			Total_Local_Chain = pickle.load(BlockChainFile)
-			for fullblock in Total_Local_Chain:
-				if tx in fullblock['transactions']:
-					print('[E] [TV6]')
-					return False
 		print('[TRANSACTION ACCEPTED]')
 		transaction.Add_Transaction_Local(tx)
 		return True
