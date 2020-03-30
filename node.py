@@ -46,7 +46,7 @@ def SendBlock():
     blockid = request.args.get('blockid')
     array = chain.LOADLOCALCHAIN()
     try:
-        block = array[num]
+        block = array[blockid]
         return block
     except IndexError:
         return False
