@@ -41,20 +41,18 @@ def ReturnTxPool():
     TransactionPoolDict['data'] = local_txpool
     return TransactionPoolDict
 
-@node.route('/block', methods=['GET'])
-def SendBlock():
-    blockid = request.args.get('blockid')
+@node.route('/block/<blkindex>', methods=['GET'])
+def SendBlock(blkindex):
     array = chain.LOADLOCALCHAIN()
     try:
-        block = array[blockid]
+        block = array[blkindex]
         return block
     except IndexError:
         return False
 
-@node.route('/balance', methods=['GET']) # this isnt completely done
-def WalletAmount():
-    walletid = request.args.get('walletid')
-    balance = account.LoadBalance(walletid)
+@node.route('/balance/<address>', methods=['GET']) # this isnt completely done
+def WalletAmount(address):
+    balance = account.LoadBalance(address)
     return balance
 
 #@node.route('/block', methods=['POST'])
