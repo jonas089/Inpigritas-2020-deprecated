@@ -102,19 +102,19 @@ class ValidationClass:
 			print('[E] V7')
 			return False
 		if len(Block['transactions']) != 0:
-			for __transaction in range(0, len(Block['transactions']) - 1):
+			for __transaction in range(0, len(Block['transactions'])):
 				if ValidationClass.VALIDATE_TRANSACTION(Block['transactions'][__transaction]) == False:
 					print('!-----[E] Type: "TV"-----!')
 					return False
 				LocalBlockChain = c_hain.LOADLOCALCHAIN()
-				for __block in range(0, len(LocalBlockChain) - 1):
+				for __block in range(0, len(LocalBlockChain)):
 					if __transaction in LocalBlockChain[__block]['transactions']:
 						print('[E] [TVE0]')
 						return False 
 				next_index = LocalBlockChain[len(LocalBlockChain) - 1]['index'] + 1
 				with open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'rb') as Block_Transaction_File:
 					Block_Transactions_Unconfirmed = pickle.load(Block_Transaction_File)
-				for _ltx in range(0, len(Block['transactions']) - 1):
+				for _ltx in range(0, len(Block['transactions'])):
 					if __transaction != _ltx and Block['transactions'][__transaction] == Block['transactions'][_ltx]:
 						print('[E] [TVE1]')
 						return False

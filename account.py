@@ -60,7 +60,6 @@ class Keys:
 
 def LoadBalance(address):
 	Balance = 0.0
-	next_index = LocalBlockChain[len(LocalBlockChain) - 1]['index'] + 1
 	with open('src/blockchain.dat', 'rb') as ChainFile:
 		LocalBlockChain = pickle.load(ChainFile)
 
@@ -88,7 +87,7 @@ def LoadBalance(address):
 			block_balance += Interest
 			print('[block_balance]:' + str(block_balance))
 	Balance = block_balance
-
+	next_index = LocalBlockChain[len(LocalBlockChain) - 1]['index'] + 1
 	try:
 		with open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'rb') as Block_Transaction_File:
 			Block_Transactions_Unconfirmed = pickle.load(Block_Transaction_File)
