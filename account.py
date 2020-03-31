@@ -60,19 +60,9 @@ class Keys:
 
 def LoadBalance(address):
 	Balance = 0.0
+	next_index = LocalBlockChain[len(LocalBlockChain) - 1]['index'] + 1
 	with open('src/blockchain.dat', 'rb') as ChainFile:
 		LocalBlockChain = pickle.load(ChainFile)
-	next_index = LocalBlockChain[len(LocalBlockChain) - 1]['index'] + 1
-	try:
-		with open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'rb') as Block_Transaction_File:
-			Block_Transactions_Unconfirmed = pickle.load(Block_Transaction_File)
-		for uftx in range(0, len(Block_Transactions_Unconfirmed) - 1):
-			if Block_Transactions_Unconfirmed[uftx]['sender'] == sender:
-				Balance -= Block_Transactions_Unconfirmed[uftx]['amount']
-			if Block_Transactions_Unconfirmed[uftx]['recipient'] == sender:
-				Balance += Block_Transactions_Unconfirmed[utfx]['amount']
-	except Exception as notransactions:
-		print('[WARNING] NO TRANSACTION FILE FOUND FOR FOLLOWING BLOCK')
 
 	for Block in range(0, len(LocalBlockChain)):
 		for Transaction in range(0, len(LocalBlockChain[Block]['transactions'])):
@@ -98,7 +88,17 @@ def LoadBalance(address):
 			block_balance += Interest
 			print('[block_balance]:' + str(block_balance))
 	Balance = block_balance
-	
+
+	try:
+		with open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'rb') as Block_Transaction_File:
+			Block_Transactions_Unconfirmed = pickle.load(Block_Transaction_File)
+		for uftx in range(0, len(Block_Transactions_Unconfirmed) - 1):
+			if Block_Transactions_Unconfirmed[uftx]['sender'] == sender:
+				Balance -= Block_Transactions_Unconfirmed[uftx]['amount']
+			if Block_Transactions_Unconfirmed[uftx]['recipient'] == sender:
+				Balance += Block_Transactions_Unconfirmed[utfx]['amount']
+	except Exception as notransactions:
+		print('[WARNING] NO TRANSACTION FILE FOUND FOR FOLLOWING BLOCK')
 	return Balance
 
 
