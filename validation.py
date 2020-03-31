@@ -110,12 +110,8 @@ class ValidationClass:
 				next_index = LocalBlockChain[len(LocalBlockChain) - 1]['index'] + 1
 				with open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'rb') as Block_Transaction_File:
 					Block_Transactions_Unconfirmed = pickle.load(Block_Transaction_File)
-				for _transaction in range(0, len(Block['transactions']) - 1):
-					if len(Block['transactions']) >= 2:
-						for i in range(_transaction + 1, len(Block['transactions']) - 1):
-							if _transaction == Block['transaction'][i] and Block['transaction'][i] != _transaction:
-								print('[E] [TV7]')
-								return False
+				#duplicate_check implementation missing !!!!!!!!!!!!!!!!!!!
+
 				with open('src/blockchain.dat', 'rb') as BlockChainFile:
 					Total_Local_Chain = pickle.load(BlockChainFile)
 					for fullblock in Total_Local_Chain:
