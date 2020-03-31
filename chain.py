@@ -3,6 +3,7 @@ import hashlib
 import time
 import pickle
 import values
+import gc
 
 blocktime = values.blocktime
 LocalChain = []
@@ -89,6 +90,7 @@ def SAVEVALIDBLOCK(LocalChainData, Block):
     with open('src/blockchain.dat', 'wb') as chaindatafile:
         pickle.dump(LocalChainData, chaindatafile)
         print('[NEW BLOCK]' + str(Block))
+    gc.collect()
     return True
 
 def GENERATEGENESIS():

@@ -49,11 +49,10 @@ def fetch_pending_transactions():
                 chain = c_hain.LOADLOCALCHAIN()
                 if len(txpooljson) > len(local_txpool):
                     local_txpool = txpooljson
-                    with open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'wb') as Transaction_Data_File:
-                        pickle.dump(local_txpool, Transaction_Data_File)
-                        print('[TXPOOL SYNCED]')
+                    for _tx in range(0, len(local_txpool)):
+                        validation.VALIDATE_TRANSACTION(local_txpool[_tx])
+                    print('[TXPOOL SYNCED]')
             except Exception as Networkerror:
-                #log_write(log_backup() + '\n' + '[WARNING] NODE OFFLINE' + '\n' + str(Networkerror) + '\n')
                 pass
         else:
             pass

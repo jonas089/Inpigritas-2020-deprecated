@@ -1,4 +1,4 @@
-blocktime = 600 # 10 minutes
+blocktime = 60 # 1 minute
 
 CAmount_Subsidy = 10*1000*1000 # 10 million
 

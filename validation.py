@@ -16,8 +16,8 @@ def CHECKPOINTS():
 	checkpoints.append(0)
 	checkpoints[0] = {}
 	checkpoints[0]['index'] = 0
-	checkpoints[0]['hash'] = '3e347d9058c0f117aa512f463d633b94069a9ce61d49df5a40b8348df41a03f3bd7cc1ffbeaf5da3c4c0c9f844e49265' # insert Genesis hash
-	checkpoints[0]['next_hash'] = '250d8d8089db83f6d5556efcdaf0ed40041174ce5a7ccc6ad8af67a61ec61c0a3e564b756f3ed0f5aab2cdca866430d4' # insert Hash following Genesis hash
+	checkpoints[0]['hash'] = 'ef25ab6dfa08cb0c187aea00e2d67a29bd170360b1bff2b0b93543ff75b69096c35b23a0dd41cc612f1d10b27f308aab' # insert Genesis hash
+	checkpoints[0]['next_hash'] = '12d6a8c47f06494bea1e1f3a43ed133096e17399611605c476d104972b0bf112f52cade93f46e779c1df1a6ece76d571' # insert Hash following Genesis hash
 	checkpoints[0]['recipient'] = 'eaedda3d0c197ce87076e7dfbbe00f344ffc3dddacea8747f7939f844f2b8a71bd814d147c0ab7cff014dc9a37292405' # insert developer address receiving CAmount_Subsidy
 	checkpoints[0]['amount'] = values.CAmount_Subsidy
 	return checkpoints
@@ -35,26 +35,26 @@ class ValidationClass:
 			if index != genesis_checkpoint['index']:
 				print('[E] VG1')
 				return False
-			# comment out when generating genesis block
-			if len(transactions) != 1:
-				print('[E] VG2')
-				return False
-			# comment out when generating genesis block
-			if transactions[0]['recipient'] != genesis_checkpoint['recipient']:
-				print('[E] VG3')
-				return False
-			# comment out when generating genesis block
-			if transactions[0]['amount'] != genesis_checkpoint['amount']:
-				print('[E] VG4')
-				return False
-			# comment out when generating genesis block
-			if block_hash != genesis_checkpoint['hash']:
-				print('[E] VG5')				
-				return False
-			# comment out when generating genesis block
-			if next_block_hash != genesis_checkpoint['next_hash']:
-				print('[E] VG6')				
-				return False
+#			# comment out when generating genesis block
+#			if len(transactions) != 1:
+#				print('[E] VG2')
+#				return False
+#			# comment out when generating genesis block
+#			if transactions[0]['recipient'] != genesis_checkpoint['recipient']:
+#				print('[E] VG3')
+#				return False
+#			# comment out when generating genesis block
+#			if transactions[0]['amount'] != genesis_checkpoint['amount']:
+#				print('[E] VG4')
+#				return False
+#			# comment out when generating genesis block
+#			if block_hash != genesis_checkpoint['hash']:
+#				print('[E] VG5')				
+#				return False
+#			# comment out when generating genesis block
+#			if next_block_hash != genesis_checkpoint['next_hash']:
+#				print('[E] VG6')				
+#				return False
 			block_data_string = str(index) + prev_hash + str(timestamp)
 			sha = hashlib.sha384()
 			reconstructed_block_hash = sha.update(block_data_string.encode('utf-8'))
@@ -62,14 +62,14 @@ class ValidationClass:
 			block_hash_string = str(block_hash_hex)
 			next_block_data_string = str(index + 1) + block_hash + str(timestamp + blocktime)
 			if block_hash_string != block_hash:
-				print('[E] V4')
+				print('[E] V1')
 				return False
 			sha = hashlib.sha384()
 			reconstructed_next_block_hash = sha.update(next_block_data_string.encode('utf-8'))
 			next_block_hash_hex = sha.hexdigest()
 			next_block_hash_string = str(next_block_hash_hex)
 			if next_block_hash_string != next_block_hash:
-				print('[E] V5')
+				print('[E] V2')
 				return False
 			print('[ADDING GENESISBLOCK]')
 			c_hain.SAVEVALIDBLOCK(LocalChain, Block)
@@ -77,13 +77,13 @@ class ValidationClass:
 		if index != len(LocalChain):
 			print(index)
 			print(len(LocalChain))
-			print('[E] V1')
+			print('[E] V3')
 			return False
 		if timestamp != LocalChain[len(LocalChain) - 1]['next_timestamp']:
-			print('[E] V2')
+			print('[E] V4')
 			return False
 		if block_hash != LocalChain[len(LocalChain) - 1]['next_block_hash']:
-			print('[E] V3')
+			print('[E] V5')
 			return False
 		block_data_string = str(index) + prev_hash + str(timestamp)
 		sha = hashlib.sha384()
@@ -91,7 +91,7 @@ class ValidationClass:
 		block_hash_hex = sha.hexdigest()
 		block_hash_string = str(block_hash_hex)
 		if block_hash_string != block_hash:
-			print('[E] V4')
+			print('[E] V6')
 			return False
 		next_block_data_string = str(index + 1) + block_hash + str(timestamp + blocktime)
 		sha = hashlib.sha384()
@@ -99,24 +99,30 @@ class ValidationClass:
 		next_block_hash_hex = sha.hexdigest()
 		next_block_hash_string = str(next_block_hash_hex)
 		if next_block_hash_string != next_block_hash:
-			print('[E] V5')
+			print('[E] V7')
 			return False
 		if len(Block['transactions']) != 0:
 			for __transaction in range(0, len(Block['transactions']) - 1):
 				if ValidationClass.VALIDATE_TRANSACTION(Block['transactions'][__transaction]) == False:
-					print('[E] V6')
+					print('!-----[E] Type: "TV"-----!')
 					return False
 				LocalBlockChain = c_hain.LOADLOCALCHAIN()
+				for __block in range(0, len(LocalBlockChain) - 1):
+					if __transaction in LocalBlockChain[__block]['transactions']:
+						print('[E] [TVE0]')
+						return False 
 				next_index = LocalBlockChain[len(LocalBlockChain) - 1]['index'] + 1
 				with open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'rb') as Block_Transaction_File:
 					Block_Transactions_Unconfirmed = pickle.load(Block_Transaction_File)
-				#duplicate_check implementation missing !!!!!!!!!!!!!!!!!!!
-
+				for _ltx in range(0, len(Block['transactions']) - 1):
+					if __transaction != _ltx and Block['transactions'][__transaction] == Block['transactions'][_ltx]:
+						print('[E] [TVE1]')
+						return False
 				with open('src/blockchain.dat', 'rb') as BlockChainFile:
 					Total_Local_Chain = pickle.load(BlockChainFile)
 					for fullblock in Total_Local_Chain:
 						if __transaction in fullblock['transactions']:
-							print('[E] [TV6]')
+							print('[E] [TVE2]')
 							return False
 		print('[ADDING BLOCK]')
 		c_hain.SAVEVALIDBLOCK(LocalChain, Block)

@@ -90,7 +90,9 @@ def LoadBalance(address):
 				block_balance += 0.0 
 		if block_balance > 0.0:
 			Interest = block_balance * values.interest_per_block
+			print('[Interest]: ' + str(Interest))
 			block_balance += Interest
+			print('[block_balance]:' + str(block_balance))
 	Balance = block_balance
 	next_index = LocalBlockChain[len(LocalBlockChain) - 1]['index'] + 1
 	
