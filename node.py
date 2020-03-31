@@ -7,7 +7,6 @@ import sync
 import pickle
 import threading
 import values
-#from threading import Thread
 from multiprocessing import Process, Value
 import validation
 
