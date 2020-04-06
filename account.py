@@ -80,7 +80,7 @@ def LoadBalance(address):
 			elif LocalBlockChain[Block_In_Chain]['transactions'][TxInBlock]['recipient'] == address:
 				block_balance += LocalBlockChain[Block_In_Chain]['transactions'][TxInBlock]['amount']
 			elif LocalBlockChain[Block_In_Chain]['transactions'][TxInBlock]['recipient'] == address and LocalBlockChain[Block_In_Chain]['transactions'][TxInBlock]['sender'] == address:
-				block_balance += 0.0 
+				block_balance += 0.0
 		if block_balance > 0.0:
 			Interest = block_balance * values.interest_per_block
 			print('[Interest]: ' + str(Interest))
@@ -125,6 +125,3 @@ def __Start__():
 			pickle.dump(Addresses, account_file)
 	else:
 		return
-
-
-

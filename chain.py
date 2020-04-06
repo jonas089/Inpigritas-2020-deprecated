@@ -95,7 +95,16 @@ def SAVEVALIDBLOCK(LocalChainData, Block):
 
 def GENERATEGENESIS():
     CAmount_Subsidy = values.CAmount_Subsidy
-    transactions = [{'sender' : '0', 'recipient' : 'eaedda3d0c197ce87076e7dfbbe00f344ffc3dddacea8747f7939f844f2b8a71bd814d147c0ab7cff014dc9a37292405', 'amount' : CAmount_Subsidy, 'timestamp' : time.time()}]
+    transactions = []
+    for dev_card_id in range(0, len(values.dev_cards)):
+        transactions.append(len(transactions))
+        transactions[len(transactions)] = {'sender' : '0', 'recipient' : values.dev_cards[dev_card_id], 'amount' : values.Dev_Card_Amount, 'timestamp' : time.time()}]
+    try:
+        open('src/genesistx.dat', 'x')
+    except Exception as exists:
+        pass
+    with open('src/genesistx.dat', 'wb') as card_holders_file:
+        pickle.dump(transactions, card_holders_file)
     # the transaction data of the genesis block represents the premine
     while len(LocalChain) == 0:
         BLOCKCHAIN.BLOCK(LocalChain, transactions)

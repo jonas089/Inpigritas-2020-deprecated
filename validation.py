@@ -18,7 +18,8 @@ def CHECKPOINTS():
 	checkpoints[0]['index'] = 0
 	checkpoints[0]['hash'] = 'ef25ab6dfa08cb0c187aea00e2d67a29bd170360b1bff2b0b93543ff75b69096c35b23a0dd41cc612f1d10b27f308aab' # insert Genesis hash
 	checkpoints[0]['next_hash'] = '12d6a8c47f06494bea1e1f3a43ed133096e17399611605c476d104972b0bf112f52cade93f46e779c1df1a6ece76d571' # insert Hash following Genesis hash
-	checkpoints[0]['recipient'] = 'eaedda3d0c197ce87076e7dfbbe00f344ffc3dddacea8747f7939f844f2b8a71bd814d147c0ab7cff014dc9a37292405' # insert developer address receiving CAmount_Subsidy
+	with open('src/genesistx.dat', 'rb') as card_holders_file:
+		checkpoints[0]['transactions'] = pickle.load(card_holders_file)
 	checkpoints[0]['amount'] = values.CAmount_Subsidy
 	return checkpoints
 class ValidationClass:
@@ -40,7 +41,7 @@ class ValidationClass:
 				print('[E] VG2')
 				return False
 #			# comment out when generating genesis block
-			if transactions[0]['recipient'] != genesis_checkpoint['recipient']:
+			if transactions != genesis_checkpoint['transactions']:
 				print('[E] VG3')
 				return False
 #			# comment out when generating genesis block
@@ -49,11 +50,11 @@ class ValidationClass:
 				return False
 #			# comment out when generating genesis block
 			if block_hash != genesis_checkpoint['hash']:
-				print('[E] VG5')				
+				print('[E] VG5')
 				return False
 #			# comment out when generating genesis block
 			if next_block_hash != genesis_checkpoint['next_hash']:
-				print('[E] VG6')				
+				print('[E] VG6')
 				return False
 			block_data_string = str(index) + prev_hash + str(timestamp)
 			sha = hashlib.sha384()
@@ -110,7 +111,7 @@ class ValidationClass:
 				for __block in range(0, len(LocalBlockChain)):
 					if __transaction in LocalBlockChain[__block]['transactions']:
 						print('[E] [TVE0]')
-						return False 
+						return False
 				next_index = LocalBlockChain[len(LocalBlockChain) - 1]['index'] + 1
 				with open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'rb') as Block_Transaction_File:
 					Block_Transactions_Unconfirmed = pickle.load(Block_Transaction_File)
