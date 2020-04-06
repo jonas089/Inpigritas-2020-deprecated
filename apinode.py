@@ -4,6 +4,7 @@ from Crypto.PublicKey import RSA
 from Crypto.Signature import PKCS1_v1_5 # RSA algorithm to sign with priv & verify with pub
 from Crypto.Hash import SHA384
 import hashlib
+import base64
 import time
 import argparse
 import account
@@ -69,7 +70,7 @@ def ReceiveTransaction():
     return(str(result))
 
 @node.route('/nfcpayment/<sender>/<recipient>/<string_amount>', methods=['GET'])
-def NFCtx(sender, recipient, string_amount):
+def NFCtx(sender, recipient, string_amount, passwd=None):
     amount = float(string_amount)
     if sender not in values.dev_cards:
         return '[Error]'
