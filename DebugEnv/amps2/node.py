@@ -54,17 +54,6 @@ def WalletAmount(address):
     balance = account.LoadBalance(address)
     return balance
 
-#@node.route('/block', methods=['POST'])
-#def ReceiveBlock():
-#    block_jsonified = json.loads(request.data)
-#    print(block_jsonified)
-#    return ('DONE')
-
-#@node.route('/syncnetwork', methods=['GET'])
-#def SyncNetwork():
-#    sync.sync_thread()
-#    return ('DONE')
-
 @node.route('/transaction', methods=['POST'])
 def ReceiveTransaction():
     #transaction_decoded = request.data.decode('utf-8')
@@ -92,21 +81,3 @@ if __name__ == '__main__':
     p.start()
     node.run(threaded=True, host=values.ip, port=args.port, use_reloader=False)
     p.join()
-
-#  if args.mine:
-#      sched.add_job(mine.minefromprev())
-#      sched.start()
-
-#@node.route('/potblock', methods = ['POST'])
-#def ReceiveBlock():
-#	print(request.data.decode('utf-8'))
-#	time.sleep(2)
-#	potblock_str = request.data#.decode('utf-8')
-#	potblock = json.loads(request.data)
-#	print(potblock)
-#	if validate.validatePot(potblock) == True:
-#		print("[VALID]")
-#		return True
-#	else:
-#		print("[INVALID]")
-#		return False

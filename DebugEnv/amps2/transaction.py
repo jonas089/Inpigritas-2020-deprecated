@@ -105,31 +105,3 @@ class Transactions:
 			'height' : int
 		}
 		Transactions.Submit_Transaction_Network(transaction)
-
-
-		# pubkey_exported
-		# signature
-#[NOTES]
-#			[SAMPLE FOR KEYS AND SIGNATURE]
-#			with open('keys/public_key.pem' , 'r') as public_key_file:
-#				public_key = RSA.importKey(public_key_file.read())
-#				self.pubkey = public_key.exportKey('PEM')
-
-
-
-#				hash_utf = self.hash.encode('utf-8')
-#				with open('keys/private_key.pem', 'r') as privkey_File:
-#					privkey = RSA.importKey(privkey_File.read())
-#				genSHA = SHA256.new()
-#				genSHA.update(hash_utf)
-#				self.sigf = genSHA
-#				unique_cipher = PKCS1_v1_5.new(privkey)
-#				# genSHA=sigf
-#				self.sig = unique_cipher.sign(genSHA)
-
-
-#		genSHA = SHA256.new()
-#		genSHA.update(blockhash.encode('utf-8'))
-#		cypher = PKCS1_v1_5.new(pubkey)
-#		verification = cypher.verify(genSHA, sig)
-#		assert verification, print('Error in Block verification')

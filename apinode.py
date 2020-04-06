@@ -68,7 +68,7 @@ def ReceiveTransaction():
     print('[TRANSACTION RECEIVED] : [VALID = ' + str(result) + ' ]')
     return(str(result))
 
-@node.route('/nfcpayment/<sender>/<recipient>/<amount>', methods=['GET'])
+@node.route('/nfcpayment/<sender>/<recipient>/<string_amount>', methods=['GET'])
 def NFCtx(sender, recipient, string_amount):
     amount = float(string_amount)
     if sender not in values.dev_cards:

@@ -5,9 +5,9 @@ interest_per_block = 5 / 100 / 525600 # 5 percent per 525600 blocks == 1 year
 rpc = 5000
 ip = '0.0.0.0'
 
-seeds = [#'http://127.0.0.1:5000/',
-        'http://0.0.0.0:5001/',
-        'http://0.0.0.0:5002/'
+seeds = ['http://127.0.0.1:5000/',
+        'http://127.0.0.1:5001/',
+        'http://127.0.0.1:5002/'
         ]
 
 required_validations = 1
