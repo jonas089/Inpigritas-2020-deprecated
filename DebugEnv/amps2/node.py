@@ -49,11 +49,6 @@ def SendBlock(blkindex):
     except IndexError:
         return False
 
-@node.route('/balance/<address>', methods=['GET']) # this isnt completely done
-def WalletAmount(address):
-    balance = account.LoadBalance(address)
-    return balance
-
 @node.route('/transaction', methods=['POST'])
 def ReceiveTransaction():
     #transaction_decoded = request.data.decode('utf-8')

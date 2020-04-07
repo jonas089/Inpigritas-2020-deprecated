@@ -55,11 +55,6 @@ def SendBlock(blkindex):
     except IndexError:
         return False
 
-@node.route('/balance/<address>', methods=['GET']) # this isnt completely done
-def WalletAmount(address):
-    balance = account.LoadBalance(address)
-    return balance
-
 @node.route('/transaction', methods=['POST'])
 def ReceiveTransaction():
     #transaction_decoded = request.data.decode('utf-8')
@@ -69,6 +64,34 @@ def ReceiveTransaction():
     print('[TRANSACTION RECEIVED] : [VALID = ' + str(result) + ' ]')
     return(str(result))
 
+########################
+#  ###### ##### #####  #
+#  #    # #   #   #    #
+#  ###### #####   #    #
+#  #    # #       #    #
+#  #    # #     #####  #
+########################
+@node.route('/api/balance/<address>', methods=['GET'])
+def Api_Balance(address):
+    return str(account.LoadBalance(address))
+
+@node.route('/api/txhistory/<address>', methods=['GET'])
+def Api_TxHistory(address):
+    TxData = []
+    TxData.append(0)
+    TxData.append(1)
+    TxData[0] = [] # processed incoming transcations
+    TxData[1] = [] # processed outgoing transactions
+    LocalBlockChain = chain.LOADLOCALCHAIN()
+    for Block in range(0, len(LocalBlockChain)):
+        for Transaction in range(0, len(LocalBlockChain[Block]['transactions'])):
+            if LocalBlockChain[Block]['transactions'][Transaction]['sender'] == address:
+                TxData[1].append(len(TxData[1]))
+                TxData[1][len(TxData[1]) - 1] = LocalBlockChain[Block]['transactions'][Transaction]
+            if LocalBlockChain[Block]['transactions'][Transaction]['recipient'] == address:
+                TxData[0].append(len(TxData[0]))
+                TxData[0][len(TxData[0]) - 1] = LocalBlockChain[Block]['transactions'][Transaction]
+    return str(TxData)
 @node.route('/nfcpayment/<sender>/<recipient>/<string_amount>', methods=['GET'])
 def NFCtx(sender, recipient, string_amount, passwd=None):
     amount = float(string_amount)
@@ -107,8 +130,7 @@ def NFCtx(sender, recipient, string_amount, passwd=None):
     	'signature' : signature_export,
     	'height' : int
     }
-    _tx.Transactions.Submit_Transaction_Network(transaction)
-    return '[Success]'
+    return(str(_tx.Transactions.Submit_Transaction_Network(transaction)))
 
 if __name__ == '__main__':
     try:
