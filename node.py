@@ -1,4 +1,6 @@
 from flask import Flask, request, jsonify
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 import argparse
 import account
 import chain
@@ -15,6 +17,11 @@ import time
 
 node = Flask(__name__)
 account.__Start__()
+limiter = Limiter(
+    node,
+    key_func=get_remote_address,
+    default_limits=["30 per minute"]
+)
 
 @node.route('/blockchain.json', methods = ['GET'])
 def ReturnLocalBlockchain():
