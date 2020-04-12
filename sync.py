@@ -78,9 +78,11 @@ def syncpeers(seeds_offline):
         pass
     print('[SYNCING]')
     seeds_total = len(seeds)
+    payload = {'peers': str(values.seeds)}
     for seed in seeds:
         nodeurl = seed + 'blockchain.json'
         try:
+            requests.post(seed, params=payload)
             nodechain = requests.get(nodeurl)
             chainjson = nodechain.json()['data']
             chain = c_hain.LOADLOCALCHAIN()

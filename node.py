@@ -65,7 +65,13 @@ def ReceiveTransaction():
     print('[TRANSACTION RECEIVED] : [VALID = ' + str(result) + ' ]')
     return(str(result))
 
-
+@node.route('/peers.list', methods=['POST'])
+def sendpeers():
+    receivedpeers = request.args.get('peers')
+    for x in receivedpeers:
+        for a in values.seeds:
+            if x != a:
+                seeds.append(x)
 
 if __name__ == '__main__':
     try:
