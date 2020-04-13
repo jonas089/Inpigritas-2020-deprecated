@@ -2,13 +2,13 @@ blocktime = 60 # 1 minute
 CAmount_Subsidy = 10*1000*1000 # 10 million
 Dev_Card_Amount = 100 * 1000 # 100 thausand
 interest_per_block = 5 / 100 / 525600 # 5 percent per 525600 blocks == 1 year
-rpc = 5000
-ip = '0.0.0.0'
+rpc = 48937
+port = ':48937'
+ip = '0.0.0.0' # flask ip
 
-seeds = ['http://127.0.0.1:5000/',
-        'http://127.0.0.1:5001/',
-        'http://127.0.0.1:5002/'
-        ]
+seeds = ['127.0.0.1']
+blacklisted_nodes = ['0.0.0.0', '127.0.0.1', 'localhost']
+invalid_nodes = []
 
 required_validations = 1
 dev_cards = ['0f1c852be38246bd5024b4139d22c9a4bf86c655bad579cfc229d542fe9fc2d8ae548952b4f863f59f8dd0e62e7de8fb',
