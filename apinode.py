@@ -19,7 +19,7 @@ import values
 from multiprocessing import Process, Value
 import validation
 import transaction as _tx
-
+import nfcaccounting
 
 node = Flask(__name__)
 account.__Start__()
@@ -78,6 +78,17 @@ def ReceiveTransaction():
 #  #    # #       #    #
 #  #    # #     #####  #
 ########################
+@node.route('/api/devtools/generate_cardholder_account/<password>')
+def Generate_Cardholder_Account(tier, password):
+    with open('apidata/developer_password_hash.txt', 'r') as developer_password_hash_file:
+        developer_password_hash = developer_password_hash_file.read()
+    sha = hashlib.sha384()
+    sha.update(password.encode('utf-8'))
+    password_hashed = sha.hexdigest()
+    if password_hashed != developer_password_hash:
+        return 'Error Invalid Password'
+    return nfcaccounting.__Start__()
+
 @node.route('/api/balance/<address>', methods=['GET'])
 def Api_Balance(address):
     return str(account.LoadBalance(address))

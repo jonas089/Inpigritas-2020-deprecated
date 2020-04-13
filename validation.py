@@ -16,11 +16,10 @@ def CHECKPOINTS():
 	checkpoints.append(0)
 	checkpoints[0] = {}
 	checkpoints[0]['index'] = 0
-	checkpoints[0]['hash'] = '41eb774fe76968f95c6a0f48db792bea319119504b95c8e1c908ebd9e1bf895595f35b535deffdff411b09736fd0c4be' # insert Genesis hash
-	checkpoints[0]['next_hash'] = '4f3d4afd87994a9c954c088830bf5d79d599649cb8eb04a51204b00214561447fac0a164ae81bbb7fe0f6e217cfe46d1' # insert Hash following Genesis hash
-	with open('src/genesistx.dat', 'rb') as card_holders_file:
-		checkpoints[0]['transactions'] = pickle.load(card_holders_file)
-	checkpoints[0]['amount'] = values.CAmount_Subsidy
+	checkpoints[0]['hash'] = '' # insert Genesis hash
+	checkpoints[0]['next_hash'] = '' # insert Hash following Genesis hash
+	checkpoints[0]['recipient'] = values.dev_address
+	checkpoints[0]['amount'] = values.Launch_Supply
 	return checkpoints
 class ValidationClass:
 	def VALIDATE_BLOCK(Block, LocalChain, blocktime):
@@ -41,7 +40,7 @@ class ValidationClass:
 #				print('[E] VG2')
 #				return False
 #			# comment out when generating genesis block
-#			if transactions != genesis_checkpoint['transactions']:
+#			if transactions[0]['recipient'] != genesis_checkpoint['recipient']:
 #				print('[E] VG3')
 #				return False
 #			# comment out when generating genesis block

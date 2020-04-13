@@ -100,8 +100,6 @@ def LoadBalance(address):
 		print('[WARNING] NO TRANSACTION FILE FOUND FOR FOLLOWING BLOCK')
 	return Balance
 
-
-
 def __Start__():
 	new_wallet = False
 	try:
