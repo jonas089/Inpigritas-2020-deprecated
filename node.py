@@ -70,6 +70,8 @@ def sendpeers():
     receivedpeers = request.args.get('peers')
     for x in receivedpeers:
         for a in values.seeds:
+            if x == values.external_ip:
+                continue
             if x != a:
                 seeds.append(x)
 

@@ -9,7 +9,7 @@ import time
 import pickle
 
 blocktime = values.blocktime
-seeds = values.seeds
+seeds = seeds
 
 
 def log_backup():
@@ -23,7 +23,7 @@ def log_write(text):
 def fetch_pending_transactions():
     seeds_total = len(seeds)
     for seed in seeds:
-        nodeurl = seed + 'txpool.json'
+        nodeurl = "http:" + seed + port + '/txpool.json'
         local_txpool = []
         LocalChain = c_hain.LOADLOCALCHAIN()
         try:
@@ -78,9 +78,12 @@ def syncpeers(seeds_offline):
         pass
     print('[SYNCING]')
     seeds_total = len(seeds)
-    payload = {'peers': str(values.seeds)}
+    all_seeds = seeds.append(values.external_ip)
+    payload = {'peers': str(seeds)}
     for seed in seeds:
-        nodeurl = seed + 'blockchain.json'
+        if seed in values.blacklisted_nodes:
+            continue
+        nodeurl = "http://" + seed + values.port + '/blockchain.json'
         try:
             requests.post(seed, params=payload)
             nodechain = requests.get(nodeurl)
@@ -97,7 +100,9 @@ def syncpeers(seeds_offline):
         except Exception as Networkerror:
             print(str(Networkerror))
             seeds_offline += 1
+            #values.invalid_nodes += seed
     if seeds_offline >= seeds_total:
+        seeds.remove(seed)
         print('[WARNING] SEEDS OFFLINE : ' + str(seeds_offline))
     else:
         #Memory Error detected: log_write takes too much RAM at certain hight
