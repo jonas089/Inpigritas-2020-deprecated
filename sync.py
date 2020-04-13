@@ -78,6 +78,7 @@ def syncpeers(seeds_offline):
         pass
     print('[SYNCING]')
     seeds_total = len(seeds)
+    all_seeds = seeds.append(values.external_ip)
     payload = {'peers': str(seeds)}
     for seed in seeds:
         if seed in values.blacklisted_nodes:
@@ -101,6 +102,7 @@ def syncpeers(seeds_offline):
             seeds_offline += 1
             #values.invalid_nodes += seed
     if seeds_offline >= seeds_total:
+        seeds.remove(seed)
         print('[WARNING] SEEDS OFFLINE : ' + str(seeds_offline))
     else:
         #Memory Error detected: log_write takes too much RAM at certain hight
