@@ -100,9 +100,10 @@ def syncpeers(seeds_offline):
         except Exception as Networkerror:
             print(str(Networkerror))
             seeds_offline += 1
+            seeds.remove(seed)
+            print('[SEED REMOVED] : ' + str(seed))
             #values.invalid_nodes += seed
     if seeds_offline >= seeds_total:
-        seeds.remove(seed) #this doesn't work, you can look into it, otherwise I'll fix it the next time :)
         print('[WARNING] SEEDS OFFLINE : ' + str(seeds_offline))
     else:
         #Memory Error detected: log_write takes too much RAM at certain hight
