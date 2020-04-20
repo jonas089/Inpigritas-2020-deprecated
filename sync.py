@@ -10,16 +10,6 @@ import pickle
 
 blocktime = values.blocktime
 seeds = seeds
-
-
-def log_backup():
-    with open('debug.log', 'r') as log_backup:
-        backup = log_backup.read()
-        return backup
-def log_write(text):
-    with open('debug.log', 'w') as log:
-        log.write(text)
-
 def fetch_pending_transactions():
     seeds_total = len(seeds)
     for seed in seeds:
@@ -81,6 +71,7 @@ def syncpeers(seeds_offline):
     all_seeds = seeds.append(values.external_ip)
     payload = {'peers': str(seeds)}
     for seed in seeds:
+        # check weather node is blacklisted and skip if so
         if seed in values.blacklisted_nodes:
             continue
         nodeurl = "http://" + seed + values.port + '/blockchain.json'
@@ -106,8 +97,6 @@ def syncpeers(seeds_offline):
     if seeds_offline >= seeds_total:
         print('[WARNING] SEEDS OFFLINE : ' + str(seeds_offline))
     else:
-        #Memory Error detected: log_write takes too much RAM at certain hight
-        #log_write(log_backup() + '\n' + '[BLOCKS FETCHED AND ACCEPTED] :' + '\n' + str(chainjson))
         newblock()
 def sync_thread(process_var):
     while True:

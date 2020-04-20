@@ -67,7 +67,7 @@ class Keys:
         Address = str(Address_hash_hex)
         return Address
 		# Address is a hash representation of the string of the publickey => this ensures nobody can create a fake transaction by
-		# using somebody else's Address combined with his own publickey => if Address != pubkey hashed : return False
+		# using somebody else's Address combined with his own publickey
 
 def __Start__():
     cardID = ''

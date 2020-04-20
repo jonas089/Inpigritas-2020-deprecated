@@ -8,6 +8,7 @@ rpc = 48937
 port = ':48937'
 ip = '0.0.0.0' # flask ip
 dev_address = ''
+# fetch localhost public IPV4 address
 external_ip = str(get('https://api.ipify.org').text)
 
 seeds = ['127.0.0.1']
