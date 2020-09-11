@@ -40,6 +40,17 @@
    Revert Step 4 and remove all hashtags placed in that step
    replace "static" variables "genesis_hash" and "genesis_next_hash" with those who were output of Step 5
 ## Step 7:
- 
+   cd into Node 1 and execute:
+   py node.py
    
+   cd into Node 2 and execute:
+   py node.py
    
+   open a 3rd terminal and cd into Node 1 (premine located),
+   then execute a transaction through debugclient as follows:
+   py debugcli.py
+   # INPUT
+   --> amount
+   --> recipient 
+
+TESTING ENVIRONMENT SETUP SUCCESSFUL IF TRANSACTION ACCEPTED BY NETWORK
