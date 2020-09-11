@@ -1,4 +1,4 @@
-# Amperecoin
+# Inpigritas Cryptocurrency
 ### Required libraries are in requirements.txt
 ### Virtualenv setup scripts included
 ## Debugging
