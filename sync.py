@@ -98,8 +98,6 @@ def syncpeers(seeds_offline):
     if seeds_offline >= seeds_total:
         print('[WARNING] SEEDS OFFLINE : ' + str(seeds_offline))
     else:
-        #Memory Error detected: log_write takes too much RAM at certain hight
-        #log_write(log_backup() + '\n' + '[BLOCKS FETCHED AND ACCEPTED] :' + '\n' + str(chainjson))
         newblock()
 def sync_thread(process_var):
     while True:
