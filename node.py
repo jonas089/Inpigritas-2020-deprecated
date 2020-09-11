@@ -1,6 +1,4 @@
 from flask import Flask, request, jsonify
-from flask_limiter import Limiter
-from flask_limiter.util import get_remote_address
 import argparse
 import account
 import chain
@@ -17,11 +15,6 @@ import time
 
 node = Flask(__name__)
 account.__Start__()
-limiter = Limiter(
-    node,
-    key_func=get_remote_address,
-    default_limits=["30 per minute"]
-)
 
 @node.route('/blockchain.json', methods = ['GET'])
 def ReturnLocalBlockchain():
@@ -56,6 +49,22 @@ def SendBlock(blkindex):
     except IndexError:
         return False
 
+@node.route('/balance/<address>', methods=['GET']) # this isnt completely done
+def WalletAmount(address):
+    balance = account.LoadBalance(address)
+    return balance
+
+#@node.route('/block', methods=['POST'])
+#def ReceiveBlock():
+#    block_jsonified = json.loads(request.data)
+#    print(block_jsonified)
+#    return ('DONE')
+
+#@node.route('/syncnetwork', methods=['GET'])
+#def SyncNetwork():
+#    sync.sync_thread()
+#    return ('DONE')
+
 @node.route('/transaction', methods=['POST'])
 def ReceiveTransaction():
     #transaction_decoded = request.data.decode('utf-8')
@@ -65,15 +74,7 @@ def ReceiveTransaction():
     print('[TRANSACTION RECEIVED] : [VALID = ' + str(result) + ' ]')
     return(str(result))
 
-@node.route('/peers.list', methods=['POST'])
-def sendpeers():
-    receivedpeers = request.args.get('peers')
-    for x in receivedpeers:
-        for a in values.seeds:
-            if x == values.external_ip:
-                continue
-            if x != a:
-                seeds.append(x)
+
 
 if __name__ == '__main__':
     try:
@@ -91,3 +92,21 @@ if __name__ == '__main__':
     p.start()
     node.run(threaded=True, host=values.ip, port=args.port, use_reloader=False)
     p.join()
+
+#  if args.mine:
+#      sched.add_job(mine.minefromprev())
+#      sched.start()
+
+#@node.route('/potblock', methods = ['POST'])
+#def ReceiveBlock():
+#	print(request.data.decode('utf-8'))
+#	time.sleep(2)
+#	potblock_str = request.data#.decode('utf-8')
+#	potblock = json.loads(request.data)
+#	print(potblock)
+#	if validate.validatePot(potblock) == True:
+#		print("[VALID]")
+#		return True
+#	else:
+#		print("[INVALID]")
+#		return False

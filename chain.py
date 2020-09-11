@@ -95,14 +95,12 @@ def SAVEVALIDBLOCK(LocalChainData, Block):
 
 def GENERATEGENESIS():
     CAmount_Subsidy = values.CAmount_Subsidy
-    transactions = []
-    for dev_card_id in range(0, len(values.dev_cards) - 1):
-        transactions.append(len(transactions))
-        transactions[len(transactions) - 1] = {'sender' : '0', 'recipient' : values.dev_address, 'amount' : values.Launch_Supply, 'timestamp' : time.time()}
+    transactions = [{'sender' : '0', 'recipient' : values.dev_address, 'amount' : CAmount_Subsidy, 'timestamp' : time.time()}]
     # the transaction data of the genesis block represents the premine
     while len(LocalChain) == 0:
         BLOCKCHAIN.BLOCK(LocalChain, transactions)
     print('[GENESIS]' + '\n' + '-' * 30 + '\n' + str(LocalChain) + '\n' + '-' * 30 + '\n')
     with open('src/blockchain.dat', 'wb') as chaindatafile:
         pickle.dump(LocalChain, chaindatafile)
+
     print('[GENESIS BLOCK] : ' + str(LocalChain[0]))

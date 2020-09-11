@@ -16,10 +16,10 @@ def CHECKPOINTS():
 	checkpoints.append(0)
 	checkpoints[0] = {}
 	checkpoints[0]['index'] = 0
-	checkpoints[0]['hash'] = '' # insert Genesis hash
-	checkpoints[0]['next_hash'] = '' # insert Hash following Genesis hash
-	checkpoints[0]['recipient'] = values.dev_address
-	checkpoints[0]['amount'] = values.Launch_Supply
+	checkpoints[0]['hash'] = values.genesis_hash # insert Genesis hash
+	checkpoints[0]['next_hash'] = values.genesis_next_hash # insert Hash following Genesis hash
+	checkpoints[0]['recipient'] = values.dev_address # insert developer address receiving CAmount_Subsidy
+	checkpoints[0]['amount'] = values.CAmount_Subsidy
 	return checkpoints
 class ValidationClass:
 	def VALIDATE_BLOCK(Block, LocalChain, blocktime):
@@ -36,25 +36,25 @@ class ValidationClass:
 				print('[E] VG1')
 				return False
 #			# comment out when generating genesis block
-#			if len(transactions) != 1:
-#				print('[E] VG2')
-#				return False
+			if len(transactions) != 1:
+				print('[E] VG2')
+				return False
 #			# comment out when generating genesis block
-#			if transactions[0]['recipient'] != genesis_checkpoint['recipient']:
-#				print('[E] VG3')
-#				return False
+			if transactions[0]['recipient'] != genesis_checkpoint['recipient']:
+				print('[E] VG3')
+				return False
 #			# comment out when generating genesis block
-#			if transactions[0]['amount'] != genesis_checkpoint['amount']:
-#				print('[E] VG4')
-#				return False
+			if transactions[0]['amount'] != genesis_checkpoint['amount']:
+				print('[E] VG4')
+				return False
 #			# comment out when generating genesis block
-#			if block_hash != genesis_checkpoint['hash']:
-#				print('[E] VG5')
-#				return False
+			if block_hash != genesis_checkpoint['hash']:
+				print('[E] VG5')
+				return False
 #			# comment out when generating genesis block
-#			if next_block_hash != genesis_checkpoint['next_hash']:
-#				print('[E] VG6')
-#				return False
+			if next_block_hash != genesis_checkpoint['next_hash']:
+				print('[E] VG6')
+				return False
 			block_data_string = str(index) + prev_hash + str(timestamp)
 			sha = hashlib.sha384()
 			reconstructed_block_hash = sha.update(block_data_string.encode('utf-8'))
