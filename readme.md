@@ -48,7 +48,7 @@
    
    open a 3rd terminal and cd into Node 1 (premine located),
    then execute a transaction through debugclient as follows:
-   py debugcli.py
+   py debugcli.py --transaction
    # INPUT
    --> amount
    --> recipient 
