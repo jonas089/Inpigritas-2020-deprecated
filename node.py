@@ -1,36 +1,24 @@
-from flask import Flask, request, jsonify
-import argparse
-import account
+from sanic import Sanic
+from sanic import response
 import chain
-import json
-import sync
-import pickle
-import threading
-import values
-from multiprocessing import Process, Value
-import validation
 
-import time
+app = Sanic(name="Inpigritas Node")
 
-
-node = Flask(__name__)
-account.__Start__()
-
-@node.route('/blockchain.json', methods = ['GET'])
-def ReturnLocalBlockchain():
-    BlockChain = chain.LOADLOCALCHAIN()
+@app.route('/blockchain')
+async def blockchain(request):
+    LocalChain = chain.LOADLOCALCHAIN()
     BlockChainDict = {}
-    BlockChainDict['data'] = BlockChain
-    return BlockChainDict
+    BlockChainDict["Data"] = LocalChain
+    return response.json(BlockChainDict)
 
-@node.route('/txpool.json', methods = ['GET'])
-def ReturnTxPool():
+@app.route('/txpool')
+async def transactionpool(request):
     LocalChain = chain.LOADLOCALCHAIN()
     TransactionPoolDict = {}
     try:
         next_index = LocalChain[len(LocalChain) - 1]['index'] + 1
     except Exception as NoChain:
-        return TransactionPoolDict
+        return response.json(TransactionPoolDict)
     local_txpool = []
     try:
         with open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'rb') as Transaction_Data_File:
@@ -38,75 +26,22 @@ def ReturnTxPool():
     except Exception as no_data:
         pass
     TransactionPoolDict['data'] = local_txpool
-    return TransactionPoolDict
+    return response.json(TransactionPoolDict)
 
-@node.route('/block/<blkindex>', methods=['GET'])
-def SendBlock(blkindex):
+@app.route('/block/<blocknum>')
+async def returnblock(request, blocknum):
     array = chain.LOADLOCALCHAIN()
     try:
-        block = array[blkindex]
-        return block
+        block = array[int(blocknum)]
+        return response.json(block)
     except IndexError:
-        return False
+        return response.text("False")
 
-@node.route('/balance/<address>', methods=['GET']) # this isnt completely done
-def WalletAmount(address):
-    balance = account.LoadBalance(address)
-    return balance
-
-#@node.route('/block', methods=['POST'])
-#def ReceiveBlock():
-#    block_jsonified = json.loads(request.data)
-#    print(block_jsonified)
-#    return ('DONE')
-
-#@node.route('/syncnetwork', methods=['GET'])
-#def SyncNetwork():
-#    sync.sync_thread()
-#    return ('DONE')
-
-@node.route('/transaction', methods=['POST'])
-def ReceiveTransaction():
-    #transaction_decoded = request.data.decode('utf-8')
-    transaction_jsonified = request.get_json()#json.loads(request.data)
-    #print(transaction_jsonified)
-    result = validation.ValidationClass.VALIDATE_TRANSACTION(transaction_jsonified)
+@app.route('/transaction')
+async def receivetransaction(request):
+    values = await request.json()
+    result = validation.ValidationClass.VALIDATE_TRANSACTION(values)
     print('[TRANSACTION RECEIVED] : [VALID = ' + str(result) + ' ]')
     return(str(result))
 
-
-
-if __name__ == '__main__':
-    try:
-        open('debug.log', 'x')
-    except Exception as exists:
-        pass
-
-    parser = argparse.ArgumentParser(description='AMPS Node')
-    parser.add_argument('--port', '-p', default=str(values.rpc),
-                    help='port')
-    args = parser.parse_args()
-    process_var = Value('b', True)
-    # this had to be moved above node.run as it otherwise only gets called when the connection breaks
-    p = Process(target=sync.sync_thread, args=(process_var, ))
-    p.start()
-    node.run(threaded=True, host=values.ip, port=args.port, use_reloader=False)
-    p.join()
-
-#  if args.mine:
-#      sched.add_job(mine.minefromprev())
-#      sched.start()
-
-#@node.route('/potblock', methods = ['POST'])
-#def ReceiveBlock():
-#	print(request.data.decode('utf-8'))
-#	time.sleep(2)
-#	potblock_str = request.data#.decode('utf-8')
-#	potblock = json.loads(request.data)
-#	print(potblock)
-#	if validate.validatePot(potblock) == True:
-#		print("[VALID]")
-#		return True
-#	else:
-#		print("[INVALID]")
-#		return False
+app.run(host='0.0.0.0', port=8000, debug=True)
