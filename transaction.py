@@ -69,7 +69,7 @@ class Transactions:
 			return True
 		else:
 			return False
-	def CreateTransaction(recipient, amount): # recipient is the string of an address
+	def CreateTransaction(recipient, amount, data): # recipient is the string of an address
 		with open('keys/account.dat', 'rb') as AddressFile:
 			#[TXVAR]
 			sender = pickle.load(AddressFile)[0]
@@ -102,6 +102,7 @@ class Transactions:
 			'publickey' : pubkey_export,
 			'transaction_hash' : transaction_hash_string,
 			'signature' : signature_export,
-			'height' : int
+			'height' : int,
+			'data' : data
 		}
 		Transactions.Submit_Transaction_Network(transaction)
