@@ -1,4 +1,4 @@
-#Inpigritas Cryptocurrency
+### Inpigritas Cryptocurrency
 ### Required libraries are in requirements.txt
 ### Virtualenv setup scripts included
 ## Debugging
@@ -7,7 +7,7 @@
 ## Testing Environment Setup
 - assuming 2 nodes with empty "src" and "keys" folder(s)
 
-#DEVELOPMENT BUILD
+# DEVELOPMENT BUILD
 ## V.0.0.0
 
 ## Step 1:
