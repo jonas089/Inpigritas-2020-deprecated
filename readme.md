@@ -6,6 +6,11 @@
  - debugcli.py; pass arguments to execute functions for debugging
 ## Testing Environment Setup
 - assuming 2 nodes with empty "src" and "keys" folder(s)
+
+#DEVELOPMENT BUILD
+## V.0.0.0
+
+
 ## Step 1:
  # In values.py
    Node#1
