@@ -20,6 +20,10 @@ parser.add_argument('--balance', '-b', dest='bal',
 parser.add_argument('--transaction', '-tx', dest='transaction',
 	action = 'store_true')
 
+parser.add_argument('--get-contract', '-gct', dest='getcontract',
+	action= 'store_true')
+parser.add_argument('--execute-contract', '-ect', dest='executecontract',
+	action= 'store_true')
 
 args = parser.parse_args()
 if args.newacc:
@@ -44,15 +48,26 @@ if args.transaction:
 	deploy_contract_check = input('Does This Transaction Deploy A Smart Contract?(y, n): ')
 	if deploy_contract_check == 'y' or deploy_contract_check == 'Y':
 		print('[You Decided To Deploy A Contract]')
+		unique_contract_name = input('Enter Unique Contract Name: ')
 		data = {}
 		contract_python_file_name = input('Enter The Name Of The File That Contains The Contract You Want To Deploy (e.g. test.py): ')
 		with open(contract_python_file_name, 'rb') as PythonContractFile:
 			contract_bytes = PythonContractFile.read()
 		data = {
-		'contract_owner' : address,
-		'contract_byte_code' : str(contract_bytes)
+		'owner_address' : address,
+		'contract_code' : contract_bytes.decode('utf-8'),
+		'unique_contract_name' : unique_contract_name,
 		}
 	else:
 		print('[You Decided To NOT Deploy A Contract]')
-		data = {}
+		data = {
+		'owner_address' : address,
+		'contract_code' : '',
+		'unique_contract_name' : '',
+		}
 	transaction.Transactions.CreateTransaction(recipient, float(amount), data)
+if args.getcontract:
+	unique_contract_name = input('Enter Contract Name: ')
+	contract_owner_address = input('Enter Contract Owner Address: ')
+	contract_code = account.GetContractFromChain(unique_contract_name, contract_owner_address)
+	print(contract_code)
