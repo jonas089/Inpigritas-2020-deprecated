@@ -1,10 +1,10 @@
 INPIGRITAS TESTING ENVIRONMENT [2 CONFIGURED NODES]
 
-[V.0.0.0]
+[V.0.0.1]
 
 [Notes]
 
-- 4 Blocks have been mined,
+- 300+ Blocks have been mined,
 - One Transaction of 100.00 has been sent from Node1 to Node2
 
 [Addresses]
