@@ -8,7 +8,7 @@
 - assuming 2 nodes with empty "src" and "keys" folder(s)
 
 # DEVELOPMENT BUILD
-## V.0.0.1
+## V.0.0.2
 
 ## Step 1:
  # In values.py
