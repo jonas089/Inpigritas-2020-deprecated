@@ -45,9 +45,9 @@
    Node2: replace "static" variables "genesis_hash" and "genesis_next_hash" with those who were output of Step 5
    
    [Good To Know]
-   *if you forget to do this for one of the nodes, you can still copy-paste the blockchain.dat file from Node1 to Node2
-   *but that is officially the wrong way to do it, because Nodes like Node2 in this szenario would have to come with the correct blockchain.dat file
-   *and would be unable to sync from height 0, however from height 1+ everything would be back to normal
+   ***if you forget to do this for one of the nodes, you can still copy-paste the blockchain.dat file from Node1 to Node2
+   ***but that is officially the wrong way to do it, because Nodes like Node2 in this szenario would have to come with the correct blockchain.dat file
+   ***and would be unable to sync from height 0, however from height 1+ everything would be back to normal
    
 ## Step 7:
    cd into Node 1 and execute:
