@@ -1,11 +1,9 @@
 INPIGRITAS TESTING ENVIRONMENT [2 CONFIGURED NODES]
 
-[V.0.0.1]
+[V.0.0.2]
 
 [Notes]
-
-- 300+ Blocks have been mined,
-- One Transaction of 100.00 has been sent from Node1 to Node2
+- Deploy and Fetch Smart Contracts 
 
 [Addresses]
 
