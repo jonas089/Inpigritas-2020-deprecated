@@ -116,7 +116,7 @@ def GetAllContractTransactions(owner_address):
 		for Transaction in range(0, len(LocalBlockChain[Block]['transactions'])):
 			if LocalBlockChain[Block]['transactions'][Transaction]['data']['owner_address'] == owner_address  and LocalBlockChain[Block]['transactions'][Transaction]['data']['contract_code'] != '':
 				Account_Contracts.append(len(Account_Contracts))
-				Account_Contracts[len(Account_Contracts)] = LocalBlockChain[Block]['transactions'][Transaction]
+				Account_Contracts[len(Account_Contracts) - 1] = LocalBlockChain[Block]['transactions'][Transaction]
 	return Account_Contracts
 
 def __Start__():

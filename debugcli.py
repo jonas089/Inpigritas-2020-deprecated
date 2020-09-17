@@ -71,7 +71,7 @@ if args.transaction:
 	transaction.Transactions.CreateTransaction(recipient, float(amount), data)
 
 if args.getcontract:
-	unique_contract_name = input('Enter Contract Name: ')
+	contract_transaction_hash = input('Enter Transaction Hash Of The Contract: ')
 	contract_owner_address = input('Enter Contract Owner Address: ')
 	contract_code = account.GetContractFromChain(contract_transaction_hash, contract_owner_address)
 	print(contract_code)
@@ -80,4 +80,4 @@ if args.getallcontracts:
 	contract_owner_address = input('Enter Address Of Contract(s) Owner: ')
 	All_Contracts = account.GetAllContractTransactions(contract_owner_address)
 	print(str(All_Contracts))
-	print('Found: ' + len(All_Contracts) + ' Contract(s)')
+	print('Found: ' + str(len(All_Contracts)) + ' Contract(s)')
