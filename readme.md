@@ -1,4 +1,4 @@
-# Inpigritas Cryptocurrency
+# Inpigritas Smart Contract Platform
 ### Required libraries are in requirements.txt
 ### Virtualenv setup scripts included
 ## Debugging
