@@ -6,7 +6,6 @@ import transaction
 import requests
 import values
 import pickle
-
 import transaction
 
 parser = argparse.ArgumentParser(description='AMPS')
@@ -20,6 +19,14 @@ parser.add_argument('--balance', '-b', dest='bal',
 	action = 'store_true')
 parser.add_argument('--transaction', '-tx', dest='transaction',
 	action = 'store_true')
+
+parser.add_argument('--get-contract', '-gct', dest='getcontract',
+	action= 'store_true')
+parser.add_argument('--all-contracts', '-gact', dest='getallcontracts',
+	action='store_true')
+#
+parser.add_argument('--execute-contract', '-ect', dest='executecontract',
+	action= 'store_true')
 
 
 args = parser.parse_args()
@@ -37,7 +44,40 @@ if args.bal:
 	with open('keys/account.dat', 'rb') as AccountFile:
 		address = pickle.load(AccountFile)[0]
 	print(account.LoadBalance(address))
+
+
 if args.transaction:
 	recipient = input('Recipient: ')
 	amount = input('Amount: ')
-	transaction.Transactions.CreateTransaction(recipient, float(amount))
+	with open('keys/account.dat', 'rb') as AccountFile:
+		address = pickle.load(AccountFile)[0]
+	deploy_contract_check = input('Does This Transaction Deploy A Smart Contract?(y, n): ')
+	if deploy_contract_check == 'y' or deploy_contract_check == 'Y':
+		print('[You Decided To Deploy A Contract]')
+		data = {}
+		contract_python_file_name = input('Enter The Name Of The File That Contains The Contract You Want To Deploy (e.g. test.py): ')
+		with open(contract_python_file_name, 'rb') as PythonContractFile:
+			contract_bytes = PythonContractFile.read()
+		data = {
+		'owner_address' : address,
+		'contract_code' : contract_bytes.decode('utf-8'),
+		}
+	else:
+		print('[You Decided To NOT Deploy A Contract]')
+		data = {
+		'owner_address' : address,
+		'contract_code' : '',
+		}
+	transaction.Transactions.CreateTransaction(recipient, float(amount), data)
+
+if args.getcontract:
+	contract_transaction_hash = input('Enter Transaction Hash Of The Contract: ')
+	contract_owner_address = input('Enter Contract Owner Address: ')
+	contract_code = account.GetContractFromChain(contract_transaction_hash, contract_owner_address)
+	print(contract_code)
+
+if args.getallcontracts:
+	contract_owner_address = input('Enter Address Of Contract(s) Owner: ')
+	All_Contracts = account.GetAllContractTransactions(contract_owner_address)
+	print(str(All_Contracts))
+	print('Found: ' + str(len(All_Contracts)) + ' Contract(s)')

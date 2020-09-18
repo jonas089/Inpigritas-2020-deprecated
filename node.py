@@ -43,8 +43,33 @@ async def returnblock(request, blocknum):
 async def receivetransaction(request):
     values = await request.json()
     result = validation.ValidationClass.VALIDATE_TRANSACTION(values)
-    print('[TRANSACTION RECEIVED] : [VALID = ' + str(result) + ' ]')
-    return response.text(str(result))
+=======
+        return Falsemultidict==4.7.6
+pycrypto==2.6.1
+requests==2.24.0
+RestrictedPython==5.0
+rfc3986==1.4.0
+sanic==20.6.3
+sniffio==1.1.0
+
+@node.route('/balance/<address>', methods=['GET']) # this isnt completely done
+def WalletAmount(address):multidict==4.7.6
+pycrypto==2.6.1
+requests==2.24.0
+RestrictedPython==5.0
+rfc3986==1.4.0
+sanic==20.6.3
+sniffio==1.1.0
+    balance = account.LoadBalance(address)
+    return balance
+
+    
+@node.route('/transaction', methods=['POST'])
+def ReceiveTransaction():
+    #transaction_decoded = request.data.decode('utf-8')
+    transaction_jsonified = request.get_json()#json.loads(request.data)
+    #print(transaction_jsonified)
+    result = validation.ValidationClass.VALIDATE_TRANSACTION(transaction_jsonified)
 
 @app.route('/contract')
 async def executecontract(request):

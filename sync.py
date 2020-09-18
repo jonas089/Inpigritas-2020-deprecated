@@ -95,11 +95,11 @@ def syncpeers(seeds_offline):
         except Exception as Networkerror:
             print(str(Networkerror))
             seeds_offline += 1
+    # In case no Node is reachable
     if seeds_offline >= seeds_total:
         print('[WARNING] SEEDS OFFLINE : ' + str(seeds_offline))
+    # If at least one valid node was found
     else:
-        #Memory Error detected: log_write takes too much RAM at certain hight
-        #log_write(log_backup() + '\n' + '[BLOCKS FETCHED AND ACCEPTED] :' + '\n' + str(chainjson))
         newblock()
 def sync_thread(process_var):
     while True:

@@ -80,7 +80,7 @@ def LoadBalance(address):
 			elif LocalBlockChain[Block_In_Chain]['transactions'][TxInBlock]['recipient'] == address:
 				block_balance += LocalBlockChain[Block_In_Chain]['transactions'][TxInBlock]['amount']
 			elif LocalBlockChain[Block_In_Chain]['transactions'][TxInBlock]['recipient'] == address and LocalBlockChain[Block_In_Chain]['transactions'][TxInBlock]['sender'] == address:
-				block_balance += 0.0 
+				block_balance += 0.0
 		if block_balance > 0.0:
 			Interest = block_balance * values.interest_per_block
 			print('[Interest]: ' + str(Interest))
@@ -100,7 +100,24 @@ def LoadBalance(address):
 		print('[WARNING] NO TRANSACTION FILE FOUND FOR FOLLOWING BLOCK')
 	return Balance
 
+def GetContractFromChain(contract_transaction_hash, owner_address):
+	with open('src/blockchain.dat', 'rb') as ChainFile:
+		LocalBlockChain = pickle.load(ChainFile)
+	for Block in range(1, len(LocalBlockChain)):
+		for Transaction in range(0, len(LocalBlockChain[Block]['transactions'])):
+			if LocalBlockChain[Block]['transactions'][Transaction]['transaction_hash'] == contract_transaction_hash and LocalBlockChain[Block]['transactions'][Transaction]['data']['owner_address'] == owner_address:
+				return LocalBlockChain[Block]['transactions'][Transaction]['data']['contract_code']
 
+def GetAllContractTransactions(owner_address):
+	Account_Contracts = []
+	with open('src/blockchain.dat', 'rb') as ChainFile:
+		LocalBlockChain = pickle.load(ChainFile)
+	for Block in range(1, len(LocalBlockChain)):
+		for Transaction in range(0, len(LocalBlockChain[Block]['transactions'])):
+			if LocalBlockChain[Block]['transactions'][Transaction]['data']['owner_address'] == owner_address  and LocalBlockChain[Block]['transactions'][Transaction]['data']['contract_code'] != '':
+				Account_Contracts.append(len(Account_Contracts))
+				Account_Contracts[len(Account_Contracts) - 1] = LocalBlockChain[Block]['transactions'][Transaction]
+	return Account_Contracts
 
 def __Start__():
 	new_wallet = False
@@ -125,6 +142,3 @@ def __Start__():
 			pickle.dump(Addresses, account_file)
 	else:
 		return
-
-
-

@@ -10,6 +10,7 @@ import values
 #from threading import Thread
 from multiprocessing import Process, Value
 import validation
+from transaction import Transactions
 import time
 import code
 
@@ -21,6 +22,7 @@ def ahelp():
     Balance --> bal()
     Printchain --> printchain(index of block)
     Node --> startnode()
+    Transaction --> transaction()
     """)
 
 def printchain(num=0):
@@ -45,6 +47,12 @@ def bal():
     with open('keys/account.dat', 'rb') as AccountFile:
         address = pickle.load(AccountFile)[0]
     print(account.LoadBalance(address))
+
+def transaction():
+    recipient = input('Recipient: ')
+    amount = input('Amount: ')
+    Transactions.CreateTransaction(recipient, float(amount))
+
 
 def startnode():
     node = Flask(__name__)
@@ -73,18 +81,6 @@ def startnode():
             pass
         TransactionPoolDict['data'] = local_txpool
         return TransactionPoolDict
-
-
-    #@node.route('/block', methods=['POST'])
-    #def ReceiveBlock():
-    #    block_jsonified = json.loads(request.data)
-    #    print(block_jsonified)
-    #    return ('DONE')
-
-    #@node.route('/syncnetwork', methods=['GET'])
-    #def SyncNetwork():
-    #    sync.sync_thread()
-    #    return ('DONE')
 
     @node.route('/transaction', methods=['POST'])
     def ReceiveTransaction():
