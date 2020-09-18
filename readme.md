@@ -8,7 +8,9 @@
 - assuming 2 nodes with empty "src" and "keys" folder(s)
 
 # DEVELOPMENT BUILD
-## V.0.0.2
+## V.0.0.0
+=======
+## V.0.0.3
 
 ## Step 1:
  # In values.py
@@ -33,13 +35,23 @@
 ## Step 4:
  # In validation.py
  [THIS IS EXTREMELY IMPORTANT]
- [DO THIS ONLY FOR NODE 1 !]
+ [DO THIS ONLY FOR NODE 1 !]multidict==4.7.6
+pycrypto==2.6.1
+requests==2.24.0
+RestrictedPython==5.0
+rfc3986==1.4.0
+sanic==20.6.3
+sniffio==1.1.0
    put a hashtag "#" in front of every line of code that is marked as "comment out when generating the genesis block"
 ## Step 5:
   cd Node1
   py debugcli.py --generategenesis
   --> outputs genesisblock data
 ## Step 6:
+   copy-paste "src" folder from Node1 to Node2
+   Revert Step 4 and remove all hashtags placed in that step
+   replace "static" variables "genesis_hash" and "genesis_next_hash" with those who were output of Step 5
+=======
 
    Revert Step 4 and remove all hashtags placed in that step
    
@@ -54,7 +66,6 @@
    * but that is officially the wrong way to do it, because Nodes like Node2 in this szenario would have to come with the correct blockchain.dat file
    
    * and would be unable to sync from height 0, however from height 1+ everything would be back to normal
-   
 ## Step 7:
    cd into Node 1 and execute:
    py node.py
