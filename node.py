@@ -1,6 +1,8 @@
 from sanic import Sanic
 from sanic import response
-import chain
+from multiprocessing import Process, Value
+from RestrictedPython import compile_restricted, safe_globals
+import chain, argparse, account
 
 app = Sanic(name="Inpigritas Node")
 
@@ -42,6 +44,15 @@ async def receivetransaction(request):
     values = await request.json()
     result = validation.ValidationClass.VALIDATE_TRANSACTION(values)
     print('[TRANSACTION RECEIVED] : [VALID = ' + str(result) + ' ]')
-    return(str(result))
+    return response.text(str(result))
+
+@app.route('/contract')
+async def executecontract(request):
+    values = await request.json()
+    code = account.GetContractFromChain(contract_transaction_hash, owner_address)
+    byte_code = compile_restricted(code, '<inline>', 'exec')
+    exec(byte_code, safe_globals, {})
+    return response.text(str({}))
+
 
 app.run(host='0.0.0.0', port=8000, debug=True)

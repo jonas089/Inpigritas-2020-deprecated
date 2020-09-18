@@ -12,6 +12,7 @@ idna==2.10
 multidict==4.7.6
 pycrypto==2.6.1
 requests==2.24.0
+RestrictedPython==5.0
 rfc3986==1.4.0
 sanic==20.6.3
 sniffio==1.1.0
