@@ -79,22 +79,26 @@ def syncpeers(seeds_offline):
     print('[SYNCING]')
     seeds_total = len(seeds)
     for seed in seeds:
-        nodeurl = seed + 'blockchain.json'
-        try:
-            nodechain = requests.get(nodeurl)
-            chainjson = nodechain.json()['data']
-            chain = c_hain.LOADLOCALCHAIN()
-            if len(chainjson) > len(chain):
-                last_index_node_chain = len(chainjson)
-                last_index_local_chain = len(chain) - 1
-                index_diff = last_index_node_chain - last_index_local_chain
-                for b in range(len(chain), len(chainjson)):
-                    chain = c_hain.LOADLOCALCHAIN()
-                    Block = chainjson[b]
-                    validation.ValidationClass.VALIDATE_BLOCK(Block, chain, values.blocktime)
-        except Exception as Networkerror:
-            print(str(Networkerror))
-            seeds_offline += 1
+        blacklist = values.blacklist
+        if seed not in blacklist:
+            nodeurl = seed + 'blockchain.json'
+            try:
+                nodechain = requests.get(nodeurl)
+                chainjson = nodechain.json()['data']
+                chain = c_hain.LOADLOCALCHAIN()
+                if len(chainjson) > len(chain):
+                    last_index_node_chain = len(chainjson)
+                    last_index_local_chain = len(chain) - 1
+                    index_diff = last_index_node_chain - last_index_local_chain
+                    for b in range(len(chain), len(chainjson)):
+                        chain = c_hain.LOADLOCALCHAIN()
+                        Block = chainjson[b]
+                        validation.ValidationClass.VALIDATE_BLOCK(Block, chain, values.blocktime)
+            except Exception as Networkerror:
+                blacklist.append(len(blacklist))
+                blacklist[len(blacklist)] = seed
+                print(str(Networkerror))
+                seeds_offline += 1
     # In case no Node is reachable
     if seeds_offline >= seeds_total:
         print('[WARNING] SEEDS OFFLINE : ' + str(seeds_offline))

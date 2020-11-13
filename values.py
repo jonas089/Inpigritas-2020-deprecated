@@ -8,6 +8,7 @@ seeds = [#'http://127.0.0.1:5000/',
         'http://127.0.0.1:5001/',
         'http://127.0.0.1:5002/'
         ]
+blacklist = []
 
 required_validations = 1 #int(len(seeds/2)) + 1 #50% of nodes + 1
 
