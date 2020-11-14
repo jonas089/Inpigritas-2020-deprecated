@@ -41,18 +41,4 @@ if args.transaction:
 	amount = input('Amount: ')
 	with open('keys/account.dat', 'rb') as AccountFile:
 		address = pickle.load(AccountFile)[0]
-	deploy_contract_check = input('Does This Transaction Deploy A Smart Contract?(y, n): ')
-	if deploy_contract_check == 'y' or deploy_contract_check == 'Y':
-		print('[You Decided To Deploy A Contract]')
-		data = {}
-		contract_python_file_name = input('Enter The Name Of The File That Contains The Contract You Want To Deploy (e.g. test.py): ')
-		with open(contract_python_file_name, 'rb') as PythonContractFile:
-			contract_bytes = PythonContractFile.read()
-		data = {
-		'contract_owner' : address,
-		'contract_byte_code' : str(contract_bytes)
-		}
-	else:
-		print('[You Decided To NOT Deploy A Contract]')
-		data = {}
-	transaction.Transactions.CreateTransaction(recipient, float(amount), data)
+	transaction.Transactions.CreateTransaction(recipient, float(amount))

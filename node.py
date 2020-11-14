@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import argparse
 import account
 import chain
@@ -9,12 +9,15 @@ import threading
 import values
 from multiprocessing import Process, Value
 import validation
-
 import time
 
 
 node = Flask(__name__)
 account.__Start__()
+
+@node.route('/interface', methods = ['GET'])
+def NodeInterface():
+    return render_template('test.html')
 
 @node.route('/blockchain.json', methods = ['GET'])
 def ReturnLocalBlockchain():
@@ -54,7 +57,7 @@ def WalletAmount(address):
     balance = account.LoadBalance(address)
     return balance
 
-    
+
 @node.route('/transaction', methods=['POST'])
 def ReceiveTransaction():
     #transaction_decoded = request.data.decode('utf-8')
@@ -63,8 +66,6 @@ def ReceiveTransaction():
     result = validation.ValidationClass.VALIDATE_TRANSACTION(transaction_jsonified)
     print('[TRANSACTION RECEIVED] : [VALID = ' + str(result) + ' ]')
     return(str(result))
-
-
 
 if __name__ == '__main__':
     try:
