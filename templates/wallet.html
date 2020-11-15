@@ -1,0 +1,64 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 25px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #000000;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+
+<body>
+
+<h3>Create Transaction</h3>
+
+<div>
+  <form action="/itransaction" method="POST">
+    <label for="recipient">Recipient</label>
+    <input type="text" id="recipient" name="recipient" placeholder="Inpigritas Address...">
+
+    <label for="iAmount">Amount</label>
+    <input type="text" id="amount" name="amount" placeholder="0.00">
+
+    <!--<label for="country">Country</label>
+    <select id="country" name="country">
+      <option value="australia">Australia</option>
+      <option value="canada">Canada</option>
+      <option value="usa">USA</option>
+    </select>-->
+
+    <input type="submit" value="Confirm">
+  </form>
+</div>
+
+</body>
+
+
+{% endblock content %}

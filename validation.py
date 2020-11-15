@@ -137,7 +137,7 @@ class ValidationClass:
 		signature_encoded = tx['signature'].encode('utf-8')
 		signature = base64.b64decode(signature_encoded)
 		print(str(signature))
-		Balance = account.LoadBalance(sender)
+		Balance = account.LoadBalance(sender)[0]
 		sigf = SHA384.new()
 		sigf.update(str(timestamp).encode('utf-8'))
 		public_key = RSA.importKey(publickey)

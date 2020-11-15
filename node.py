@@ -10,6 +10,7 @@ import values
 from multiprocessing import Process, Value
 import validation
 import time
+import transaction
 
 
 node = Flask(__name__)
@@ -17,7 +18,21 @@ account.__Start__()
 
 @node.route('/interface', methods = ['GET'])
 def NodeInterface():
-    return render_template('test.html')
+    return render_template('index.html')
+
+@node.route('/iwallet', methods = ['GET'])
+def IWallet():
+    return render_template('wallet.html')
+
+@node.route('/itransaction', methods=['POST'])
+def ITransaction():
+    recipient = request.form['recipient']
+    try:
+        amount = float(request.form['amount'])
+    except Exception as Invalid_Amount:
+        return 'Invalid Amount, Please Try Again'
+    transaction.Transactions.CreateTransaction(recipient, amount)
+    return render_template('wallet.html')
 
 @node.route('/blockchain.json', methods = ['GET'])
 def ReturnLocalBlockchain():
@@ -54,9 +69,8 @@ def SendBlock(blkindex):
 
 @node.route('/balance/<address>', methods=['GET']) # this isnt completely done
 def WalletAmount(address):
-    balance = account.LoadBalance(address)
+    balance = account.LoadBalance(address)[0]
     return balance
-
 
 @node.route('/transaction', methods=['POST'])
 def ReceiveTransaction():

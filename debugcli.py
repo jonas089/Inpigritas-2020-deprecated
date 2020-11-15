@@ -35,7 +35,8 @@ if args.genblo:
 if args.bal:
 	with open('keys/account.dat', 'rb') as AccountFile:
 		address = pickle.load(AccountFile)[0]
-	print(account.LoadBalance(address))
+	Balances = account.LoadBalance(address)
+	print('Confirmed: ' + str(Balances[0]) + '\n' + 'Unconfirmed: ' + str(Balances[1]))
 if args.transaction:
 	recipient = input('Recipient: ')
 	amount = input('Amount: ')

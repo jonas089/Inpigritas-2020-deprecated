@@ -60,6 +60,7 @@ class Keys:
 
 def LoadBalance(address):
 	Balance = 0.0
+	Unconfirmed_Balance = 0.0
 	with open('src/blockchain.dat', 'rb') as ChainFile:
 		LocalBlockChain = pickle.load(ChainFile)
 
@@ -73,6 +74,7 @@ def LoadBalance(address):
 	# calculate interest
 	Interest = 0.0
 	block_balance = 0.0
+
 	for Block_In_Chain in range(0, len(LocalBlockChain)):
 		for TxInBlock in range (0, len(LocalBlockChain[Block_In_Chain]['transactions'])):
 			if LocalBlockChain[Block_In_Chain]['transactions'][TxInBlock]['sender'] == address:
@@ -80,27 +82,29 @@ def LoadBalance(address):
 			elif LocalBlockChain[Block_In_Chain]['transactions'][TxInBlock]['recipient'] == address:
 				block_balance += LocalBlockChain[Block_In_Chain]['transactions'][TxInBlock]['amount']
 			elif LocalBlockChain[Block_In_Chain]['transactions'][TxInBlock]['recipient'] == address and LocalBlockChain[Block_In_Chain]['transactions'][TxInBlock]['sender'] == address:
-				block_balance += 0.0 
+				block_balance += 0.0
 		if block_balance > 0.0:
 			Interest = block_balance * values.interest_per_block
-			print('[Interest]: ' + str(Interest))
 			block_balance += Interest
-			print('[block_balance]:' + str(block_balance))
 	Balance = block_balance
 	next_index = LocalBlockChain[len(LocalBlockChain) - 1]['index'] + 1
 	try:
 		with open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'rb') as Block_Transaction_File:
 			Block_Transactions_Unconfirmed = pickle.load(Block_Transaction_File)
 		for uftx in range(0, len(Block_Transactions_Unconfirmed) - 1):
-			if Block_Transactions_Unconfirmed[uftx]['sender'] == sender:
-				Balance -= Block_Transactions_Unconfirmed[uftx]['amount']
-			if Block_Transactions_Unconfirmed[uftx]['recipient'] == sender:
-				Balance += Block_Transactions_Unconfirmed[utfx]['amount']
+			if Block_Transactions_Unconfirmed[uftx]['sender'] == address:
+				Unconfirmed_Balance -= Block_Transactions_Unconfirmed[uftx]['amount']
+			if Block_Transactions_Unconfirmed[uftx]['recipient'] == address:
+				Unconfirmed_Balance += Block_Transactions_Unconfirmed[utfx]['amount']
 	except Exception as notransactions:
 		print('[WARNING] NO TRANSACTION FILE FOUND FOR FOLLOWING BLOCK')
-	return Balance
+	Balances = []
+	Balances.append(0)
+	Balances.append(1)
+	Balances[0] = Balance
+	Balances[1] = Unconfirmed_Balance
 
-
+	return Balances
 
 def __Start__():
 	new_wallet = False
@@ -125,6 +129,3 @@ def __Start__():
 			pickle.dump(Addresses, account_file)
 	else:
 		return
-
-
-
