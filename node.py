@@ -67,7 +67,7 @@ def SendBlock(blkindex):
     except IndexError:
         return False
 
-@node.route('/balance/<address>', methods=['GET']) # this isnt completely done
+@node.route('/balance/<address>', methods=['GET'])
 def WalletAmount(address):
     balance = account.LoadBalance(address)[0]
     return balance
@@ -87,7 +87,7 @@ if __name__ == '__main__':
     except Exception as exists:
         pass
 
-    parser = argparse.ArgumentParser(description='AMPS Node')
+    parser = argparse.ArgumentParser(description='Inpigritas Node')
     parser.add_argument('--port', '-p', default=str(values.rpc),
                     help='port')
     args = parser.parse_args()
