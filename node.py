@@ -12,7 +12,6 @@ import validation
 import time
 import transaction
 
-
 node = Flask(__name__)
 account.__Start__()
 
@@ -82,6 +81,17 @@ def ReceiveTransaction():
     return(str(result))
 
 if __name__ == '__main__':
+    print(r'''
+╭━━╮╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╭╮
+╰┫┣╯╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╭╯╰╮
+╱┃┃╱╭━╮╱╭━━╮╭╮╭━━╮╭━╮╭╮╰╮╭╯╭━━╮╭━━╮
+╱┃┃╱┃╭╮╮┃╭╮┃┣┫┃╭╮┃┃╭╯┣┫╱┃┃╱┃╭╮┃┃━━┫
+╭┫┣╮┃┃┃┃┃╰╯┃┃┃┃╰╯┃┃┃╱┃┃╱┃╰╮┃╭╮┃┣━━┃
+╰━━╯╰╯╰╯┃╭━╯╰╯╰━╮┃╰╯╱╰╯╱╰━╯╰╯╰╯╰━━╯
+╱╱╱╱╱╱╱╱┃┃╱╱╱╱╭━╯┃
+╱╱╱╱╱╱╱╱╰╯╱╱╱╱╰━━╯
+    ''')
+
     try:
         open('debug.log', 'x')
     except Exception as exists:

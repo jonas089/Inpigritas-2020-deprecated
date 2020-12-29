@@ -23,7 +23,7 @@
    cd Node1
    py debugcli.py --newacc
    --> outputs account address ( referenced below as "Node1_Address")
-   
+
    cd Node2
    py debugcli.py --newacc
    --> outputs account address
@@ -56,15 +56,15 @@
    # INPUT
    --> amount
    --> recipient
-   
+
    cd into Node 2 and execute:
    py node.py
-   
+
    open a 3rd terminal and cd into Node 1 (premine located),
    then execute a transaction through debugclient as follows:
    py debugcli.py --transaction
    # INPUT
    --> amount
-   --> recipient 
+   --> recipient
 
 TESTING ENVIRONMENT SETUP SUCCESSFUL IF TRANSACTION ACCEPTED BY NETWORK

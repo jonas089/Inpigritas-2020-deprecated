@@ -19,11 +19,6 @@ def log_backup():
 def log_write(text):
     with open('debug.log', 'w') as log:
         log.write(text)
-def Clear_Transaction_Files(height):
-    try:
-        os.remove('src/TxBlockNo' + '000' + str(height - 2) + '.dat')
-    except Exception as Ignore:
-        pass
 def fetch_pending_transactions():
     seeds_total = len(seeds)
     for seed in seeds:
@@ -34,8 +29,6 @@ def fetch_pending_transactions():
             next_index = LocalChain[len(LocalChain) - 1]['index'] + 1
         except Exception as GenesisBlockIndex:
             next_index = 0
-        # Temporary Solution
-        Clear_Transaction_Files(next_index)
 
         if next_index > 0:
             try:
@@ -101,8 +94,6 @@ def syncpeers(seeds_offline):
                         Block = chainjson[b]
                         validation.ValidationClass.VALIDATE_BLOCK(Block, chain, values.blocktime)
             except Exception as Networkerror:
-                #blacklist.append(len(blacklist))
-                #blacklist[len(blacklist)] = seed
                 print(str(Networkerror))
                 seeds_offline += 1
     # In case no Node is reachable

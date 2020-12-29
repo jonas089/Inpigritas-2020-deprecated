@@ -17,8 +17,6 @@ def LOADLOCALCHAIN():
         LocalChainLoaded = []
     return LocalChainLoaded
 
-
-
 class LOCALCHAIN:
     def BLOCKCHAINDAT():
         try:
@@ -94,8 +92,8 @@ def SAVEVALIDBLOCK(LocalChainData, Block):
     return True
 
 def GENERATEGENESIS():
-    CAmount_Subsidy = values.CAmount_Subsidy
-    transactions = [{'sender' : '0', 'recipient' : values.dev_address, 'amount' : CAmount_Subsidy, 'timestamp' : time.time()}]
+    Premine = values.Premine
+    transactions = [{'sender' : '0', 'recipient' : values.dev_address, 'amount' : Premine, 'timestamp' : time.time()}]
     # the transaction data of the genesis block represents the premine
     while len(LocalChain) == 0:
         BLOCKCHAIN.BLOCK(LocalChain, transactions)

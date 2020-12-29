@@ -18,8 +18,8 @@ def CHECKPOINTS():
 	checkpoints[0]['index'] = 0
 	checkpoints[0]['hash'] = values.genesis_hash # insert Genesis hash
 	checkpoints[0]['next_hash'] = values.genesis_next_hash # insert Hash following Genesis hash
-	checkpoints[0]['recipient'] = values.dev_address # insert developer address receiving CAmount_Subsidy
-	checkpoints[0]['amount'] = values.CAmount_Subsidy
+	checkpoints[0]['recipient'] = values.dev_address # insert developer address receiving Premine
+	checkpoints[0]['amount'] = values.Premine
 	return checkpoints
 class ValidationClass:
 	def VALIDATE_BLOCK(Block, LocalChain, blocktime):

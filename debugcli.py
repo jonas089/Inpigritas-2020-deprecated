@@ -20,7 +20,6 @@ parser.add_argument('--balance', '-b', dest='bal',
 parser.add_argument('--transaction', '-tx', dest='transaction',
 	action = 'store_true')
 
-
 args = parser.parse_args()
 if args.newacc:
 	account.__Start__()

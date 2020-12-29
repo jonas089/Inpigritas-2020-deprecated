@@ -8,7 +8,6 @@ import values
 import pickle
 
 class Keys:
-
 	# Generates Keypair And Saves Both PRIVATE and PUBLIC KEY to your LOCAL Drive
 	def Generate_Keypair(passwd=None): # added functionality for password protection (private key), will make default in the future
 		key = RSA.generate(2048)
