@@ -1,4 +1,14 @@
 # Inpigritas Cryptocurrency
+
+Proof of Δ Time (POΔT) consens algorithm
+
+# To be done
+- restructure and improve the code, make it easier to work with
+- improve filesystem / database and temporarly stored transaction data
+- improve speed / light wallets or similar solution(s)
+- regulate distribution of supply / for example by forking another coins chain
+- improve / finish the web-interface and integrate a well documented API for integration of services
+
 ### Required libraries are in requirements.txt
 ### Virtualenv setup scripts included
 ## Debugging
