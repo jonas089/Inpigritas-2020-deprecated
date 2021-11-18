@@ -2,6 +2,33 @@
 
 Proof of Δ Time (POΔT) consens algorithm
 
+# The Flask-version of Inpigritas has been deprecated.
+# Positive Conclusions:
+Inpigritas-Flask (this repo) was an interesting project, as the network seems to be stable and the validations seem to do their job.
+It is a secure way to submit transactions that are then hashed into a blockchain and can be validated by nodes within the Network.
+# Negative Conclusions and issues worth considering in the future:
+1. Building a blockchain in python is much more efficient and easier to work with when using classes for blocks. 
+2. Flask is not fast enought to support the required amount of transactions per second for a decentralized transaction network of scale.
+3. Linear growth, as there is no zsnarks or similar summarized blocks built in.
+4. Inefficient storage of data ( using pickle over a database ), many temporary files that were not deleted properly. => loss of memory & storage
+# General issues with Proof of deltatime:
+1. Proof of deltatime turned out to not be suitable for a consens algorihm. Proof of elapsed time (INTEL) is a method of distribution for 
+2. a decentralized currency, whilest Inpigritas implementation of a time-based blockchain requires a centralized entity to distribute coins from the 
+0-address. there might be ways to implement automated, decentralized distribution through an on-chain distribution functionality, maybe in the form
+of a smartcontract, but these changes have not been implemented in Inpigritas-Flask. Therfore Proof of Deltatime can not be considered an consens-algorithm
+and 
+## Inpigritas-Flask is therfore not a decentralized cryptocurreny.
+
+In order to make Inpigritas a cryptocurrency that is worth being developed further, the following changes are 
+# MANDATORY:
+1. use sockets over flask.
+2. code either a smartcontract or a similar on-chain solution to distribute Inpigritas to node-operators.
+(maybe consider a temporary POW-solution to do further research)
+3. improve storage and memory use + add checkpoints to the blockchain to improve efficiency.
+
+# Inpigritas-Skeleton is currently the ongoing development repository for Inpigritas. Inpigritas-Flask ( this repo ) is DEPRECATED.
+## Inpigritas-Flask will not be further developed.
+
 # To be done
 - restructure and improve the code, make it easier to work with
 - improve filesystem / database and temporarly stored transaction data
