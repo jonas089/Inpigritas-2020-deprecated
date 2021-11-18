@@ -13,11 +13,11 @@ It is a secure way to submit transactions that are then hashed into a blockchain
 4. Inefficient storage of data ( using pickle over a database ), many temporary files that were not deleted properly. => loss of memory & storage
 # General issues with Proof of deltatime:
 1. Proof of deltatime turned out to not be suitable for a consens algorihm. Proof of elapsed time (INTEL) is a method of distribution for 
-2. a decentralized currency, whilest Inpigritas implementation of a time-based blockchain requires a centralized entity to distribute coins from the 
-0-address. there might be ways to implement automated, decentralized distribution through an on-chain distribution functionality, maybe in the form
-of a smartcontract, but these changes have not been implemented in Inpigritas-Flask. Therfore Proof of Deltatime can not be considered an consens-algorithm
-and 
-## Inpigritas-Flask is therfore not a decentralized cryptocurreny.
+  a decentralized currency, whilest Inpigritas implementation of a time-based blockchain requires a centralized entity to distribute coins from the 
+  0-address. there might be ways to implement automated, decentralized distribution through an on-chain distribution functionality, maybe in the form
+  of a smartcontract, but these changes have not been implemented in Inpigritas-Flask. Therfore Proof of Deltatime can not be considered an consens-algorithm
+  and 
+  ## Inpigritas-Flask is therfore not a decentralized cryptocurreny.
 
 In order to make Inpigritas a cryptocurrency that is worth being developed further, the following changes are 
 # MANDATORY:
