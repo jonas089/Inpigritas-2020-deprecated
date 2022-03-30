@@ -1,44 +1,19 @@
-# Inpigritas Cryptocurrency
+#Inpigritas - a blockchain based transaction system in python, by Jonas Pauli
+Co-author: Carl Romedius Speck
 
-Proof of Δ Time (POΔT) consens algorithm
+## Introduction
+Inpigritas is the prototype of a digital transaction network developed in Python.
+The nodes operate similar to a REST api and a Python-Flask webserver serves the routes. This setup is not ideal, considering the low transaction speeds, however allowed for an efficient proof of concept. Inpigritas is described as a "blockchain based transaction network", rather than a cryptocurrency, as I have not yet implemented a consens algorithm / there is no mechanism for decentralized distribution of a currency or a token. I see this project as a proof of concept, as Inpigritas demonstrates an energy efficient, potentially decentralized Network, that could be further developed to become a Fintech application.
+I describe Inpigritas as "potentially decentralized", because any IP address can be added to the configuration file and serve as a Node. Similar setup and config files can be found in many outdated cryptocurrency source codes. Inpigritas, especially this Flask-version of Inpigritas is far from a production application and was purely developed out of enjoyment and interest. It was very educational to build this application from scratch, using Flask, pycryptodome library and RSA signatures for message authentication. 
+Inpigritas nodes only accept valid blocks. The parameters in a block, aswell as it's blockhash are predefined in the pervious block 
+( starting from the Genesis Block, that needs to be in the src folder ). There is no consens between nodes, as every node follows it's local consens. Corrupted nodes can't submit falsified data to legit nodes, as every node stores a full track record of every transaction ( starting from the transaction data hashed in the Genesis block ). The entire supply is (as of now) distributed through the Genesis block. 
 
-# The Flask-version of Inpigritas has been deprecated.
-# Positive Conclusions:
-Inpigritas-Flask (this repo) was an interesting project, as the network seems to be stable and the validations seem to do their job.
-It is a secure way to submit transactions that are then hashed into a blockchain and can be validated by nodes within the Network.
-# Negative Conclusions and issues worth considering in the future:
-1. Building a blockchain in python is much more efficient and easier to work with when using classes for blocks. 
-2. Flask is not fast enought to support the required amount of transactions per second for a decentralized transaction network of scale.
-3. Inefficient storage of data ( using pickle over a database ), many temporary files that were not deleted properly. => loss of memory & storage
-# General issues with Proof of deltatime:
-1. Proof of deltatime turned out to not be suitable for a consens algorihm. Proof of elapsed time (INTEL) is a method of distribution for 
-  a decentralized currency, whilest Inpigritas implementation of a time-based blockchain requires a centralized entity to distribute coins from the 
-  0-address. there might be ways to implement automated, decentralized distribution through an on-chain distribution functionality, maybe in the form
-  of a smartcontract, but these changes have not been implemented in Inpigritas-Flask. Therfore Proof of Deltatime can not be considered an consens-algorithm
-  and 
-  ## Inpigritas-Flask is therfore not "actually" a decentralized cryptocurreny. 
+## About the Developer
+I am a 21 year old software and crypto enthusiast from Germany, living in Switzerland and hoping to become a Fintech developer in a few years. I have been into the cryptocurrency industry since 2015 and started coding in 2016, but I know that I have a long way to go and that I am not yet capable of developing production applications on my own.
 
-# Ideas for a socket-based solution:
-1. code either a smartcontract or a similar on-chain solution to distribute Inpigritas to node-operators.
-(maybe consider a temporary POW-solution to do further research)
-2. improve storage and memory use + add checkpoints to the blockchain to improve efficiency.
+If you ( for whatever reason ) wish to try setting up an Inpigritas network on your device, the following guide should ( given you have some experience in IT ) provide you with all the necessary information to do so. 
 
-# Inpigritas-Skeleton is currently the ongoing development repository for Inpigritas. Inpigritas-Flask ( this repo ) is DEPRECATED.
-## Inpigritas-Flask will not be further developed.
-
-# To be done
-- restructure and improve the code, make it easier to work with
-- improve filesystem / database and temporarly stored transaction data
-- improve speed / light wallets or similar solution(s)
-- regulate distribution of supply / for example by forking another coins chain
-- improve / finish the web-interface and integrate a well documented API for integration of services
-
-### Required libraries are in requirements.txt
-### Virtualenv setup scripts included
-## Debugging
- - debugshell.py; interactive shell for debugging
- - debugcli.py; pass arguments to execute functions for debugging
-## Testing Environment Setup
+## Simply setup your local Testnet for Inpigritas and submit transactions to your local Network:
 - assuming 2 nodes with empty "src" and "keys" folder(s)
 
 # DEVELOPMENT BUILD
