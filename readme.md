@@ -1,6 +1,10 @@
 #Inpigritas - a blockchain based transaction system in python, by Jonas Pauli
 Co-author: Carl Romedius Speck
 
+####################################################################################################
+![Preview](https://github.com/jonas089/Inpigritas/blob/master/inpigritas_preview.png "Inpigritas Shell client preview")
+####################################################################################################
+
 ## Introduction
 Inpigritas is the prototype of a digital transaction network developed in Python.
 The nodes operate similar to a REST api and a Python-Flask webserver serves the routes. This setup is not ideal, considering the low transaction speeds, however allowed for an efficient proof of concept. Inpigritas is described as a "blockchain based transaction network", rather than a cryptocurrency, as I have not yet implemented a consens algorithm / there is no mechanism for decentralized distribution of a currency or a token. I see this project as a proof of concept, as Inpigritas demonstrates an energy efficient, potentially decentralized Network, that could be further developed to become a Fintech application.
