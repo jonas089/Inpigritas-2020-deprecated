@@ -10,8 +10,19 @@ I describe Inpigritas as "potentially decentralized", because any IP address can
 Inpigritas nodes only accept valid blocks. The parameters in a block, aswell as its blockhash are predefined in the pervious block 
 ( starting from the Genesis Block, that needs to be in the src folder ). There is no consens between nodes, as every node follows it's local consens. Corrupted nodes can't submit falsified data to legit nodes, as every node stores a full track record of every transaction ( starting from the transaction data hashed in the Genesis block ). The entire supply is (as of now) distributed through the Genesis block. 
 
+## Ideas for Improvements
+1. classes to make use of object orientation in python ( didn't know much about that when developing Inpigritas ;)
+def __init__(self, ...):
+ ...
+... etc ...
+
+2. reduce the amount of variables to reduce memory intensity
+3. less files and easier to read / accounts.py is pretty messy, as a lot of indexing takes place here.
+
+### I will improve this flask version of Inpigritas a little bit, but I'll put more effort in the non-flask version of Inpigritas that I am currently working on, which will be public on my Github at some point, but is currently private ( as i'm mostly experimenting with socket modules as of now ).
+
 ## About the Developer
-I am a 21 year old software and crypto enthusiast from Germany, living in Switzerland and hoping to become a Fintech developer in a few years. I have been into the cryptocurrency industry since 2015 and started coding in 2016, but I know that I have a long way to go and that I am not yet capable of developing production applications on my own.
+I am a 21 years old software and crypto enthusiast from Germany, living in Switzerland and hoping to become a Fintech developer in a few years. I have been into the cryptocurrency industry since 2015 and started coding in 2016, but I know that I have a long way to go and that I am not yet capable of developing production applications on my own. Inpigritas is a project that is purely intended to show my improvement as a python / flask developer and is meant to prove that I have reached a certain level of understanding as a self-taught programmer ( pre university )
 
 If you ( for whatever reason ) wish to try setting up an Inpigritas network on your device, the following guide should ( given you have some experience in IT ) provide you with all the necessary information to do so. 
 
