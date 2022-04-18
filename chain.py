@@ -29,13 +29,13 @@ class LOCALCHAIN:
 
 class BLOCKCHAIN:
     def BLOCK(LoadedLocalChain, transactions):
-        #[DEFINE BLOCKVARs FOR __GENESIS__ BLOCK]
+        #[DEFINE BLOCKVARs FOR "GENESIS" BLOCK]
         LocalChain = LoadedLocalChain
         if len(LocalChain) == 0:
             is_genesis = True
             index = 0
             prev_hash = ''
-        #[DEFINE BLOCKVARs FOR __BLOCK__ ]
+        #[DEFINE BLOCKVARs FOR BLOCK ]
         else:
             if time.time() < LocalChain[len(LocalChain) - 1]['next_timestamp']:
                 print('[E] [C1]')
