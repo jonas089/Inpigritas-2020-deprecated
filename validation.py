@@ -1,15 +1,10 @@
-import hashlib
+import hashlib, account, pickle, base64, transaction, values
 from Crypto.PublicKey import RSA
 from Crypto.Signature import PKCS1_v1_5 # / RSA algorithm to sign with priv(1) & verify with pub(1)
 from Crypto.Hash import SHA384
 # blockstructure : index, prev_hash, timestamp, next_timestamp, block_hash, next_block_hash
 # blockvalues (hashed) : index, prev_hash, timestamp
 import chain as c_hain
-import account
-import pickle
-import base64
-import transaction
-import values
 
 def CHECKPOINTS():
 	checkpoints = []

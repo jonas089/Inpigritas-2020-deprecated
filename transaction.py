@@ -1,16 +1,8 @@
-import os
+import os, hashlib, account, pickle, requests, values, time, json, base64
 from Crypto.PublicKey import RSA
 from Crypto.Signature import PKCS1_v1_5 # / RSA algorithm to sign with priv(1) & verify with pub(1)
 from Crypto.Hash import SHA384
-import hashlib
-import account
-import pickle
-import requests
-import values
-import time
 import chain as c_hain
-import json
-import base64
 
 def Add_Transaction_Local(valid_transaction):
 	fist_block_transaction = False

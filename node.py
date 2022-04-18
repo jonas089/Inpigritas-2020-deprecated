@@ -1,16 +1,6 @@
 from flask import Flask, request, jsonify, render_template
-import argparse
-import account
-import chain
-import json
-import sync
-import pickle
-import threading
-import values
+import argparse, account, chain, json, sync, pickle, threading, values, validation, time, transaction
 from multiprocessing import Process, Value
-import validation
-import time
-import transaction
 
 node = Flask(__name__)
 account.__Start__()

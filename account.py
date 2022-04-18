@@ -1,11 +1,7 @@
-import os
 from Crypto.PublicKey import RSA
 from Crypto.Signature import PKCS1_v1_5 # RSA algorithm to sign with priv & verify with pub
 from Crypto.Hash import SHA384
-import hashlib
-import time
-import values
-import pickle
+import hashlib, time, os, values, pickle
 
 # C_Local : Local Blockchain
 # B: Current Block

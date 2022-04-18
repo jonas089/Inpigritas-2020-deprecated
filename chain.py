@@ -1,9 +1,5 @@
 from validation import *
-import hashlib
-import time
-import pickle
-import values
-import gc
+import hashlib, time, pickle, values, gc
 
 blocktime = values.blocktime
 LocalChain = []
@@ -37,8 +33,10 @@ class BLOCKCHAIN:
             prev_hash = ''
         #[DEFINE BLOCKVARs FOR BLOCK ]
         else:
+            # Every Inpigritas Node will create the exact same Block when a certain timestamp is met / exceeded.
+            # This timestamp is dependant on the parameters set in values.py ( blocktime )
             if time.time() < LocalChain[len(LocalChain) - 1]['next_timestamp']:
-                print('[E] [C1]')
+                print('[W] [C1]') # Prints a Warning and returns false, as it's not yet time to create a new block.
                 return False
             is_genesis = False
             #[BLOCKVAR] 1                                   index
@@ -54,6 +52,13 @@ class BLOCKCHAIN:
             timestamp = LocalChain[len(LocalChain) - 1]['next_timestamp']
             next_timestamp = timestamp + blocktime
             #[HASHING]
+#####################################################################################################################
+#####################################################################################################################
+#####################################################################################################################
+#####################################################################################################################
+#####################################################################################################################
+#####################################################################################################################
+        # This section requires further testing to be improved. It's easy to break stuff.
         sha = hashlib.sha384()
         current_block_data_string = str(index) + prev_hash + str(timestamp)
         current_block_hash_string = sha.update(current_block_data_string.encode('utf-8'))
@@ -66,6 +71,12 @@ class BLOCKCHAIN:
         next_block_hash = str(sha.hexdigest())
             #[END OF HASHING]
         #[END OF BLOCKVAR DEFINITION]
+#####################################################################################################################
+#####################################################################################################################
+#####################################################################################################################
+#####################################################################################################################
+#####################################################################################################################
+
 
 #[CREATE BLOCK AS DICTIONARY]
         Block = {
@@ -78,27 +89,27 @@ class BLOCKCHAIN:
         'transactions' : transactions,
         }
 #[END OF BLOCK DICTIONARY]
+        # returns either True ( block is accepted ) or false ( block is rejected )
         return ValidationClass.VALIDATE_BLOCK(Block, LocalChain, blocktime)
+
+
 
 def SAVEVALIDBLOCK(LocalChainData, Block):
     print('[SAVING VALID BLOCK]')
-    index = len(LocalChainData)
-    LocalChainData.append(index)
-    LocalChainData[index] = Block
+    LocalChainData.append(len(LocalChainData))
+    LocalChainData[len(LocalChainData)] = Block
     with open('src/blockchain.dat', 'wb') as chaindatafile:
         pickle.dump(LocalChainData, chaindatafile)
         print('[NEW BLOCK]' + str(Block))
-    gc.collect()
+    gc.collect() # Memory optimization
     return True
 
 def GENERATEGENESIS():
-    Premine = values.Premine
-    transactions = [{'sender' : '0', 'recipient' : values.dev_address, 'amount' : Premine, 'timestamp' : time.time()}]
+    transactions = [{'sender' : '0', 'recipient' : values.dev_address, 'amount' : values.Premine, 'timestamp' : time.time()}]
     # the transaction data of the genesis block represents the premine
     while len(LocalChain) == 0:
         BLOCKCHAIN.BLOCK(LocalChain, transactions)
     print('[GENESIS]' + '\n' + '-' * 30 + '\n' + str(LocalChain) + '\n' + '-' * 30 + '\n')
     with open('src/blockchain.dat', 'wb') as chaindatafile:
         pickle.dump(LocalChain, chaindatafile)
-
     print('[GENESIS BLOCK] : ' + str(LocalChain[0]))

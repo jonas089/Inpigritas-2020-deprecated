@@ -1,13 +1,5 @@
-import requests
+import requests, json, argparse, validation, values, threading, time, pickle, os
 import chain as c_hain
-import json
-import argparse
-import validation
-import values
-import threading
-import time
-import pickle
-import os
 
 blocktime = values.blocktime
 seeds = values.seeds

@@ -1,12 +1,4 @@
-import argparse
-import chain
-import validation
-import account
-import transaction
-import requests
-import values
-import pickle
-import transaction
+import argparse, chain, validation, account, transaction, requests, values, pickle
 
 parser = argparse.ArgumentParser(description='AMPS')
 parser.add_argument('--newacc', '-na', dest='newacc',
