@@ -18,6 +18,10 @@ def __init__(self, ...):
 
 2. reduce the amount of variables to reduce memory intensity
 3. less files and easier to read / accounts.py is pretty messy, as a lot of indexing takes place here.
+4. improve sync.py / hard to read, lots of unnecessary variables.
+
+## Latest Changes:
+Improved node.py, account.py and chain.py ( last updated 19.04.22 )
 
 ### I will improve this flask version of Inpigritas a little bit, but I'll put more effort in the non-flask version of Inpigritas that I am currently working on, which will be public on my Github at some point, but is currently private ( as i'm mostly experimenting with socket modules as of now ).
 
