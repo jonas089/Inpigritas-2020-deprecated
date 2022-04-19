@@ -6,11 +6,11 @@ seeds = values.seeds
 
 def log_backup():
     with open('debug.log', 'r') as log_backup:
-        backup = log_backup.read()
-        return backup
+        return log_backup.read()
 def log_write(text):
     with open('debug.log', 'w') as log:
         log.write(text)
+
 def fetch_pending_transactions():
     seeds_total = len(seeds)
     for seed in seeds:

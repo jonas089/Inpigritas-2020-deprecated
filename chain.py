@@ -10,7 +10,7 @@ def LOADLOCALCHAIN():
         with open('src/blockchain.dat', 'rb') as chaindatafile:
             LocalChainLoaded = pickle.load(chaindatafile)
     except Exception as NoChain:
-        LocalChainLoaded = []
+        return []
     return LocalChainLoaded
 
 class LOCALCHAIN:

@@ -16,59 +16,60 @@ def IWallet():
 @node.route('/itransaction', methods=['POST'])
 def ITransaction():
     recipient = request.form['recipient']
+    # Amount has to be valid / e.g. not negative.
     try:
         amount = float(request.form['amount'])
     except Exception as Invalid_Amount:
         return 'Invalid Amount, Please Try Again'
-    transaction.Transactions.CreateTransaction(recipient, amount)
+
+    transaction.Transactions.CreateTransaction(request.form['recipient'], amount)
     return render_template('wallet.html')
 
 @node.route('/blockchain.json', methods = ['GET'])
 def ReturnLocalBlockchain():
-    BlockChain = chain.LOADLOCALCHAIN()
-    BlockChainDict = {}
-    BlockChainDict['data'] = BlockChain
+    BlockChainDict = {
+    'data':chain.LOADLOCALCHAIN()
+    }
     return BlockChainDict
 
 @node.route('/txpool.json', methods = ['GET'])
 def ReturnTxPool():
     LocalChain = chain.LOADLOCALCHAIN()
-    TransactionPoolDict = {}
+
+    # Try to fetch next block index from localchain, if this fails, there is no transactions in the block (yet)
     try:
         next_index = LocalChain[len(LocalChain) - 1]['index'] + 1
     except Exception as NoChain:
-        return TransactionPoolDict
-    local_txpool = []
+        return {}
+    # Fetch and Return the Transactionpool as a Dictionary ( unless empty )
     try:
         with open('src/TxBlockNo' + '000' + str(next_index) + '.dat', 'rb') as Transaction_Data_File:
-            local_txpool = pickle.load(Transaction_Data_File)
-    except Exception as no_data:
+            TransactionPoolDict = {
+            'data':pickle.load(Transaction_Data_File)
+            }
+    except Exception as Empty:
         pass
-    TransactionPoolDict['data'] = local_txpool
+    # Return the pending Transactions in the next Block to be "mined" as a Dictionary
     return TransactionPoolDict
 
 @node.route('/block/<blkindex>', methods=['GET'])
-def SendBlock(blkindex):
-    array = chain.LOADLOCALCHAIN()
+def SendBlock(index):
+    # Try to return the Block with "index"=index
     try:
-        block = array[blkindex]
-        return block
+        return chain.LOADLOCALCHAIN()[index]
+    # No such block exists.
     except IndexError:
         return False
 
 @node.route('/balance/<address>', methods=['GET'])
 def WalletAmount(address):
-    balance = account.LoadBalance(address)[0]
-    return balance
+    # Return the Confirmed Balance of the given Wallet address.
+    return account.LoadBalance(address)[0]
 
 @node.route('/transaction', methods=['POST'])
 def ReceiveTransaction():
-    #transaction_decoded = request.data.decode('utf-8')
-    transaction_jsonified = request.get_json()#json.loads(request.data)
-    #print(transaction_jsonified)
-    result = validation.ValidationClass.VALIDATE_TRANSACTION(transaction_jsonified)
-    print('[TRANSACTION RECEIVED] : [VALID = ' + str(result) + ' ]')
-    return(str(result))
+    print('[TRANSACTION RECEIVED] : [VALID = ' + str(validation.ValidationClass.VALIDATE_TRANSACTION(request.get_json())) + ' ]')
+    return(str(validation.ValidationClass.VALIDATE_TRANSACTION(request.get_json())))
 
 if __name__ == '__main__':
     print(r'''
