@@ -38,7 +38,7 @@ If you ( for whatever reason ) wish to try setting up an Inpigritas network on y
 
 ## Step 1:
  
- # CREATE "src" and "key" folder in the root directory before you begin. 
+ # CREATE "src" and "keys" folder in the root directory before you begin. 
  
  # In values.py
    Node#1
