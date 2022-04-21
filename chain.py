@@ -97,7 +97,7 @@ class BLOCKCHAIN:
 def SAVEVALIDBLOCK(LocalChainData, Block):
     print('[SAVING VALID BLOCK]')
     LocalChainData.append(len(LocalChainData))
-    LocalChainData[len(LocalChainData)] = Block
+    LocalChainData[len(LocalChainData) - 1] = Block
     with open('src/blockchain.dat', 'wb') as chaindatafile:
         pickle.dump(LocalChainData, chaindatafile)
         print('[NEW BLOCK]' + str(Block))
