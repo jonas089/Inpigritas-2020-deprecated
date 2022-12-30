@@ -1,4 +1,4 @@
-![Preview](https://github.com/jonas089/Inpigritas-2022 "2022 Version of Inpigritas - Under Development")
+[2022 Version of Inpigritas - Under Development](https://github.com/jonas089/Inpigritas-2022)
 
 #Inpigritas - a blockchain based transaction system in python, by Jonas Pauli
 Co-developer: Carl Romedius Speck
